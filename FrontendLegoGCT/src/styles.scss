@@ -1,0 +1,43 @@
+@import "@fontsource/gfs-didot";
+//@import "@coreui/coreui/scss/coreui";
+
+
+*,
+*::before,
+*::before{
+    margin:0;
+    padding:0;  
+}
+:root {
+    --color-bg: rgb(230, 230, 255, 0.466);
+    --color-text: #333333;
+    --color-menu: rgb(230, 230, 255);
+    --color-label: #333333;
+    --color-border: #333333;
+    --color-sidenav: rgba(230, 230, 255, 0.466);
+    --line_color : #555555;
+    --back_color : #FFECF6;
+    --button_bg_color: #f1acac;
+    --font-family: 'GFS Didot', sans-serif;
+    --letter-spacing: 4px;
+    --color-objekt: rgb(230, 230, 255, 0.7);
+    --color-navStab: rgb(43, 43, 43);
+    --bg-image: url("./assets/taube2k.png");
+    --bg-image-suche: url("./assets/graupink.png");
+    --color-pricing:rgb(197, 159, 227);
+}
+[dark-theme="dark"] {
+    --color-bg:#333333;
+    --color-text: #ffffe6;
+    --color-label: #ffffe6;
+    --color-border:#ffffe6;
+    --color-sidenav: rgba(204, 204, 204, 0.466);
+    --font-family:'GFS Didot', sans-serif;
+    --line_color : #ffffe6;
+    --back_color : #FFECF6;
+    --button_bg_color: #333333;
+    --color-menu: #333333;
+    --color-objekt: rgba(31, 31, 33, 0.7);
+    --color-navStab: #ffffe6;
+    --bg-image: url("./assets/backgroundDark.jpg");
+}

@@ -1,0 +1,55 @@
+<div class="sitedesign2">
+    
+    <div class="hcontainer">
+    <h1 class="first"> Suchergebnis: {{getName()}} - {{getId()}}</h1>
+    <img src="data:image/jpg;base64,{{getImg()}}">
+    </div>
+    </div>
+    
+    <div class="sitedesign">
+        
+    <div class="tablerow">
+
+        <div class="tablecol">
+
+            <h3> {{getShopName1()}} <span><a href="{{getShopUrl1()}}">zum Shop</a></span></h3>
+            <ul>
+                <li>{{getName()}}</li>
+                <li>{{getId()}}</li>
+                <li>Setpreis: {{getPreis()}}€</li>
+                <li>Einzelteilpreis: 126$</li>
+                <li>Einzelteile:/{{getEinzelteilAnzahl()}} </li>
+            </ul>
+            <button (click)="getEinzelteile()">Einzelteile anzeigen</button>
+            <app-einzelteile-anzeigen *ngIf="ist_geclickt"></app-einzelteile-anzeigen>
+            <button>Setpreis kaufen</button>
+
+            </div>
+            <div class="tablecol">
+            <h3>{{getShopName2()}} <span><a href="{{getShopUrl2()}}">zum Shop</a></span></h3>
+            <ul>
+                <li>{{getName()}}</li>
+                <li>{{getId()}}</li>
+                <li>Setpreis: {{getPreis()}}€ </li>
+                <li>Einzelteilpreis: 138$</li>
+                <li>Einzelteile:/{{getEinzelteilAnzahl()}} </li>
+            </ul>
+            <button>Einzelteile anzeigen</button>
+            <button>Setpreis kaufen</button>
+        </div>
+        <div class="tablecol">
+            <h3>{{getShopName3()}} <span><a href="{{getShopUrl3()}}">zum Shop</a></span></h3>
+            <ul>
+                <li>{{getName()}}</li>
+                <li>{{getId()}}</li>
+                <li>Setpreis: {{getPreis()}}€</li>
+                <li>Einzelteilpreis: 210$</li>
+                <li>Einzelteile:/{{getEinzelteilAnzahl()}} </li>
+            </ul>
+            <button>Einzelteile anzeigen</button>
+            <button>Setpreis kaufen</button>
+        </div>
+    </div>
+      
+
+</div>

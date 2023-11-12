@@ -1,0 +1,52 @@
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { Routes, RouterModule } from '@angular/router';
+
+import { AppComponent } from './app.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
+
+import { SucheModule } from './suche/suche.module';
+import { ListeModule } from './liste/liste.module';
+import { ListeComponent } from './liste/liste.component';
+import { SucheComponent } from './suche/suche.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { ImpressumComponent } from './impressum/impressum.component';
+import { ErgebnisComponent } from './suche/ergebnis/ergebnis.component';
+import { EinzelteileAnzeigenComponent } from './suche/ergebnis/einzelteile-anzeigen/einzelteile-anzeigen.component';
+import { AuthComponent } from './auth/auth.component';
+
+const routes: Routes = [
+//  {path: '', redirectTo: 'suche', pathMatch: 'full'},
+  {path: 'liste', component: ListeComponent},
+  {path: 'suche', component: SucheComponent},
+  {path: 'impressum', component: ImpressumComponent},
+  {path: 'suche/ergebnis', component: ErgebnisComponent},
+  {path: 'suche/ergebnis/einzelteile-anzeigen', component: EinzelteileAnzeigenComponent},
+  {path: 'auth', component: AuthComponent}
+];
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    FooterComponent,
+    ImpressumComponent,
+    AuthComponent
+  ],
+  imports: [
+    BrowserModule,
+    ListeModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    RouterModule.forRoot(routes)
+  ],
+  exports: [
+    RouterModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }

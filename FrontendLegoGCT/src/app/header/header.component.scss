@@ -1,0 +1,293 @@
+.nav{
+    position: relative;
+    background-color: var(--color-menu);
+    overflow: hidden;
+    z-index: 3;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, .4);
+}
+.nav a{
+    float:left;
+    text-align:center;
+}
+#menu__toggle {
+  opacity: 0;
+}
+#menu__toggle:checked + .menu__btn > span {
+  transform: rotate(45deg);
+}
+#menu__toggle:checked + .menu__btn > span::before {
+  top: 0;
+  transform: rotate(0deg);
+}
+#menu__toggle:checked + .menu__btn > span::after {
+  top: 0;
+  transform: rotate(90deg);
+}
+#menu__toggle:checked ~ .menu__box {
+  left: 0 !important;
+}
+.menu__btn {
+  position: fixed;
+  top: 30px;
+  left: 30px;
+  width: 40px;
+  height: 26px;
+  cursor: pointer;
+  z-index: 1;
+}
+.menu__btn > span,
+.menu__btn > span::before,
+.menu__btn > span::after {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 5px;
+  background-color: var(--color-navStab);
+  transition-duration: .25s;
+}
+.menu__btn > span::before {
+  content: '';
+  top: -15px;
+}
+.menu__btn > span::after {
+  content: '';
+  top: 15px;
+}
+.menu__box {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 300px;
+  height: 100%;
+  margin: 0;
+  padding: 70px 0;
+  list-style: none;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, .4);
+  transition-duration: .25s;
+  background: var(--color-sidenav);
+}
+.menu__item {
+  display: flex;
+  padding-top: 30px;
+  padding-left: 50px;
+  padding-bottom: 30px;
+  padding-right: 60px;
+  color: var(--color-text);
+  
+  font-family: var(--font-family);
+  font-size: 25px;
+  text-decoration: none;
+  transition-duration: .25s;
+  
+}
+.menu__item:hover {
+  background-color: #CFD8DC;
+}
+
+.centerNav{
+    margin-left: 45%;
+    margin-top:0%;
+    z-index: 4;
+    position: absolute;
+}
+.rightNav{
+    margin-left: 85%;
+    margin-right: 5%;
+    z-index: 5;
+    margin-top: 1%;
+    position: fixed;
+}
+.leftNav{
+    float: left;
+    margin-left: 1%;
+    margin-top:1%;
+    z-index: 6;
+    position:fixed
+}
+
+.switch__input {
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+}
+
+.switch__label {
+    position: relative;
+    display: inline-block;
+    width: 100px;
+    height: 50px;
+    background-color: rgb(43, 43, 43);
+    border: 5px solid #5B5B5B;
+    border-radius: 9999px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(.46,.03,.52,.96);
+}
+
+.switch__indicator {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) translateX(-72%);
+    display: block;
+    width: 30px;
+    height: 30px;
+    background-color: #7B7B7B;
+    border-radius: 9999px;
+    box-shadow: 10px 0px 0 0 rgba(#000000, 0.2) inset;
+
+    &::before,
+    &::after {
+        position: absolute;
+        content: '';
+        display: block;
+        background-color: #FFFFFF;
+        border-radius: 9999px;
+    }
+
+    &::before {
+        top: 7px;
+        left: 7px;
+        width: 9px;
+        height: 9px;
+        background-color: #FFFFFF;
+        opacity: 0.6;
+    }
+
+    &::after {
+        bottom: 8px;
+        right: 6px;
+        width: 14px;
+        height: 14px;
+        background-color: #FFFFFF;
+        opacity: 0.8;
+    }
+}
+
+.switch__decoration {
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    display: block;
+    width: 5px;
+    height: 5px;
+    background-color: #FFFFFF;
+    border-radius: 9999px;
+    animation: twinkle 0.8s infinite -0.6s;
+
+    &::before,
+    &::after {
+        position: absolute;
+        display: block;
+        content: '';
+        width: 5px;
+        height: 5px;
+        background-color: #FFFFFF;
+        border-radius: 9999px;
+    }
+
+    &::before {
+        top: -20px;
+        left: 10px;
+        opacity: 1;
+        animation: twinkle 0.6s infinite;
+    }
+
+    &::after {
+        top: -7px;
+        left: 30px;
+        animation: twinkle 0.6s infinite -0.2s;
+    }
+}
+
+@keyframes twinkle {
+    50% { opacity: 0.2; }
+}
+
+.switch__indicator {
+    &,
+    &::before,
+    &::after {
+        transition: all 0.4s cubic-bezier(.46,.03,.52,.96);
+    }
+}
+
+.switch__input:checked + .switch__label {
+    background-color: #8FB5F5;
+    border-color: #347CF8;
+
+    .switch__indicator {
+        background-color: #e3a81c;;
+        box-shadow: none;
+        transform: translate(-50%, -50%) translateX(72%);
+
+        &::before,
+        &::after {
+            display: none;
+        }
+    }
+
+    .switch__decoration {
+        top: 50%;
+        transform: translate(0%, -50%);
+        animation: cloud 8s linear infinite;
+
+        width: 20px;
+        height: 20px;
+
+        &::before {
+            width: 10px;
+            height: 10px;
+            top: auto;
+            bottom: 0;
+            left: -8px;
+            animation: none;
+        }
+
+        &::after {
+            width: 15px;
+            height: 15px;
+            top: auto;
+            bottom: 0;
+            left: 16px;
+            animation: none;
+        }
+
+        &,
+        &::before,
+        &::after {
+            border-radius: 9999px 9999px 0 0;
+        }
+
+        &::after {
+            border-bottom-right-radius: 9999px;
+        }
+    }
+}
+
+@keyframes cloud {
+    0% {
+        transform: translate(0%, -50%);
+    }
+    50% {
+        transform: translate(-50%, -50%);
+    }
+    100% {
+        transform: translate(0%, -50%);
+    }
+}
+
+.slider.round:before {
+border-radius: 50%;
+}
+.farRightNav{
+    padding-left: 1200px;
+    padding-top: 15px;
+    
+}
+
