@@ -18,7 +18,7 @@ import { EinzelteileAnzeigenComponent } from './suche/ergebnis/einzelteile-anzei
 import { AuthComponent } from './auth/auth.component';
 
 const routes: Routes = [
-//  {path: '', redirectTo: 'suche', pathMatch: 'full'},
+  {path: '', redirectTo: 'suche', pathMatch: 'full'},
   {path: 'liste', component: ListeComponent},
   {path: 'suche', component: SucheComponent},
   {path: 'impressum', component: ImpressumComponent},
