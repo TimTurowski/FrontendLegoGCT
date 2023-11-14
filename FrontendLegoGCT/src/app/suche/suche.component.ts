@@ -18,7 +18,7 @@ export class SucheComponent implements OnInit{
   readonly apiurl ="localhost:8000";
   eingabeWert:string ='';
   lego_set:LegoSet = new LegoSet("null","null",1,[]);
-  
+
   img:string = '';
   eingabeSpeicher: string = '';
   ist_geclickt:boolean=false;
@@ -26,8 +26,9 @@ export class SucheComponent implements OnInit{
 constructor(private http: HttpClient, private router: Router, private datenService: DatenService){}
 
   getSuchList() {
-    // return this.http.get("http://localhost:8000/eingabe/?id="+ this.eingabeWert);
-    return this.http.get("https://raw.githubusercontent.com/HannesScherer/DarkProjekt-master-main/main/10316.json");
+    console.log(this.eingabeWert);
+    return this.http.get("http://localhost:8000/eingabe/?id="+ this.eingabeWert);
+    // return this.http.get("https://raw.githubusercontent.com/HannesScherer/DarkProjekt-master-main/main/10316.json");
   }
   addSuchList(val: any) {
     return this.http.post(this.apiurl + '/suchleiste/' , val);
@@ -51,7 +52,7 @@ constructor(private http: HttpClient, private router: Router, private datenServi
     this.ist_geclickt = true;
     this.datenService.updateEingabeSpeicher(this.eingabeWert);
     this.eingabeSpeicher = this.eingabeWert;
-    this.router.navigate(['/suche/ergebnis']);
+
     this.getSuchList().subscribe(data =>{
      this.jsonVerarbeiter(data);
       console.log(data);
@@ -72,7 +73,7 @@ constructor(private http: HttpClient, private router: Router, private datenServi
       lego_einzelteile.push(einzelteil);
     })
     const lego_shop:Shop = new Shop(data[1].shop_name, data[1].shop_url, lego_einzelteile);
-    
+
 
     const toypro_einzelteile:Einzelteil[] = [];
     data[2].parts.forEach((item:any) => {
@@ -87,7 +88,7 @@ constructor(private http: HttpClient, private router: Router, private datenServi
       const einzelteil:Einzelteil = new Einzelteil(item.einzelteil_id,item.preis,item.anzahl, item.url);
       lego_einzelteile.push(einzelteil);
     })
-    this.img = data[4];
+    this.img = data[4].set_bild;
 
 
     const bricklink_shop:Shop = new Shop(data[3].shop_name, data[3].shop_url, lego_einzelteile);

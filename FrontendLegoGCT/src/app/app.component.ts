@@ -8,13 +8,13 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'frontendLegoGCT';
   lightNav = './assets/BurgernavV4.svg';
-  lightLogo = './assets/LogoAntrazit.svg';;
+  lightLogo = './assets/LogoAntrazit.svg';
   lightKreuz = '';
   gitHubLight = './assets/github-mark-kleiner.svg';
-  linkedInLight = './assets/linkedin.svg';;
+  linkedInLight = './assets/linkedin.svg';
   discordLight = './assets/discord-mark-black-kleiner.svg';
   backGround = './assets/backgroundDark.jpg';
-  
+
   handleClick(event: Event) {
     event.preventDefault();
   }

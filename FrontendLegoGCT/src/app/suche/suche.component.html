@@ -2,8 +2,8 @@
 
     <div id="suchleiste">
         <label>Geben Sie eine Lego-Set-Nummer oder einen Namen ein:</label>
-        <input (ngModel)="eingabeWert" type="text" #box placeholder="75192 oder Millenium Falcon">
-          <a href="#" class="button" (click)="pruefeEingabe()">
+        <input [(ngModel)]="eingabeWert" type="text" #box placeholder="75192 oder Millenium Falcon">
+          <a class="button" (click)="pruefeEingabe()">
             <div class="button__line"></div>
             <div class="button__line"></div>
             <span class="button__text">SUCHE</span>

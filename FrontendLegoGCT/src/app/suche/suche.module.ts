@@ -4,6 +4,7 @@ import { SucheComponent } from './suche.component';
 import { Routes, RouterModule } from '@angular/router';
 import { ErgebnisComponent } from './ergebnis/ergebnis.component';
 import { EinzelteileAnzeigenComponent } from './ergebnis/einzelteile-anzeigen/einzelteile-anzeigen.component';
+import {FormsModule} from "@angular/forms";
 
 const routes: Routes = [
   {path: 'suche', component: SucheComponent},
@@ -16,12 +17,14 @@ const routes: Routes = [
     ErgebnisComponent,
     EinzelteileAnzeigenComponent
   ],
-  imports: [
-    CommonModule,
-    RouterModule.forChild(routes)
-  ],
-  exports: [
-    RouterModule
-  ]
+    imports: [
+        CommonModule,
+        RouterModule.forChild(routes),
+        FormsModule
+    ],
+    exports: [
+        RouterModule,
+        SucheComponent
+    ]
 })
 export class SucheModule { }
