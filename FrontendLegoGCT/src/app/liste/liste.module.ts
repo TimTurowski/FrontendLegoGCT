@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ListeComponent } from './liste.component';
 import { Routes, RouterModule } from '@angular/router';
+import { AnsichtComponent } from './ansicht/ansicht.component';
+import { DetailsComponent } from './details/details.component';
+import { ApiService } from '../api.service';
 
 const routes: Routes = [
   {path: 'liste', component: ListeComponent}
@@ -9,7 +12,9 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    ListeComponent
+    ListeComponent,
+    AnsichtComponent,
+    DetailsComponent
   ],
   imports: [
     CommonModule,
@@ -17,6 +22,9 @@ const routes: Routes = [
   ],
   exports: [
     RouterModule
+  ],
+  providers: [
+    ApiService
   ]
 })
 export class ListeModule { }

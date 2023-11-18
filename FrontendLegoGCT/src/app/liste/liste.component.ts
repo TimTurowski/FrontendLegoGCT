@@ -11,7 +11,6 @@ import { CookieService } from 'ngx-cookie-service';
 
 export class ListeComponent implements OnInit{
   
-  movies = [];
   selectedMovie = null;
 
   constructor(
