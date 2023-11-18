@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from 'src/app/api.service';
 
 @Component({
   selector: 'app-ansicht',
@@ -9,18 +8,7 @@ import { ApiService } from 'src/app/api.service';
 export class AnsichtComponent implements OnInit {
   movies = [];
 
-  constructor(
-    private apiService: ApiService
-  ) {}
+  constructor(){}
 
-  ngOnInit() {
-    this.apiService.getMovies().subscribe(
-      data => {
-        this.movies = data;
-      },
-      (err) => {
-        console.log(err)
-      }
-    );
-  }
+  ngOnInit() {}
 }

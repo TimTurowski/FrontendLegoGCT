@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ApiService } from '../api.service';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
@@ -10,7 +10,7 @@ import { CookieService } from 'ngx-cookie-service';
 })
 
 export class ListeComponent implements OnInit{
-  
+  @Input() movies = [];
   selectedMovie = null;
 
   constructor(
@@ -26,6 +26,15 @@ export class ListeComponent implements OnInit{
     } else {
       this.router.navigate(['liste']);
     }
+    
+    this.apiService.getMovies().subscribe(
+      data => {
+        this.movies = data;
+      },
+      (err) => {
+        console.log(err)
+      }
+    );
   }
 
   logout(){
