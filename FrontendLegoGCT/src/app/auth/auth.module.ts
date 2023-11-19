@@ -7,7 +7,6 @@ import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
-    AuthComponent
   ],
   imports: [
     CommonModule

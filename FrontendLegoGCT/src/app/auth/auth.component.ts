@@ -53,7 +53,7 @@ export class AuthComponent implements OnInit {
       (result: Object) => { 
         const tokenResult = result as tokenObj; 
         this.cookieService.set("mr-token", tokenResult.token);
-        this.router.navigate(['/movies']);
+        this.router.navigate(['/liste']);
       },
       error => console.log(error)
     );
