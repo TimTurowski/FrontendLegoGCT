@@ -13,6 +13,7 @@ import { DatenService } from '../datenservice.service';
 })
 
 export class SucheComponent implements OnInit{
+  isOpen = false;
 
   legoSetMap = new Map<string, any>();
   readonly apiurl ="localhost:8000";
@@ -29,6 +30,13 @@ constructor(private http: HttpClient, private router: Router, private datenServi
     console.log(this.eingabeWert);
     return this.http.get("http://localhost:8000/eingabe/?id="+ this.eingabeWert);
     // return this.http.get("https://raw.githubusercontent.com/HannesScherer/DarkProjekt-master-main/main/10316.json");
+  }
+
+  //gibt die Json zurück mit den Suchvorschlägen zur aktuellen Eingabe
+  getVorschlaege() {
+
+    return this.http.get("http://localhost:8000/eingabe/?name=" + this.eingabeWert);
+
   }
   addSuchList(val: any) {
     return this.http.post(this.apiurl + '/suchleiste/' , val);
@@ -47,6 +55,83 @@ constructor(private http: HttpClient, private router: Router, private datenServi
   ausgabeInput() {
     console.log(this.eingabeSpeicher);
   }
+
+  //Methode zum Updaten der Vorschlagsliste
+  updateVorschlaege() {
+
+
+    // @ts-ignore
+    const table = document.getElementById("vorschlaege");
+
+
+    if (this.eingabeWert.length > 2 && isNaN(Number(this.eingabeWert))) {
+      this.isOpen = true;
+      this.getVorschlaege().subscribe(data => {
+
+        this.clearSuggestions();
+
+        const parsed_data = JSON.parse(JSON.stringify(data));
+        // @ts-ignore
+
+        for (let i = 0; i < Math.min(parsed_data.length, 5); i++) {
+
+          const tr = document.createElement("tr");
+          const td_button = document.createElement("td");
+
+          const img = document.createElement("img");
+          img.src = "data:image/jpg;base64," + parsed_data[i].set_bild;
+          img.width = 150;
+          img.height = 100;
+          img.setAttribute("style","margin-left:10px;");
+          img.className = "suggestion_img";
+
+          const set_button = document.createElement("a");
+          tr.appendChild(img);
+          set_button.addEventListener("click", () => {
+
+            this.clickSuggestion(parsed_data[i].set_id)
+          });
+
+          // set_button.className = "vorschlag_link";
+          set_button.innerHTML = parsed_data[i].set_id + " " + parsed_data[i].set_name;
+          td_button.appendChild(set_button)
+
+
+          tr.appendChild(td_button);
+          // @ts-ignore
+          table.appendChild(tr);
+        }
+
+      })
+    } else {
+      this.clearSuggestions();
+      this.isOpen = false;
+    }
+
+
+  }
+  //löscht alle Vorschläge
+  clearSuggestions() {
+
+
+    console.log("clear");
+    const table = document.getElementById("vorschlaege");
+    // @ts-ignore
+    while (table.lastElementChild) {
+      // @ts-ignore
+      table.lastElementChild.remove();
+    }
+
+  }
+
+//methode zur ausführung einer Suche aus den Vorschlägen
+  clickSuggestion(clicked_set: string) {
+    this.clearSuggestions();
+    this.eingabeWert = clicked_set;
+    console.log(this.eingabeWert);
+    this.pruefeEingabe()
+  }
+
 
   pruefeEingabe() {
     this.ist_geclickt = true;

@@ -5,6 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ErgebnisComponent } from './ergebnis/ergebnis.component';
 import { EinzelteileAnzeigenComponent } from './ergebnis/einzelteile-anzeigen/einzelteile-anzeigen.component';
 import {FormsModule} from "@angular/forms";
+import {CdkConnectedOverlay, CdkOverlayOrigin} from "@angular/cdk/overlay";
 
 const routes: Routes = [
   {path: 'suche', component: SucheComponent},
@@ -17,11 +18,13 @@ const routes: Routes = [
     ErgebnisComponent,
     EinzelteileAnzeigenComponent
   ],
-    imports: [
-        CommonModule,
-        RouterModule.forChild(routes),
-        FormsModule
-    ],
+  imports: [
+    CommonModule,
+    RouterModule.forChild(routes),
+    FormsModule,
+    CdkConnectedOverlay,
+    CdkOverlayOrigin
+  ],
     exports: [
         RouterModule,
         SucheComponent

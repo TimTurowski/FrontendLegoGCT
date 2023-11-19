@@ -2,7 +2,8 @@
 
     <div id="suchleiste">
         <label>Geben Sie eine Lego-Set-Nummer oder einen Namen ein:</label>
-        <input [(ngModel)]="eingabeWert" type="text" #box placeholder="75192 oder Millenium Falcon">
+      <input [(ngModel)]="eingabeWert" type="text" (input)="updateVorschlaege()" #box placeholder="75192 oder Millenium Falcon"
+             cdkOverlayOrigin #overlaypos="cdkOverlayOrigin">
           <a class="button" (click)="pruefeEingabe()">
             <div class="button__line"></div>
             <div class="button__line"></div>
@@ -11,5 +12,20 @@
             <div class="button__drow2"></div>
           </a>
     </div>
+
+  <ng-template
+    cdkConnectedOverlay
+    cdkConnectedOverlayBackdropClass="cdk-overlay-transparent-backdrop"
+    [cdkConnectedOverlayHasBackdrop]="true"
+    [cdkConnectedOverlayOrigin]="overlaypos"
+    [cdkConnectedOverlayOpen]="isOpen"
+    (backdropClick)="isOpen = false"
+    (detach)="isOpen = false">
+
+
+    <table id="vorschlaege" class="vorschlaege"></table>
+
+  </ng-template>
 </div>
 <app-ergebnis *ngIf="ist_geclickt"></app-ergebnis>
+

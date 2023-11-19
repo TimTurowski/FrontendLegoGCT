@@ -17,9 +17,11 @@ import { ErgebnisComponent } from './suche/ergebnis/ergebnis.component';
 import { EinzelteileAnzeigenComponent } from './suche/ergebnis/einzelteile-anzeigen/einzelteile-anzeigen.component';
 import { AuthComponent } from './auth/auth.component';
 import { CommonModule} from "@angular/common";
+import { OverlayModule } from "@angular/cdk/overlay";
+
 
 const routes: Routes = [
-  // {path: '', redirectTo: 'suche', pathMatch: 'full'},
+  {path: '', redirectTo: 'suche', pathMatch: 'full'},
   {path: 'liste', component: ListeComponent},
   {path: 'suche', component: SucheComponent},
   {path: 'impressum', component: ImpressumComponent},
@@ -44,7 +46,8 @@ const routes: Routes = [
     HttpClientModule,
     CommonModule,
     RouterModule.forRoot(routes),
-    SucheModule
+    SucheModule,
+    OverlayModule,
   ],
   exports: [
     RouterModule

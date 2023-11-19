@@ -1,5 +1,5 @@
 .wrappercenter{
-    
+
     position: relative;
     float:none;
     position: absolute;
@@ -14,7 +14,7 @@
     border-color: var(--color-border);
     letter-spacing: var(--letter-spacing);
     background: transparent;
-    
+
 
 }
 #suchleiste {
@@ -26,8 +26,8 @@
     justify-content: center;
     align-items: center;
     background: transparent;
-    
-    
+
+
 }
 #suchleiste input{
     order: 2;
@@ -48,9 +48,9 @@
     border-color: var(--color-border);
     border-bottom-color: var(--color-border);
     letter-spacing: var(--letter-spacing);
-    
+
 }
-#sucheleiste input::placeholder { 
+#sucheleiste input::placeholder {
     text-align: center;
     background-color: var(--color-bg);
     color: var(--color-text);
@@ -58,7 +58,7 @@
     border-color: var(--color-border);
     border-bottom-color: var(--color-border);
     letter-spacing: var(--letter-spacing);
-    
+
 }
 
 #suchleiste label {
@@ -87,7 +87,7 @@
     width : 240px ;
     height : 56px ;
     text-decoration : none ;
-    font-size : 14px ; 
+    font-size : 14px ;
     font-weight : bold ;
     color : var(--line_color) ;
     letter-spacing : 2px ;
@@ -134,7 +134,7 @@
     bottom : 0 ;
     left : 54px ;
     width : 8px ;
-    
+
 }
 .button__line{
     position : absolute ;
@@ -291,3 +291,22 @@
     0%   { width : 0 ; }
     100% { width : 124px ; }
 }
+
+.vorschlaege {
+  z-index: 5;
+  font-size : 20px ;
+  margin-left: auto;
+  margin-right: auto;
+  //background: var(--color-objekt);
+  background-image: linear-gradient(to right, white,white , var(--color-objekt));;
+  width: 70%;
+  position: relative;
+  border-spacing: 0;
+  border-collapse: separate;
+  border-radius: 10px;
+  align-items: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+

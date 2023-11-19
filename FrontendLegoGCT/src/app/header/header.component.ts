@@ -10,10 +10,10 @@ export class HeaderComponent implements OnInit {
 
   lightNav = './assets/BurgernavV4.svg';
   menuOpen = false;
-  lightLogo = './assets/LogoAntrazit.svg';;
+  lightLogo = './assets/LogoAntrazit.svg';
   lightKreuz = '';
   gitHubLight = './assets/github-mark-kleiner.svg';
-  linkedInLight = './assets/linkedin.svg';;
+  linkedInLight = './assets/linkedin.svg';
   discordLight = './assets/discord-mark-black-kleiner.svg';
   backGround = './assets/backgroundDark.jpg';
 
@@ -25,16 +25,25 @@ export class HeaderComponent implements OnInit {
     } else {
       this.lightNav = './assets/BurgernavV4.svg';
     }
-  
+
   */
   }
   darkmode = false;
   modetoggle(): boolean {
+    // @ts-ignore
+    this.darkmode = JSON.parse(localStorage.getItem("darkmode"));
     this.darkmode = !this.darkmode;
+    localStorage.setItem("darkmode", JSON.stringify(this.darkmode));
     document.documentElement.setAttribute('dark-theme', this.darkmode ? "dark": "light");
     this.updateAssetPaths();
     return this.darkmode;
 
+  }
+  updatemode(): void{
+    // @ts-ignore
+    this.darkmode = JSON.parse(localStorage.getItem("darkmode"));
+    document.documentElement.setAttribute('dark-theme', this.darkmode ? "dark": "light");
+    this.updateAssetPaths();
   }
   updateAssetPaths() {
     if (!this.darkmode) {
@@ -49,7 +58,7 @@ export class HeaderComponent implements OnInit {
         this.lightLogo = './assets/LogoGelb.svg';
         this.lightKreuz = './assets/closeGelb.svg';
         this.gitHubLight = './assets/github-mark-white.svg';
-        this.linkedInLight = './assets/linkedin-white.svg'; 
+        this.linkedInLight = './assets/linkedin-white.svg';
         this.discordLight = './assets/discord-mark-white.svg';
     }
   }
