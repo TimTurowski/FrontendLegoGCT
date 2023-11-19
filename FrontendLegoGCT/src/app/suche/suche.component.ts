@@ -114,7 +114,6 @@ constructor(private http: HttpClient, private router: Router, private datenServi
   clearSuggestions() {
 
 
-    console.log("clear");
     const table = document.getElementById("vorschlaege");
     // @ts-ignore
     while (table.lastElementChild) {
@@ -163,20 +162,20 @@ constructor(private http: HttpClient, private router: Router, private datenServi
     const toypro_einzelteile:Einzelteil[] = [];
     data[2].parts.forEach((item:any) => {
       const einzelteil:Einzelteil = new Einzelteil(item.einzelteil_id,item.preis,item.anzahl, item.url);
-      lego_einzelteile.push(einzelteil);
+      toypro_einzelteile.push(einzelteil);
     })
-    const toypro_shop:Shop = new Shop(data[2].shop_name, data[2].shop_url, lego_einzelteile);
+    const toypro_shop:Shop = new Shop(data[2].shop_name, data[2].shop_url, toypro_einzelteile);
 
 
     const bricklink_einzelteile:Einzelteil[] = [];
     data[3].parts.forEach((item:any) => {
       const einzelteil:Einzelteil = new Einzelteil(item.einzelteil_id,item.preis,item.anzahl, item.url);
-      lego_einzelteile.push(einzelteil);
+      bricklink_einzelteile.push(einzelteil);
     })
     this.img = data[4].set_bild;
 
 
-    const bricklink_shop:Shop = new Shop(data[3].shop_name, data[3].shop_url, lego_einzelteile);
+    const bricklink_shop:Shop = new Shop(data[3].shop_name, data[3].shop_url, bricklink_einzelteile);
     const shops:Shop[] = [];
     shops.push(lego_shop);
     shops.push(toypro_shop);
