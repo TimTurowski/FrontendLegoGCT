@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
@@ -10,7 +10,7 @@ import { CookieService } from 'ngx-cookie-service';
 })
 
 export class ListeComponent implements OnInit{
-  @Input() movies = [];
+  movie: any = [];
   selectedMovie = null;
 
   constructor(
@@ -19,23 +19,24 @@ export class ListeComponent implements OnInit{
     private router: Router
   ) {}
   
+  //ngOnInit() {
+  //  const mrToken = this.cookieService.get('mr-token');
+  //  if(!mrToken) {
+  //    this.router.navigate(['auth']);
+  //  } else {
+  //    this.router.navigate(['liste']);
+  //  }
+  //}
+
   ngOnInit() {
-    const mrToken = this.cookieService.get('mr-token');
-    if(!mrToken) {
-      this.router.navigate(['auth']);
-    } else {
-      this.router.navigate(['liste']);
+  this.apiService.getMovies().subscribe(
+    data => {
+      this.movie = data;
+    },
+    (err) => {
+      console.log(err)
     }
-    
-    this.apiService.getMovies().subscribe(
-      data => {
-        this.movies = data;
-      },
-      (err) => {
-        console.log(err)
-      }
-    );
-  }
+  )};
 
   logout(){
     this.cookieService.delete('mr-token');

@@ -1,4 +1,4 @@
 <div class="layout">
-    <app-ansicht [attr.movies]="movies"></app-ansicht>
+    <app-ansicht [movies]="movie" (selectMovie)="selectMovie($event)"></app-ansicht>
     <app-details></app-details>
 </div>

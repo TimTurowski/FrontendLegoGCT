@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-ansicht',
@@ -6,9 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./ansicht.component.scss']
 })
 export class AnsichtComponent implements OnInit {
-  movies = [];
+  @Input() movies = [];
+  @Output() selectMovie = new EventEmitter();
 
   constructor(){}
 
   ngOnInit() {}
+
+  movieClicked(movie: any){
+    this.selectMovie = movie;
+    console.log('selectedMovie', this.selectMovie);
+  }
 }
