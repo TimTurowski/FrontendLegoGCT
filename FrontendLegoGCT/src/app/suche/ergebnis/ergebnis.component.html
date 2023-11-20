@@ -1,13 +1,13 @@
 <div class="sitedesign2">
-    
+
     <div class="hcontainer">
     <h1 class="first"> Suchergebnis: {{getName()}} - {{getId()}}</h1>
     <img src="data:image/jpg;base64,{{getImg()}}">
     </div>
     </div>
-    
+
     <div class="sitedesign">
-        
+
     <div class="tablerow">
 
         <div class="tablecol">
@@ -20,7 +20,7 @@
                 <li>Einzelteilpreis: 126$</li>
                 <li>Einzelteile:/{{getEinzelteilAnzahl()}} </li>
             </ul>
-            <button (click)="getEinzelteile()">Einzelteile anzeigen</button>
+            <button (click)="show_prices(getShopName1())">{{getShopName1()}}Einzelteile anzeigen</button>
             <app-einzelteile-anzeigen *ngIf="ist_geclickt"></app-einzelteile-anzeigen>
             <button>Setpreis kaufen</button>
 
@@ -34,7 +34,7 @@
                 <li>Einzelteilpreis: 138$</li>
                 <li>Einzelteile:/{{getEinzelteilAnzahl()}} </li>
             </ul>
-            <button>Einzelteile anzeigen</button>
+                <button (click)="show_prices(getShopName2())">{{getShopName2()}}Einzelteile anzeigen</button>
             <button>Setpreis kaufen</button>
         </div>
         <div class="tablecol">
@@ -46,10 +46,15 @@
                 <li>Einzelteilpreis: 210$</li>
                 <li>Einzelteile:/{{getEinzelteilAnzahl()}} </li>
             </ul>
-            <button>Einzelteile anzeigen</button>
+            <button (click)="show_prices(getShopName3())">Einzelteile anzeigen</button>
+
             <button>Setpreis kaufen</button>
         </div>
     </div>
-      
+
+
 
 </div>
+<table id="einzelteil_liste">
+
+</table>

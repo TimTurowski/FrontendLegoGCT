@@ -15,10 +15,12 @@
     </div>
     </div>
 <div class="centerNav">
-    <img src="./assets/neuGCT.svg">
+  <img src="./assets/neuGCT.svg">
 </div>
 <div class="rightNav">
-    <a><div class="switch">
+  {{updatemode()}}
+
+  <a><div class="switch">
          <input type="checkbox" class="switch__input" (click)="modetoggle()" id="Switch">
         <label class="switch__label" for="Switch">
             <span class="switch__indicator"></span>
