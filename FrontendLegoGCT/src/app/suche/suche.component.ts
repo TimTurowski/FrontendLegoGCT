@@ -5,18 +5,23 @@ import { Einzelteil, LegoSet, Shop } from "./datenstrukturen";
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { DatenService } from '../datenservice.service';
+import {ApiService} from "../api.service";
 
 @Component({
   selector: 'app-suche',
   templateUrl: './suche.component.html',
   styleUrls: ['./suche.component.scss']
 })
+@Injectable({
+    providedIn: 'root'
+})
 
 export class SucheComponent implements OnInit{
   isOpen = false;
 
   legoSetMap = new Map<string, any>();
-  readonly apiurl ="localhost:8000";
+  //Url für die Django Api
+  readonly apiurl ="http://localhost:8000";
   eingabeWert:string ='';
   lego_set:LegoSet = new LegoSet("null","null",1,[]);
 
@@ -24,18 +29,20 @@ export class SucheComponent implements OnInit{
   eingabeSpeicher: string = '';
   ist_geclickt:boolean=false;
 
-constructor(private http: HttpClient, private router: Router, private datenService: DatenService){}
+constructor(private http: HttpClient, private router: Router, private datenService: DatenService, private apiService: ApiService){}
 
   getSuchList() {
     console.log(this.eingabeWert);
-    return this.http.get("http://localhost:8000/eingabe/?id="+ this.eingabeWert);
+    // return this.http.get("http://192.168.198.47:8000/eingabe/?id="+ this.eingabeWert, {headers:this.apiService.getAuthHeaders()});
+
+    return this.http.get(this.apiurl + "/eingabe/?id="+ this.eingabeWert, {headers:this.apiService.getAuthHeaders()});
     // return this.http.get("https://raw.githubusercontent.com/HannesScherer/DarkProjekt-master-main/main/10316.json");
   }
 
   //gibt die Json zurück mit den Suchvorschlägen zur aktuellen Eingabe
   getVorschlaege() {
 
-    return this.http.get("http://localhost:8000/eingabe/?name=" + this.eingabeWert);
+    return this.http.get(this.apiurl + "/eingabe/?name=" + this.eingabeWert);
 
   }
   addSuchList(val: any) {
@@ -55,6 +62,13 @@ constructor(private http: HttpClient, private router: Router, private datenServi
   ausgabeInput() {
     console.log(this.eingabeSpeicher);
   }
+
+
+  getShops(): Shop[] {
+    return this.lego_set.shops;
+
+  }
+
 
   //Methode zum Updaten der Vorschlagsliste
   updateVorschlaege() {
@@ -127,8 +141,7 @@ constructor(private http: HttpClient, private router: Router, private datenServi
   clickSuggestion(clicked_set: string) {
     this.clearSuggestions();
     this.eingabeWert = clicked_set;
-    console.log(this.eingabeWert);
-    this.pruefeEingabe()
+    this.pruefeEingabe();
   }
 
 
@@ -144,6 +157,7 @@ constructor(private http: HttpClient, private router: Router, private datenServi
       }
 
     );
+
 
   }
   löscheEingabe() {

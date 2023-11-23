@@ -1,1 +1,25 @@
-<p>einzelteile-anzeigen works!</p>
+<table>
+  <tr>
+    <th>id</th>
+    <th>anzahl</th>
+    <th>preis</th>
+  </tr>
+  <tr *ngFor="let einzelteil of getEinzelteileMitPreis()">
+    <td> {{einzelteil.einelteil_id}}</td>
+    <td> {{einzelteil.anzahl}}</td>
+    <td> {{einzelteil.preis}}</td>
+
+
+  </tr>
+</table>
+<table>
+  <tr>
+  <th>id</th>
+  <th>anzahl</th>
+  </tr>
+  <tr *ngFor="let einzelteil of getEinzelteileOhnePreis()">
+    <td> {{einzelteil.einelteil_id}}</td>
+    <td> {{einzelteil.anzahl}}</td>
+
+  </tr>
+</table>

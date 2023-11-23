@@ -6,7 +6,7 @@ import { Token } from '@angular/compiler';
 import { Router } from '@angular/router';
 
 interface tokenObj {
-  token: string; 
+  token: string;
 }
 
 @Component({
@@ -50,12 +50,13 @@ export class AuthComponent implements OnInit {
   }
   loginUser() {
     this.apiService.loginUser(this.authForm.value).subscribe(
-      (result: Object) => { 
-        const tokenResult = result as tokenObj; 
+      (result: Object) => {
+        const tokenResult = result as tokenObj;
         this.cookieService.set("mr-token", tokenResult.token);
         this.router.navigate(['/liste']);
       },
       error => console.log(error)
     );
   }
+
 }

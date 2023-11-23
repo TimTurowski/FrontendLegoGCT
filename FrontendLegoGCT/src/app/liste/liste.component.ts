@@ -2,6 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ApiService } from '../api.service';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
+import {SucheComponent} from "../suche/suche.component";
+import {LegoSet} from "../suche/datenstrukturen";
 
 @Component({
   selector: 'app-liste',
@@ -10,13 +12,16 @@ import { CookieService } from 'ngx-cookie-service';
 })
 
 export class ListeComponent implements OnInit{
-  @Input() movies = [];
-  selectedMovie = null;
+  legoSets = [];
+  selectedLegoSet = null;
+  selectedLegoSetDetails:LegoSet =  new LegoSet("null","null",1,[]);
 
-  constructor(
+
+    constructor(
     private apiService: ApiService,
     private cookieService: CookieService,
-    private router: Router
+    private router: Router,
+    private suche: SucheComponent
   ) {}
 
   ngOnInit() {
@@ -27,14 +32,19 @@ export class ListeComponent implements OnInit{
       this.router.navigate(['liste']);
     }
 
-    this.apiService.getMovies().subscribe(
-      data => {
-        this.movies = data;
-      },
-      (err) => {
-        console.log(err)
-      }
-    );
+    this.updateHistory();
+
+  }
+  updateHistory() {
+      this.apiService.getSetHistory().subscribe(
+          data => {
+
+              this.legoSets = JSON.parse(JSON.stringify(data));
+          },
+          (err) => {
+              console.log(err)
+          }
+      );
   }
 
   logout(){
@@ -42,8 +52,31 @@ export class ListeComponent implements OnInit{
     this.router.navigate(['/auth/']);
   }
 
-  selectMovie(movie: null) {
-    this.selectedMovie = movie;
-    console.log('selectedMovie', this.selectedMovie);
+  selectLegoSet(set: null) {
+      this.selectedLegoSet = set;
+      // @ts-ignore
+      // this.sucheLegoSet(this.selectedLegoSet["set_id"]);
+
+      // this.selectedLegoSetDetails = this.suche.lego_set;
   }
+  sucheLegoSet(id: string) {
+      this.suche.eingabeWert = id;
+      // this.suche.pruefeEingabe();
+
+
+      // console.log(this.suche.lego_set.set_name);
+
+  }
+
+  deleteSet(set: any) {
+    this.apiService.deleteSet(set.such_id).subscribe(
+      data => {
+          this.updateHistory();
+
+          console.log(data)
+      },
+      (err) => {
+        console.log(err)
+      }
+    )};
 }

@@ -1,3 +1,10 @@
-<div *ngFor="let movie of movies">
-    <h3>{{movie['title']}}</h3>
-</div>
+<table>
+  <tr *ngFor="let set of legoSets">
+  <td (click)="legoSetClicked(set)">{{set['set_id']}} {{set['set_name']}}</td>
+    <td>
+      <button (click)="deleteSet(set)">Löschen</button>
+    </td>
+  </tr>
+</table>
+<button (click)="neueSuche()">Neue Suche Starten</button>
+

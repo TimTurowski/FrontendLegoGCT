@@ -22,10 +22,10 @@
     (backdropClick)="isOpen = false"
     (detach)="isOpen = false">
 
-
+    <div style="height: 300px;overflow: auto;">
     <table id="vorschlaege" class="vorschlaege"></table>
-
+    </div>
   </ng-template>
 </div>
-<app-ergebnis *ngIf="ist_geclickt"></app-ergebnis>
+<app-ergebnis [shops]="getShops()" *ngIf="ist_geclickt"></app-ergebnis>
 

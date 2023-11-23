@@ -10,10 +10,10 @@ export class ApiService {
   movies = ['Terminator', 'dasmas'];
 
   baseUrl = 'http://127.0.0.1:8000/';
-  baseMovieUrl = `${this.baseUrl}api/movies/`;
+  baseMovieUrl = `${this.baseUrl}verlauf`;
   token = this.cookieService.get('mr-token');
 //__________
-  baseBaseUrl = 'http://127.0.0.1:8000/api/movies/';
+  baseBaseUrl = 'http://127.0.0.1:8000';
   headersTest = new HttpHeaders({
     'Content-Type': 'application/json',
     Authorization: 'Token 5e2dc086cb321b176bcb168c326de0aef7cf38d3'
@@ -23,14 +23,14 @@ export class ApiService {
   headers = new HttpHeaders({
     'Content-Type': 'application/json'
   });
-  
+
   constructor(
     private httpClient: HttpClient,
     private cookieService: CookieService
   ) {}
 
-  getMovies(){
-    return this.httpClient.get<any>(this.baseBaseUrl, {headers: this.headersTest})
+  getSetHistory(){
+    return this.httpClient.get<any>(this.baseUrl + "verlauf/", {headers: this.getAuthHeaders()})
   }
 
   loginUser(authData: any) {
@@ -47,7 +47,11 @@ export class ApiService {
     const token = this.cookieService.get('mr-token');
     return new HttpHeaders({
       'Content-Type': 'application/json',
-      Authorization: 'Token ${token}'
+      Authorization: token
     });
+  }
+
+  deleteSet(id: number){
+    return this.httpClient.get(this.baseUrl +"delete/?id=" + id, {headers: this.headersTest});
   }
 }
