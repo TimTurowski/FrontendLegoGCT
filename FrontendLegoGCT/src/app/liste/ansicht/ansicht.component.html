@@ -1,3 +1,4 @@
+<div class="ansicht_wrapper">
 <table>
   <tr *ngFor="let set of legoSets">
   <td (click)="legoSetClicked(set)">{{set['set_id']}} {{set['set_name']}}</td>
@@ -7,4 +8,4 @@
   </tr>
 </table>
 <button (click)="neueSuche()">Neue Suche Starten</button>
-
+</div>

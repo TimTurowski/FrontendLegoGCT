@@ -2,7 +2,10 @@
 
   <div class="hcontainer">
     <h1 class="first"> Suchergebnis: {{getName()}} - {{getId()}}</h1>
+    <h3>Setpreis: {{getPreis().toLocaleString('de-DE', { style: 'currency', currency: 'EUR' })}}</h3>
+    <br><br>
     <img src="data:image/jpg;base64,{{getImg()}}">
+    <br><br>
   </div>
 </div>
 
@@ -12,29 +15,45 @@
 
     <div class="tablecol">
 
-      <h3> {{getShopName1()}} <span><a href="{{getShopUrl1()}}">zum Shop</a></span></h3>
+      <h3> {{getShopName1()}} <span>
+        <br>
+        <a href="{{getShopUrl1()}}">zum Shop</a></span></h3>
+      <br><br><br>
+
       <ul>
 
         <li>Einzelteilpreis: {{getEinzelteilpreis(0)}}</li>
         <li>Einzelteile:{{getVerfuegbareEinzelteile(0)}}/{{getEinzelteilAnzahl()}} </li>
       </ul>
       <button (click)="set_clicked_shop(0)">Einzelteile anzeigen</button>
-<!--      <app-einzelteile-anzeigen *ngIf="ist_geclickt"></app-einzelteile-anzeigen>-->
-<!--      <button>Setpreis kaufen</button>-->
+      <app-einzelteile-anzeigen *ngIf="ist_geclickt[0]" [einzelteile]="getEinzelteileMitPreis(0)"></app-einzelteile-anzeigen>
+      <button (click)="set_clicked_shop(3)">Fehlende Einzelteile anzeigen</button>
+
+      <app-fehlende-einzelteile-anzeigen *ngIf="ist_geclickt[3]" [einzelteile]="getEinzelteileOhnePreis(0)"></app-fehlende-einzelteile-anzeigen>
+
 
     </div>
     <div class="tablecol">
-      <h3>{{getShopName2()}} <span><a href="{{getShopUrl2()}}">zum Shop</a></span></h3>
+      <h3>{{getShopName2()}} <span>
+        <br>
+        <a href="{{getShopUrl2()}}">zum Shop</a></span></h3>
+      <br><br><br>
+
       <ul>
 
         <li>Einzelteilpreis: {{getEinzelteilpreis(1)}}</li>
         <li>Einzelteile:{{getVerfuegbareEinzelteile(1)}}/{{getEinzelteilAnzahl()}} </li>
       </ul>
       <button (click)="set_clicked_shop(1)">Einzelteile anzeigen</button>
-<!--      <button>Setpreis kaufen</button>-->
+      <app-einzelteile-anzeigen *ngIf="ist_geclickt[1]" [einzelteile]="getEinzelteileMitPreis(1)"></app-einzelteile-anzeigen>
+      <button (click)="set_clicked_shop(4)">Fehlende Einzelteile anzeigen</button>
+      <app-fehlende-einzelteile-anzeigen *ngIf="ist_geclickt[4]" [einzelteile]="getEinzelteileOhnePreis(1)"></app-fehlende-einzelteile-anzeigen>
+
     </div>
     <div class="tablecol">
-      <h3>{{getShopName3()}} <span><a href="{{getShopUrl3()}}">zum Shop</a></span>
+      <h3>{{getShopName3()}} <span>
+        <br>
+        <a href="{{getShopUrl3()}}">zum Shop</a></span>
       </h3>
       <ul>
 
@@ -43,13 +62,17 @@
       </ul>
       <button (click)="set_clicked_shop(2)">Einzelteile anzeigen</button>
 
-<!--      <button>Setpreis kaufen</button>-->
+      <app-einzelteile-anzeigen *ngIf="ist_geclickt[2]" [einzelteile]="getEinzelteileMitPreis(2)"></app-einzelteile-anzeigen>
+      <button (click)="set_clicked_shop(5)">Fehlende Einzelteile anzeigen</button>
+
+      <app-fehlende-einzelteile-anzeigen *ngIf="ist_geclickt[5]" [einzelteile]="getEinzelteileOhnePreis(2)"></app-fehlende-einzelteile-anzeigen>
+
     </div>
   </div>
 
 
 
 </div>
-<app-einzelteile-anzeigen *ngIf="ist_geclickt" [shops]="shops" [shop_id]="clicked_shop"></app-einzelteile-anzeigen>
+
 <table id="einzelteil_liste"></table>
 <table id="einzelteil_liste_failed"></table>

@@ -9,7 +9,8 @@ export class ApiService {
 
   movies = ['Terminator', 'dasmas'];
 
-  baseUrl = 'http://127.0.0.1:8000/';
+  // http://192.168.198.47:8000  http://127.0.0.1:8000/
+  baseUrl = 'http://192.168.198.47:8000/';
   baseMovieUrl = `${this.baseUrl}verlauf`;
   token = this.cookieService.get('mr-token');
 //__________

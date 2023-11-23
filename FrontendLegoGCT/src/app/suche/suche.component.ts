@@ -21,7 +21,8 @@ export class SucheComponent implements OnInit{
 
   legoSetMap = new Map<string, any>();
   //Url für die Django Api
-  readonly apiurl ="http://localhost:8000";
+  //http://192.168.198.47:8000 http://localhost:8000
+  readonly apiurl ="http://192.168.198.47:8000 ";
   eingabeWert:string ='';
   lego_set:LegoSet = new LegoSet("null","null",1,[]);
 

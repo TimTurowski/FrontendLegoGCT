@@ -17,7 +17,12 @@ export class ErgebnisComponent implements OnInit {
   suchanfrage: string = '';
   suchergebnis: any;
   url: string = '/assets/suchergebniss.json';
-  ist_geclickt: boolean = false;
+  /*shop 1(0,3)
+    shop 2(1,4)
+    shop 3(2,5)
+   */
+  ist_geclickt: boolean[] = [false,false,false, false,false,false];
+
   clicked_shop: number = 0;
 
   eingabe: string = '';
@@ -29,9 +34,18 @@ export class ErgebnisComponent implements OnInit {
     });
 
   }
-  set_clicked_shop(shop_id:number) {
-    this.ist_geclickt = true;
-    this.clicked_shop = shop_id;
+  set_clicked_shop(id:number) {
+
+    for(let i = 0; i < this.ist_geclickt.length; i++) {
+      if(i == id) {
+        this.ist_geclickt[id] = !this.ist_geclickt[id];
+      }else {
+        this.ist_geclickt[i] = false;
+      }
+    }
+
+
+    this.clicked_shop = id;
   }
 
   getImg() {
@@ -51,10 +65,7 @@ export class ErgebnisComponent implements OnInit {
   }
 
 
-  getEinzelteile(): boolean {
-    this.ist_geclickt = true;
-    return this.ist_geclickt;
-  }
+
 
   getShopName1() {
     return this.suche.lego_set.shops[0].shop_name;
@@ -83,7 +94,8 @@ export class ErgebnisComponent implements OnInit {
   }
 
   getShopName3() {
-    return this.suche.lego_set.shops[2].shop_name;
+    return this.suche.lego_set.shops[2].shop_name.substring(0,9) + " "
+      + this.suche.lego_set.shops[2].shop_name.substring(9,this.suche.lego_set.shops[2].shop_name.length);
   }
 
   getShopUrl3() {
@@ -121,13 +133,39 @@ export class ErgebnisComponent implements OnInit {
     return einzelteil_anzahl;
 
   }
+  getEinzelteileMitPreis(shop_id: number): Einzelteil[] {
+
+
+    const einzelteile:Einzelteil[] = [];
+
+    for(let i = 0; i < this.shops[shop_id].einzelteile.length; i++) {
+      if(this.shops[shop_id].einzelteile[i].preis != null) {
+        einzelteile.push(this.shops[shop_id].einzelteile[i]);
+      }
+
+    }
+    return einzelteile;
+  }
+
+
+  getEinzelteileOhnePreis(shop_id: number): Einzelteil[] {
+    const einzelteile:Einzelteil[] = [];
+
+    for(let i = 0; i < this.shops[shop_id % 3].einzelteile.length; i++) {
+      if(this.shops[shop_id % 3].einzelteile[i].preis == null) {
+        einzelteile.push(this.shops[shop_id % 3].einzelteile[i]);
+      }
+
+    }
+
+    return einzelteile;
+  }
 
 
 
   show_prices(shop_id: number) {
     this.clear_prices();
 
-    console.log(shop_id);
 
     const table = document.getElementById("einzelteil_liste");
     const failed_table = document.getElementById("einzelteil_liste_failed");

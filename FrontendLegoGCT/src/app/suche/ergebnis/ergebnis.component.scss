@@ -1,35 +1,25 @@
 .sitedesign{
-    //position: absolute;
-    //top: 150%;
-    //left: 50%;
-    //transform: translate(-50%, -50%);
+
     height: 100vh;
-    width: 100wv;
+    width: 200vh;
     display: flex;
     justify-self:start;
     align-self: start;
 
-    top: 200%;
-    left: 40%;
+    top: 210%;
+    margin-left: 50%;
+    margin-right: 40%;
     transform: translate(-50%, -50%);
-    //background-color: var(--color-bg);
     font-family: var(--font-family);
     letter-spacing: var(--letter-spacing);
     position: absolute;
-    //z-index: 1;
-    //background-image: var(--bg-image);
-    //background-repeat: no-repeat;
-    //background-attachment: fixed;
-    //background-position: center;
+
 }
 .sitedesign2{
 
-    //display: flex;
-    //justify-self:start;
-    //align-self: start;
 
     position: absolute;
-    top: 100%;
+    top: 120%;
     left: 50%;
     transform: translate(-50%, -50%);
     //padding-top: 50%;
@@ -47,30 +37,36 @@
     z-index: 2;
 }
 .hcontainer {
-    font-size: 16px;
-    text-align: center;
-    font-family: var(--font-family);
-    letter-spacing: var(--letter-spacing);
-    color: var(--color-text);
-    font-family: var(--font);
-    background: rgb(230, 230, 255, 0.9);
-    border-radius: 1%;
-    padding: 2% 15%;
+  overflow-wrap: break-word;
+  font-size: 16px;
+  text-align: center;
+  font-family: var(--font-family);
+  letter-spacing: var(--letter-spacing);
+  color: var(--color-text);
+  background: rgb(230, 230, 255, 0.9);
+  border-radius: 1%;
+  padding: 1% 12%;
 
 }
-
+.tablerow h3{
+  text-align: center;
+}
 .tablerow{
-    width: 90%;
-    max-width: 1100px;
-    margin: auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    grid-gap: 25px;
+
+  width: 90%;
+  max-width: 1100px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 25px;
+  white-space: pre-line;
 
 }
 .tablecol{
-    background-color: rgb(230, 230, 255, 0.9);
-    padding: 10% 15%;
+
+
+  background-color: rgb(230, 230, 255, 0.9);
+    padding: 8% 10%;
     border-radius: 10px;
     color: var(--color-text);
 }
@@ -99,7 +95,9 @@
     margin: 15px 0;
 }
 .tablecol button{
-    width: 100%;
+  font-family: var(--font-family);
+
+  width: 100%;
     padding: 14px 0;
     background: transparent;
     color: var();
@@ -109,6 +107,13 @@
     margin-top: 30px;
     cursor: pointer;
     transition: 0.5s;
+}
+.tablecol button::after{
+  content: '\02795'; /* Unicode character for "plus" sign (+) */
+  font-size: 13px;
+  color: #777;
+  float: right;
+  margin-left: 5px;
 }
 .tablecol button:hover{
     background: var();

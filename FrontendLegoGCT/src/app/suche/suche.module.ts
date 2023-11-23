@@ -6,6 +6,7 @@ import { ErgebnisComponent } from './ergebnis/ergebnis.component';
 import { EinzelteileAnzeigenComponent } from './ergebnis/einzelteile-anzeigen/einzelteile-anzeigen.component';
 import {FormsModule} from "@angular/forms";
 import {CdkConnectedOverlay, CdkOverlayOrigin} from "@angular/cdk/overlay";
+import { FehlendeEinzelteileAnzeigenComponent } from './ergebnis/fehlende-einzelteile-anzeigen/fehlende-einzelteile-anzeigen.component';
 
 const routes: Routes = [
   {path: 'suche', component: SucheComponent},
@@ -16,7 +17,8 @@ const routes: Routes = [
   declarations: [
     SucheComponent,
     ErgebnisComponent,
-    EinzelteileAnzeigenComponent
+    EinzelteileAnzeigenComponent,
+    FehlendeEinzelteileAnzeigenComponent
   ],
   imports: [
     CommonModule,

@@ -1,25 +1,17 @@
+<div class="einzelteil_wrapper">
 <table>
   <tr>
-    <th>id</th>
-    <th>anzahl</th>
-    <th>preis</th>
+    <th>Id</th>
+    <th>Anzahl</th>
+    <th>Preis</th>
   </tr>
-  <tr *ngFor="let einzelteil of getEinzelteileMitPreis()">
+  <tr *ngFor="let einzelteil of einzelteile">
     <td> {{einzelteil.einelteil_id}}</td>
-    <td> {{einzelteil.anzahl}}</td>
-    <td> {{einzelteil.preis}}</td>
+    <td> {{einzelteil.anzahl}}x</td>
+    <td> {{einzelteil.preis.toLocaleString('de-DE', { style: 'currency', currency: 'EUR' })}}</td>
 
 
   </tr>
 </table>
-<table>
-  <tr>
-  <th>id</th>
-  <th>anzahl</th>
-  </tr>
-  <tr *ngFor="let einzelteil of getEinzelteileOhnePreis()">
-    <td> {{einzelteil.einelteil_id}}</td>
-    <td> {{einzelteil.anzahl}}</td>
+</div>
 
-  </tr>
-</table>
