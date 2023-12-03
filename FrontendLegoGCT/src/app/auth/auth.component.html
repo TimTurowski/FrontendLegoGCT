@@ -1,16 +1,21 @@
-<div class="login">
-<form [formGroup]="authForm" (ngSubmit)="saveForm()">
-    <label>Username</label><br>
-    <input type="text" formControlName="username"/><br>
-    
-    <label>Password</label><br>
-    <input type="password" formControlName="password" /><br>
-    <button type="submit">
-        <span *ngIf="!registerMode">Login</span>
-        <span *ngIf="registerMode">Register</span>
-    </button>
-</form>
-<br>
-<span *ngIf="!registerMode" (click)="registerMode = true">Don't have an account? Register here.</span>
-<span *ngIf="registerMode" (click)="registerMode = false">Already have an account? Go to login.</span>
+<div class="sidedesign">
+    <div class="login">
+        <form [formGroup]="authForm" (ngSubmit)="saveForm()">
+            <label><p><strong>Benutzername:</strong></label><br>
+            <input class="benutzerInput" type="text" formControlName="username"/><br>
+            <br>
+            <label><p><strong>Passwort:</strong></p></label><br>
+            <input class="passwortInput" type="password" formControlName="password" /><br>
+            <br>
+            <br>
+            <button class="loginButton" type="submit">
+                <span *ngIf="!registerMode"><p class="loginText"><strong>Einloggen</strong></p></span>
+                <span *ngIf="registerMode"><p class="loginText"><strong>Registrieren</strong></p></span>
+            </button>
+        </form>
+    <br>
+    <br>
+    <span *ngIf="!registerMode" (click)="registerMode = true">Kostenlos<p class="underline">registrieren!</p></span>
+    <span *ngIf="registerMode" (click)="registerMode = false">Sie haben bereits einen Account?<p class="underline">Hier</p>  geht's zum Login.</span>
+    </div>
 </div>

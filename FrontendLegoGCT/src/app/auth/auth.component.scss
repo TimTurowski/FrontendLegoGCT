@@ -1,4 +1,57 @@
 .login{
-    margin-left: 50%; 
-    margin-top: 200px; 
+    text-align: center;
+    z-index: 3;
+    font-size: 130%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    padding: 10%;
 }
+
+.sidedesign{
+   
+    margin-left: 195%;
+    margin-top: 80%;
+    
+    height: 580px;
+    width: 500px;
+    overflow-wrap: break-word;
+    font-size: 16px;
+    text-align: center;
+    font-family: var(--font-family);
+    letter-spacing: var(--letter-spacing);
+    color: var(--color-text);
+    background: var(--color-bg);
+    border-radius: var(--border-radius);
+    padding: 1% 12%;
+    box-shadow: var(--box-shadow);  
+    
+}
+
+.benutzerInput{
+    height: 50px;
+    width: 350px;
+    border-radius: 18px;
+}
+
+.passwortInput{
+    height: 50px;
+    width: 350px;
+    border-radius: 18px;
+}
+ .loginButton{
+    width: 350px;
+    height: 50px;
+    border-radius: 18px;
+} 
+
+.loginText{
+    font-size: 20px;
+}
+
+.underline{
+    text-decoration: underline;
+}
+
