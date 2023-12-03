@@ -36,8 +36,8 @@ constructor(private http: HttpClient, private router: Router, private datenServi
     console.log(this.eingabeWert);
     // return this.http.get("http://192.168.198.47:8000/eingabe/?id="+ this.eingabeWert, {headers:this.apiService.getAuthHeaders()});
 
-    return this.http.get(this.apiurl + "/eingabe/?id="+ this.eingabeWert, {headers:this.apiService.getAuthHeaders()});
-    // return this.http.get("https://raw.githubusercontent.com/HannesScherer/DarkProjekt-master-main/main/10316.json");
+    // return this.http.get(this.apiurl + "/eingabe/?id="+ this.eingabeWert, {headers:this.apiService.getAuthHeaders()});
+    return this.http.get("https://raw.githubusercontent.com/HannesScherer/DarkProjekt-master-main/main/10320.json");
   }
 
   //gibt die Json zurück mit den Suchvorschlägen zur aktuellen Eingabe
