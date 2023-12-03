@@ -11,7 +11,7 @@
     padding:0;
 }
 :root {
-    --color-bg: rgb(230, 230, 255, 0.466);
+    --color-bg: rgb(230, 230, 255, 0.9);
     --color-text: #333333;
     --color-menu: rgb(230, 230, 255);
     --color-label: #333333;
@@ -27,6 +27,8 @@
     --bg-image: url("./assets/taube2k.png");
     --bg-image-suche: url("./assets/graupink.png");
     --color-pricing:rgb(197, 159, 227);
+    --border-radius: 3%;
+    --box-shadow: 1px 1px 20px 1px #000;
 }
 [dark-theme="dark"] {
     --color-bg:#333333;
