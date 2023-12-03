@@ -62,17 +62,7 @@ export class Shop {
 }
 
 export class Einzelteil {
-  get beschreibung(): string {
-    return this._beschreibung;
-  }
 
-  get kategorie(): string {
-    return this._kategorie;
-  }
-
-  get farbe(): string {
-    return this._farbe;
-  }
 
     public _einelteil_id:string;
     private _preis:number;
@@ -107,5 +97,16 @@ export class Einzelteil {
 
     get einzelteil_url(): string {
         return this._einzelteil_url;
+    }
+    get beschreibung(): string {
+      return this._beschreibung;
+    }
+
+    get kategorie(): string {
+      return this._kategorie;
+    }
+
+    get farbe(): string {
+      return this._farbe;
     }
 }
