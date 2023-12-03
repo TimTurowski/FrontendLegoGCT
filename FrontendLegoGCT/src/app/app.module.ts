@@ -5,7 +5,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-
 import { SucheModule } from './suche/suche.module';
 import { ListeModule } from './liste/liste.module';
 import { ListeComponent } from './liste/liste.component';
@@ -18,16 +17,19 @@ import { EinzelteileAnzeigenComponent } from './suche/ergebnis/einzelteile-anzei
 import { AuthComponent } from './auth/auth.component';
 import { CommonModule} from "@angular/common";
 import { OverlayModule } from "@angular/cdk/overlay";
+import { RechtlichesComponent } from './rechtliches/rechtliches.component';
 
 
-const routes: Routes = [
+export const routes: Routes = [
   {path: '', redirectTo: 'suche', pathMatch: 'full'},
   {path: 'liste', component: ListeComponent},
   {path: 'suche', component: SucheComponent},
   {path: 'impressum', component: ImpressumComponent},
   {path: 'suche/ergebnis', component: ErgebnisComponent},
   {path: 'suche/ergebnis/einzelteile-anzeigen', component: EinzelteileAnzeigenComponent},
-  {path: 'auth', component: AuthComponent}
+  {path: 'login', component: AuthComponent},
+  {path: 'rechtliches', component: RechtlichesComponent}
+
 ];
 
 @NgModule({
@@ -36,7 +38,8 @@ const routes: Routes = [
     HeaderComponent,
     FooterComponent,
     ImpressumComponent,
-    AuthComponent
+    AuthComponent,
+    RechtlichesComponent
   ],
   imports: [
     BrowserModule,
