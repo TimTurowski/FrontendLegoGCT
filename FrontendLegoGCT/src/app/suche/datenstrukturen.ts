@@ -62,21 +62,38 @@ export class Shop {
 }
 
 export class Einzelteil {
+  get beschreibung(): string {
+    return this._beschreibung;
+  }
+
+  get kategorie(): string {
+    return this._kategorie;
+  }
+
+  get farbe(): string {
+    return this._farbe;
+  }
 
     public _einelteil_id:string;
     private _preis:number;
     private _anzahl:number;
     private _einzelteil_url:string;
-
-    constructor(einelteil_id: string, preis: number, anzahl: number, einzelteil_url: string) {
-        this._einelteil_id = einelteil_id;
-        this._preis = preis;
-        this._anzahl = anzahl;
-        this._einzelteil_url = einzelteil_url;
-    }
+    private _beschreibung:string;
+    private _kategorie:string;
+    private _farbe:string;
 
 
-    get einelteil_id(): string {
+  constructor(einelteil_id: string, preis: number, anzahl: number, einzelteil_url: string, beschreibung: string, kategorie: string, farbe: string) {
+    this._einelteil_id = einelteil_id;
+    this._preis = preis;
+    this._anzahl = anzahl;
+    this._einzelteil_url = einzelteil_url;
+    this._beschreibung = beschreibung;
+    this._kategorie = kategorie;
+    this._farbe = farbe;
+  }
+
+  get einelteil_id(): string {
         return this._einelteil_id;
     }
 

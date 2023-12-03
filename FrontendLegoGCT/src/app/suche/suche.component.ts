@@ -22,7 +22,7 @@ export class SucheComponent implements OnInit{
   legoSetMap = new Map<string, any>();
   //Url für die Django Api
   //http://192.168.198.47:8000 http://localhost:8000
-  readonly apiurl ="http://192.168.198.47:8000";
+  readonly apiurl ="http://localhost:8000";
   eingabeWert:string ='';
   lego_set:LegoSet = new LegoSet("null","null",1,[]);
 
@@ -168,7 +168,7 @@ constructor(private http: HttpClient, private router: Router, private datenServi
   jsonVerarbeiter(data: any): void {
     const lego_einzelteile:Einzelteil[] = [];
     data[1].parts.forEach((item:any) => {
-      const einzelteil:Einzelteil = new Einzelteil(item.einzelteil_id,item.preis,item.anzahl, item.url);
+      const einzelteil:Einzelteil = new Einzelteil(item.einzelteil_id,item.preis,item.anzahl, item.url, "","","");
       lego_einzelteile.push(einzelteil);
     })
     const lego_shop:Shop = new Shop(data[1].shop_name, data[1].shop_url, lego_einzelteile);
@@ -176,7 +176,7 @@ constructor(private http: HttpClient, private router: Router, private datenServi
 
     const toypro_einzelteile:Einzelteil[] = [];
     data[2].parts.forEach((item:any) => {
-      const einzelteil:Einzelteil = new Einzelteil(item.einzelteil_id,item.preis,item.anzahl, item.url);
+      const einzelteil:Einzelteil = new Einzelteil(item.einzelteil_id,item.preis,item.anzahl, item.url, "","","");
       toypro_einzelteile.push(einzelteil);
     })
     const toypro_shop:Shop = new Shop(data[2].shop_name, data[2].shop_url, toypro_einzelteile);
@@ -184,7 +184,7 @@ constructor(private http: HttpClient, private router: Router, private datenServi
 
     const bricklink_einzelteile:Einzelteil[] = [];
     data[3].parts.forEach((item:any) => {
-      const einzelteil:Einzelteil = new Einzelteil(item.einzelteil_id,item.preis,item.anzahl, item.url);
+      const einzelteil:Einzelteil = new Einzelteil(item.einzelteil_id,item.preis,item.anzahl, item.url,"","","");
       bricklink_einzelteile.push(einzelteil);
     })
     this.img = data[4].set_bild;
