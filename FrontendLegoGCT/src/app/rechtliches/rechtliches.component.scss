@@ -1,0 +1,51 @@
+.sidedesign{
+    
+    position: relative;
+    margin-top: 5%;
+    margin-left: 15%;
+    margin-right: 15%;
+    overflow-wrap: break-word;
+    font-size: 19px;
+    text-align: center;
+    font-family: var(--font-family);
+    letter-spacing: var(--letter-spacing);
+    color: var(--color-text);
+    background: rgb(230, 230, 255, 0.9);
+    
+    border-radius: var(--border-radius);
+    padding: 2% 10% 2% 10%;
+    box-shadow: var(--box-shadow);
+}
+
+.rechtliches{
+    position: relative;
+    width: 300px;
+    margin-top: 10%;
+    margin-left: 30%;
+    margin-right: 30%;
+    overflow-wrap: break-word;
+    text-align: center;
+    font-family: var(--font-family);
+    letter-spacing: var(--letter-spacing);
+    color: var(--color-text);
+    background: rgb(230, 230, 255, 0.9);
+    border-radius: 1%;
+    padding: 1% 12%;  
+}
+
+#Urheberrecht {
+    text-align: center;
+    z-index: 3;
+    flex-direction: row;
+}
+#Datenschutz {
+    text-align: center;
+    z-index: 3;
+    flex-direction: row;
+    
+}
+#Haftung {
+    text-align: center;
+    z-index: 3;
+    flex-direction: row;
+}

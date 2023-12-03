@@ -1,18 +1,20 @@
-.wrappercenter{
+.sidedesign{
+   
+    margin-left: 195%;
+    margin-top: 80%;
     
-    float:none;
-    top:50%;
-    left:50%;
-    padding: 1px;
-    transform: translate(-50%,-50%);
-    z-index: 2;
-    background-color: var(--color-bg);
-    color: var(--color-text);
-    font-family: var(--font);
-    border-color: var(--color-border);
+    height: 300px;
+    width: 500px;
+    overflow-wrap: break-word;
+    font-size: 16px;
+    text-align: center;
+    font-family: var(--font-family);
     letter-spacing: var(--letter-spacing);
-    background: transparent;
-    
+    color: var(--color-text);
+    background: var(--color-bg);
+    border-radius: var(--border-radius);
+    padding: 1% 12%;
+    box-shadow: var(--box-shadow);    
 }
 
 #impressum {
