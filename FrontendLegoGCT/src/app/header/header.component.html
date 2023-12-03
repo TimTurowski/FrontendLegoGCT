@@ -1,30 +1,39 @@
-<div class="nav">
-    <div class="leftNav">
-    <div class="hamburger-menu">
-        <input id="menu__toggle" type="checkbox" />
-        <label class="menu__btn" for="menu__toggle">
-          <span></span>
-        </label>
-        <ul class="menu__box">
-          <li><a class="menu__item" href="suche">Home</a></li>
-          <li><a class="menu__item" href="liste">Meine Liste</a></li>
-          <li><a class="menu__item" href="impressum">Impressum</a></li>
+<div class="header">
+  <div class="nav">
+      <div class="leftNav">
+      <div class="hamburger-menu">
+          <input id="menu__toggle" type="checkbox" />
+          <label class="menu__btn" for="menu__toggle">
+            <span></span>
+          </label>
+          <ul class="menu__box">
+            <br>
+            <br>
+            <br>
+            <br>
+            <li><a class="menu__item" href="suche">Home</a></li>
+            <li><a class="menu__item" href="login">Login</a></li>
+            <li><a class="menu__item" href="register">Registrierung</a></li>
+            <li><a class="menu__item" href="liste">Meine Liste</a></li>
+            <li><a class="menu__item" href="impressum">Impressum</a></li>
+            <li><a class="menu__item" href="rechtliches">Rechtliches</a></li>
 
-        </ul>
+          </ul>
+        </div>
       </div>
-    </div>
-    </div>
-<div class="centerNav">
-  <img src="./assets/neuGCT.svg">
-</div>
-<div class="rightNav">
-  {{updatemode()}}
+      </div>
+  <div class="centerNav">
+    <img src="./assets/neuGCT.svg">
+  </div>
+  <div class="rightNav">
+    {{updatemode()}}
 
-  <a><div class="switch">
-         <input type="checkbox" class="switch__input" (click)="modetoggle()" id="Switch">
-        <label class="switch__label" for="Switch">
-            <span class="switch__indicator"></span>
-            <span class="switch__decoration"></span>
-        </label>
-      </div></a>
+    <a><div class="switch">
+          <input type="checkbox" class="switch__input" (click)="modetoggle()" id="Switch">
+          <label class="switch__label" for="Switch">
+              <span class="switch__indicator"></span>
+              <span class="switch__decoration"></span>
+          </label>
+        </div></a>
+  </div>
 </div>
