@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
-
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
@@ -18,6 +17,7 @@ import { AuthComponent } from './auth/auth.component';
 import { CommonModule} from "@angular/common";
 import { OverlayModule } from "@angular/cdk/overlay";
 import { RechtlichesComponent } from './rechtliches/rechtliches.component';
+import { RegistrierungComponent } from './registrierung/registrierung.component';
 
 
 export const routes: Routes = [
@@ -28,7 +28,8 @@ export const routes: Routes = [
   {path: 'suche/ergebnis', component: ErgebnisComponent},
   {path: 'suche/ergebnis/einzelteile-anzeigen', component: EinzelteileAnzeigenComponent},
   {path: 'login', component: AuthComponent},
-  {path: 'rechtliches', component: RechtlichesComponent}
+  {path: 'rechtliches', component: RechtlichesComponent},
+  {path: 'registrierung', component: RegistrierungComponent}
 
 ];
 
@@ -39,7 +40,8 @@ export const routes: Routes = [
     FooterComponent,
     ImpressumComponent,
     AuthComponent,
-    RechtlichesComponent
+    RechtlichesComponent,
+    RegistrierungComponent
   ],
   imports: [
     BrowserModule,
