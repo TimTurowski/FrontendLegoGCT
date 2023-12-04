@@ -2,11 +2,19 @@
 
   <div class="hcontainer">
     <h1 class="first"> Suchergebnis: {{getName()}} - {{getId()}}</h1>
-    <h3>Setpreis: {{getPreis().toLocaleString('de-DE', { style: 'currency', currency: 'EUR' })}}</h3>
+    <h3>Setpreis: {{getPreis()}}</h3>
     <br><br>
+
+    <br>
+
     <img src="data:image/jpg;base64,{{getImg()}}">
+    <input (click)="toggle_minfiguren_zeigen()" type="checkbox" id="besondereteile" name="besondereteile">
+    <label for="besondereteile">Minfiguren und andere Spezialteile berücksichtigen</label>
+
     <br><br>
+
   </div>
+
 </div>
 
 <div class="sitedesign">
@@ -24,7 +32,13 @@
 
         <li>Einzelteilpreis: {{getEinzelteilpreis(0)}}</li>
         <li>Einzelteile:{{getVerfuegbareEinzelteile(0)}}/{{getEinzelteilAnzahl()}} </li>
+        <li>Volständigkeit:{{getEinzelteilVolstaendigkeit(0).toFixed(2)}}%</li>
+        <li><progress id="shop1" value={{getEinzelteilVolstaendigkeit(0).toFixed(2)}} max="100"></progress></li>
+
       </ul>
+
+
+
       <button (click)="set_clicked_shop(0)">Einzelteile anzeigen</button>
       <app-einzelteile-anzeigen *ngIf="ist_geclickt[0]" [einzelteile]="getEinzelteileMitPreis(0)"></app-einzelteile-anzeigen>
       <button (click)="set_clicked_shop(3)">Fehlende Einzelteile anzeigen</button>
@@ -43,6 +57,10 @@
 
         <li>Einzelteilpreis: {{getEinzelteilpreis(1)}}</li>
         <li>Einzelteile:{{getVerfuegbareEinzelteile(1)}}/{{getEinzelteilAnzahl()}} </li>
+        <li>Volständigkeit:{{getEinzelteilVolstaendigkeit(1).toFixed(2)}}%</li>
+        <li><progress id="shop2" value={{getEinzelteilVolstaendigkeit(1).toFixed(2)}} max="100"></progress></li>
+
+
       </ul>
       <button (click)="set_clicked_shop(1)">Einzelteile anzeigen</button>
       <app-einzelteile-anzeigen *ngIf="ist_geclickt[1]" [einzelteile]="getEinzelteileMitPreis(1)"></app-einzelteile-anzeigen>
@@ -59,6 +77,9 @@
 
         <li>Einzelteilpreis: {{getEinzelteilpreis(2)}}</li>
         <li>Einzelteile:{{getVerfuegbareEinzelteile(2)}}/{{getEinzelteilAnzahl()}} </li>
+        <li>Volständigkeit:{{getEinzelteilVolstaendigkeit(2).toFixed(2)}}%</li>
+        <li><progress id="shop3" value={{getEinzelteilVolstaendigkeit(2).toFixed(2)}} max="100"></progress></li>
+
       </ul>
       <button (click)="set_clicked_shop(2)">Einzelteile anzeigen</button>
 

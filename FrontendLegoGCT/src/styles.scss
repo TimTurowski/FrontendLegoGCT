@@ -1,6 +1,10 @@
 @import "@angular/cdk/overlay-prebuilt.css";
 
-@import "@fontsource/gfs-didot";
+@import "@fontsource/roboto";
+@import "@fontsource/poppins";
+@import "@fontsource-variable/oswald";
+@import "@fontsource-variable/manrope";
+
 //@import "@coreui/coreui/scss/coreui";
 
 
@@ -20,8 +24,8 @@
     --line_color : #555555;
     --back_color : #FFECF6;
     --button_bg_color: #f1acac;
-    --font-family: 'GFS Didot', sans-serif;
-    --letter-spacing: 4px;
+  --font-family: 'Manrope Variable', sans-serif;
+  --letter-spacing: 1px;
     --color-objekt: rgba(230, 230, 255, 0.7);
     --color-navStab: rgb(43, 43, 43);
     --bg-image: url("./assets/taube2k.png");
@@ -36,7 +40,7 @@
     --color-label: #ffffe6;
     --color-border:#ffffe6;
     --color-sidenav: rgba(204, 204, 204, 0.466);
-    --font-family:'GFS Didot', sans-serif;
+    --font-family: 'Poppins', sans-serif;
     --line_color : #ffffe6;
     --back_color : #FFECF6;
     --button_bg_color: #333333;
