@@ -110,3 +110,26 @@ export class Einzelteil {
       return this._farbe;
     }
 }
+export class VorschlagElement {
+  private _set_name:string;
+  private _set_id:string;
+  private _set_bild:string;
+  constructor(set_name: string, set_id: string, set_bild: string) {
+    this._set_name = set_name;
+    this._set_id = set_id;
+    this._set_bild = set_bild;
+  }
+
+
+  get set_name(): string {
+    return this._set_name;
+  }
+
+  get set_id(): string {
+    return this._set_id;
+  }
+
+  get set_bild(): string {
+    return this._set_bild;
+  }
+}

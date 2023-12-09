@@ -10,7 +10,7 @@ export class ApiService {
   movies = ['Terminator', 'dasmas'];
 
   // http://192.168.198.47:8000  http://127.0.0.1:8000/
-  baseUrl = 'http://192.168.198.47:8000/';
+  baseUrl = 'http://127.0.0.1:8000/';
   baseMovieUrl = `${this.baseUrl}verlauf`;
   token = this.cookieService.get('mr-token');
 //__________
@@ -41,7 +41,7 @@ export class ApiService {
 
   registerUser(authData: any) {
     const body = JSON.stringify(authData);
-    return this.httpClient.post(`${this.baseUrl}api/users/`, body, {headers: this.headers});
+    return this.httpClient.post(`${this.baseUrl}register/`, body, {headers: this.headers});
   }
 
   getAuthHeaders(){

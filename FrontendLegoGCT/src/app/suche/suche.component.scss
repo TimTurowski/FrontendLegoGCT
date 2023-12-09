@@ -18,7 +18,8 @@
 
 }
 #suchleiste {
-    text-align: center;
+
+  text-align: center;
     z-index: 3;
     font-size: 130%;
     display: flex;
@@ -292,21 +293,21 @@
     100% { width : 124px ; }
 }
 
-.vorschlaege {
-  z-index: 5;
-  font-size : 20px ;
-  margin-left: auto;
-  margin-right: auto;
-  //background: var(--color-objekt);
-  background-image: linear-gradient(to right, white,white , var(--color-objekt));;
-  width: 70%;
-  position: relative;
-  border-spacing: 0;
-  border-collapse: separate;
-  border-radius: 10px;
-  align-items: center;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
-}
+//.vorschlaege {
+//  z-index: 5;
+//  font-size : 20px ;
+//  margin-left: auto;
+//  margin-right: auto;
+//  //background: var(--color-objekt);
+//  background-image: linear-gradient(to right, white,white , var(--color-objekt));;
+//  width: 70%;
+//  position: relative;
+//  border-spacing: 0;
+//  border-collapse: separate;
+//  border-radius: 10px;
+//  align-items: center;
+//  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+//
+//}
 
 
