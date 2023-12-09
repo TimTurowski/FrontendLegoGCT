@@ -7,11 +7,14 @@ import {Router} from "@angular/router";
   styleUrls: ['./ansicht.component.scss']
 })
 export class AnsichtComponent implements OnInit {
+
   @Input() legoSets = [];
   @Output() deletedSet = new EventEmitter();
   @Output() selectLegoSet = new EventEmitter();
+  private _lastdate: string = "";
 
-    constructor(private router: Router){
+
+  constructor(private router: Router){
 
   }
 
@@ -25,6 +28,21 @@ export class AnsichtComponent implements OnInit {
   neueSuche() {
       this.router.navigate(['suche']);
   }
+  setlastdate(value: string) {
+        this._lastdate = value;
+    }
+
+  getDay(date_string:string) {
+    const date = new Date(date_string);
+      return date.getDate()+"."+ date.getMonth()+"." + date.getFullYear();
+  }
+  isNewDay(date_string:string) {
+    let date:Date = new Date(date_string);
+
+    return date.getDate() != new Date(this._lastdate).getDate();
+
+  }
+
 
   protected readonly console = console;
 }
