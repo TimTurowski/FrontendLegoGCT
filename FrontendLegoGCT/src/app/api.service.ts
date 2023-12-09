@@ -44,6 +44,7 @@ export class ApiService {
     return this.httpClient.post(`${this.baseUrl}register/`, body, {headers: this.headers});
   }
 
+
   getAuthHeaders(){
     const token = this.cookieService.get('mr-token');
     return new HttpHeaders({

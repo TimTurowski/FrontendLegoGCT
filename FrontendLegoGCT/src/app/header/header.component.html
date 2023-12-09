@@ -28,7 +28,11 @@
   <div class="rightNav">
     {{updatemode()}}
 
-    <a><div class="switch">
+      <a *ngIf="!auth.isUserLoggedin()" href="login">Login</a>
+      <a *ngIf="auth.isUserLoggedin()" href="login" (click)="auth.logoutUser()">Logout</a>
+
+
+      <a><div class="switch">
           <input type="checkbox" class="switch__input" (click)="modetoggle()" id="Switch">
           <label class="switch__label" for="Switch">
               <span class="switch__indicator"></span>

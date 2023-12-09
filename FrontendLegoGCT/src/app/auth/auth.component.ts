@@ -1,4 +1,4 @@
-import { Component,OnInit } from '@angular/core';
+import {Component, Injectable, OnInit} from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { ApiService } from '../api.service';
 import { CookieService } from 'ngx-cookie-service';
@@ -9,10 +9,14 @@ interface tokenObj {
   token: string;
 }
 
+
 @Component({
   selector: 'app-auth',
   templateUrl: './auth.component.html',
   styleUrls: ['./auth.component.scss']
+})
+@Injectable({
+  providedIn: 'root'
 })
 export class AuthComponent implements OnInit {
 
@@ -57,6 +61,15 @@ export class AuthComponent implements OnInit {
       },
       error => console.log(error)
     );
+  }
+  logoutUser() {
+    this.cookieService.delete('mr-token');
+  }
+
+  isUserLoggedin() {
+    const mrToken = this.cookieService.get('mr-token');
+
+    return this.cookieService.check('mr-token');
   }
 
 }

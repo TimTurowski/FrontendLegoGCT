@@ -292,7 +292,11 @@
     0%   { width : 0 ; }
     100% { width : 124px ; }
 }
-
+app-ergebnis{
+  position: absolute;
+  top: 100%;
+  left: 50%;
+}
 //.vorschlaege {
 //  z-index: 5;
 //  font-size : 20px ;

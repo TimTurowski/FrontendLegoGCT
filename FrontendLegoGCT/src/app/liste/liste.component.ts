@@ -3,7 +3,7 @@ import { ApiService } from '../api.service';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import {SucheComponent} from "../suche/suche.component";
-import {LegoSet} from "../suche/datenstrukturen";
+import {LegoSet, Shop} from "../suche/datenstrukturen";
 
 @Component({
   selector: 'app-liste',
@@ -14,8 +14,7 @@ import {LegoSet} from "../suche/datenstrukturen";
 export class ListeComponent implements OnInit{
   legoSets = [];
   selectedLegoSet = null;
-  selectedLegoSetDetails:LegoSet =  new LegoSet("null","null",1,[]);
-
+  selectedLegoSetDetails:Shop[] =  [];
 
     constructor(
     private apiService: ApiService,
@@ -26,8 +25,9 @@ export class ListeComponent implements OnInit{
 
   ngOnInit() {
     const mrToken = this.cookieService.get('mr-token');
+
     if(!mrToken) {
-      this.router.navigate(['auth']);
+      this.router.navigate(['login']);
     } else {
       this.router.navigate(['liste']);
     }
@@ -55,18 +55,13 @@ export class ListeComponent implements OnInit{
   selectLegoSet(set: null) {
       this.selectedLegoSet = set;
       // @ts-ignore
-      // this.sucheLegoSet(this.selectedLegoSet["set_id"]);
+      this.suche.clickSuggestion(set["set_id"].concat('t'));
 
-      // this.selectedLegoSetDetails = this.suche.lego_set;
+      this.selectedLegoSetDetails = this.suche.getShops();
+      // @ts-ignore
+      console.log(this.selectedLegoSetDetails);
   }
-  sucheLegoSet(id: string) {
-      this.suche.eingabeWert = id;
-      // this.suche.pruefeEingabe();
 
-
-      // console.log(this.suche.lego_set.set_name);
-
-  }
 
   deleteSet(set: any) {
     this.apiService.deleteSet(set.such_id).subscribe(

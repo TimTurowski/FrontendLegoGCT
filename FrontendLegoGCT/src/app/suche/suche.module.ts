@@ -31,7 +31,8 @@ const routes: Routes = [
   ],
     exports: [
         RouterModule,
-        SucheComponent
+        SucheComponent,
+        ErgebnisComponent
     ]
 })
 export class SucheModule { }

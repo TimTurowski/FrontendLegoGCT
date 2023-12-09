@@ -5,6 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AnsichtComponent } from './ansicht/ansicht.component';
 import { DetailsComponent } from './details/details.component';
 import { ApiService } from '../api.service';
+import {SucheModule} from "../suche/suche.module";
 
 const routes: Routes = [
   {path: 'liste', component: ListeComponent}
@@ -18,7 +19,8 @@ const routes: Routes = [
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    SucheModule
   ],
   exports: [
     RouterModule

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {ApiService} from "../api.service";
+import {AuthComponent} from "../auth/auth.component";
 
 @Component({
   selector: 'app-header',
@@ -6,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  constructor(){}
+  constructor(auth:AuthComponent){
+      this.auth = auth;
+  }
 
   lightNav = './assets/BurgernavV4.svg';
   menuOpen = false;
@@ -16,6 +20,7 @@ export class HeaderComponent implements OnInit {
   linkedInLight = './assets/linkedin.svg';
   discordLight = './assets/discord-mark-black-kleiner.svg';
   backGround = './assets/backgroundDark.jpg';
+  auth:AuthComponent;
 
   toggleMenu() {
     this.menuOpen = !this.menuOpen;
@@ -62,6 +67,8 @@ export class HeaderComponent implements OnInit {
         this.discordLight = './assets/discord-mark-white.svg';
     }
   }
+
+
 
   ngOnInit() {}
 

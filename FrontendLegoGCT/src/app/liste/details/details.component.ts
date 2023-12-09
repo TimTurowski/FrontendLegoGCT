@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {ApiService} from "../../api.service";
 import {CookieService} from "ngx-cookie-service";
 import {Router} from "@angular/router";
+import {Shop} from "../../suche/datenstrukturen";
 
 @Component({
   selector: 'app-details',
@@ -10,7 +11,7 @@ import {Router} from "@angular/router";
 })
 export class DetailsComponent{
   @Input() legoSet: any;
-  @Input() legoSetDetails: any;
+  @Input() legoSetDetails: Shop[] = [];
   constructor(
     private apiService: ApiService,
 

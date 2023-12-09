@@ -6,22 +6,23 @@
     justify-self:start;
     align-self: start;
 
-    top: 210%;
-    margin-left: 50%;
-    margin-right: 40%;
+    //top: 210%;
+    margin-top: 5%;
+    //margin-left: 50%;
     transform: translate(-50%, -50%);
     font-family: var(--font-family);
     letter-spacing: var(--letter-spacing);
-    position: absolute;
+    position: relative;
 
 }
 .sitedesign2{
 
 
-    position: absolute;
-    top: 120%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    position: relative;
+    //margin-top: 60%;
+    margin-top: 10%;
+  width: 55%;
+  transform: translate(-50%, -50%);
     //padding-top: 50%;
     background-color: var(--color-bg);
     font-family: var(--font-family);

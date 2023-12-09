@@ -108,90 +108,10 @@ constructor(private http: HttpClient, private router: Router, private datenServi
               this.vorschlaege_bilder.set(item.set_id, parsed_data.set_bild);});
       }
     }
-  //   vorschlaege.forEach((item:VorschlagElement)=>{
-  //     if(!this.vorschlaege_geladen) {
-  //       break;
-  //     }
-  //
-  //     if(!this.vorschlaege_bilder.has(item.set_id)) {
-  //         this.getBild(item.set_id).subscribe(
-  //       data => {
-  //
-  //
-  //         const parsed_data = JSON.parse(JSON.stringify(data));
-  //         this.vorschlaege_bilder.set(item.set_id, parsed_data.set_bild);});
-  //     }
-  // });
-  }
-
-
-  //Methode zum Updaten der Vorschlagsliste
-  updateVorschlaege() {
-
-
-
-    // @ts-ignore
-    // const table = document.getElementById("vorschlaege");
-    //
-    //
-    // if (this.eingabeWert.length > 2 && isNaN(Number(this.eingabeWert))) {
-    //   this.isOpen = true;
-    //   this.getVorschlaege().subscribe(data => {
-    //
-    //     this.clearSuggestions();
-    //
-    //     const parsed_data = JSON.parse(JSON.stringify(data));
-    //     // @ts-ignore
-    //
-    //     for (let i = 0; i < Math.min(parsed_data.length, 5); i++) {
-    //
-    //       const tr = document.createElement("tr");
-    //       const td_button = document.createElement("td");
-    //
-    //       const img = document.createElement("img");
-    //       img.src = "data:image/jpg;base64," + parsed_data[i].set_bild;
-    //       img.width = 150;
-    //       img.height = 100;
-    //       img.setAttribute("style","margin-left:10px;");
-    //       img.className = "suggestion_img";
-    //
-    //       const set_button = document.createElement("a");
-    //       tr.appendChild(img);
-    //       set_button.addEventListener("click", () => {
-    //
-    //         this.clickSuggestion(parsed_data[i].set_id)
-    //       });
-    //
-    //       // set_button.className = "vorschlag_link";
-    //       set_button.innerHTML = parsed_data[i].set_id + " " + parsed_data[i].set_name;
-    //       td_button.appendChild(set_button)
-    //
-    //
-    //       tr.appendChild(td_button);
-    //       // @ts-ignore
-    //       table.appendChild(tr);
-    //     }
-    //
-    //   })
-    // } else {
-    //   this.clearSuggestions();
-    //   this.isOpen = false;
-    // }
-
 
   }
-  //löscht alle Vorschläge
-  clearSuggestions() {
 
 
-    const table = document.getElementById("vorschlaege");
-    // @ts-ignore
-    while (table.lastElementChild) {
-      // @ts-ignore
-      table.lastElementChild.remove();
-    }
-
-  }
 
 //methode zur ausführung einer Suche aus den Vorschlägen
   clickSuggestion(clicked_set: string) {

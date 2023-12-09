@@ -1,4 +1,7 @@
 <div *ngIf="legoSet">
   Suche ausgeführt am<h5>{{legoSet.date.toLocaleString("de-De")}}</h5>
+  <div style="overflow: auto">
+  <app-ergebnis [shops]="legoSetDetails"></app-ergebnis>
 
+  </div>
 </div>
