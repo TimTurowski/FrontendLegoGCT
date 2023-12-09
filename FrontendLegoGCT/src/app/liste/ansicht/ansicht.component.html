@@ -1,11 +1,19 @@
 <div class="ansicht_wrapper">
 <table>
-  <tr *ngFor="let set of legoSets">
+  <div *ngFor="let set of legoSets">
+  <tr *ngIf="isNewDay(set['date'])">
+    <td><b><u>{{getDay(set['date'])}}</u></b></td>
+  </tr>
+  <tr>
   <td (click)="legoSetClicked(set)">{{set['set_id']}} {{set['set_name']}}</td>
     <td>
       <button (click)="deleteSet(set)">Löschen</button>
     </td>
   </tr>
+    {{setlastdate(set['date'])}}
+  </div>
+
+
 </table>
 <button (click)="neueSuche()">Neue Suche Starten</button>
 </div>
