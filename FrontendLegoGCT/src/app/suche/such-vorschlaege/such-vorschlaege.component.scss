@@ -1,0 +1,16 @@
+.vorschlaege {
+  table-layout:fixed;
+  z-index: 5;
+  font-size : 20px ;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: Poppins;
+  background-image: linear-gradient(to right, white,white , var(--color-objekt));;
+  position: relative;
+  border-spacing: 0;
+  border-collapse: separate;
+  border-radius: 10px;
+  align-items: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}

@@ -7,6 +7,7 @@
     <th>Beschreibung</th>
     <th>Kategorie</th>
     <th>Farbe</th>
+    <th>Verfügbar bei</th>
   </tr>
   <tr *ngFor="let einzelteil of einzelteile">
     <td> {{einzelteil.einelteil_id}}</td>
@@ -14,6 +15,7 @@
     <td> {{einzelteil.beschreibung}}</td>
     <td> {{einzelteil.kategorie}}</td>
     <td> {{einzelteil.farbe}}</td>
+    <td> {{andereShops(einzelteil.einelteil_id)}}</td>
 
   </tr>
 </table>
