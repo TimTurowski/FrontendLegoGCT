@@ -29,7 +29,8 @@ export const routes: Routes = [
   {path: 'suche/ergebnis', component: ErgebnisComponent},
   {path: 'suche/ergebnis/einzelteile-anzeigen', component: EinzelteileAnzeigenComponent},
   {path: 'login', component: AuthComponent},
-  {path: 'rechtliches', component: RechtlichesComponent}
+  {path: 'rechtliches', component: RechtlichesComponent},
+  {path: 'registrierung', component: RegistrierungComponent}
 
 ];
 
