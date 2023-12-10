@@ -1,7 +1,11 @@
 <div *ngIf="legoSet">
-  Suche ausgeführt am<h5>{{legoSet.date.toLocaleString("de-De")}}</h5>
-  <div style="overflow: auto">
-  <app-ergebnis [shops]="legoSetDetails"></app-ergebnis>
 
-  </div>
+<!--  <app-ergebnis [shops]="legoSetDetails"></app-ergebnis>-->
+      <h2>{{legoSet.set_id}} {{legoSet.set_name}}</h2>
+    <img src="data:image/jpg;base64,{{getSetBild(legoSet.set_id)}}" style="border-radius: 10px">
+    <br>
+    <p> Suche ausgeführt am {{getSucheDate(legoSet.date)}}
+    um {{getSucheTime(legoSet.date)}}
+    </p>
+
 </div>
