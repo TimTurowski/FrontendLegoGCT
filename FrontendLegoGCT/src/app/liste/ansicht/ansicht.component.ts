@@ -42,6 +42,7 @@ export class AnsichtComponent implements OnInit {
     return date.getDate() != new Date(this._lastdate).getDate();
 
   }
+  
 
 
   protected readonly console = console;

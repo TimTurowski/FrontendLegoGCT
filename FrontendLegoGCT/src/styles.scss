@@ -24,8 +24,8 @@
     --line_color : #555555;
     --back_color : #FFECF6;
     --button_bg_color: #f1acac;
-  --font-family: 'Manrope Variable', sans-serif;
-  --letter-spacing: 1px;
+    --font-family: 'Manrope Variable', sans-serif;
+    --letter-spacing: 1px;
     --color-objekt: rgba(230, 230, 255, 0.7);
     --color-navStab: rgb(43, 43, 43);
     --bg-image: url("./assets/taube2k.png");
@@ -33,6 +33,8 @@
     --color-pricing:rgb(197, 159, 227);
     --border-radius: 3%;
     --box-shadow: 1px 1px 20px 1px #000;
+    --button-hover-colour: pink;
+    --button-click-colour: purple;
 }
 [dark-theme="dark"] {
     --color-bg:#333333;

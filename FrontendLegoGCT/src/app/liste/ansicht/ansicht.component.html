@@ -1,17 +1,27 @@
 <div class="ansicht_wrapper">
-<table>
-  <div *ngFor="let set of legoSets">
+<table class="kompletteListe">
+  <th class="zeileSuchverlauf"><p class="textSuchverlauf">Mein Suchverlauf:</p></th>
+  <br>
+  <br>
+  <div class="listenEintraege" *ngFor="let set of legoSets">
+   <br>
   <tr *ngIf="isNewDay(set['date'])">
-    <td><b><u>{{getDay(set['date'])}}</u></b></td>
+    <th class="datumsEintraege" colspan="2"><b><u>{{getDay(set['date'])}}</u></b></th>
+    <input type="checkbox" name="datum" id="datum" data-toggle="toggle">
   </tr>
+ <tbody class="hide">
   <tr>
-  <td (click)="legoSetClicked(set)">{{set['set_id']}} {{set['set_name']}}</td>
-    <td>
-      <button (click)="deleteSet(set)">Löschen</button>
+    <td class="setEintraege" (click)="legoSetClicked(set)">{{set['set_id']}} {{set['set_name']}}</td>
+    <td class="deleteEintraege">
+      <button class="deleteButton" (click)="deleteSet(set)">Löschen</button>
     </td>
   </tr>
+</tbody>
+  <br>
+  <br>
     {{setlastdate(set['date'])}}
   </div>
+  
 
 
 </table>
