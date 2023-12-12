@@ -16,10 +16,12 @@ export class SuchVorschlaegeComponent {
   @Input()bilder:Map<string, string> = new Map();
 
   getBild(set_id:string):string{
-    let bild:string = " ";
+    let bild:string = "./assets/placeholder-image.png";
     if(this.bilder.has(set_id)) {
       // @ts-ignore
-      bild = this.bilder.get(set_id);
+        if (this.bilder.get(set_id) != " ") {
+        bild = "data:image/jpg;base64," + this.bilder.get(set_id);
+        }
     }
     return bild;
   }

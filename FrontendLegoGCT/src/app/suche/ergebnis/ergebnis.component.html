@@ -7,8 +7,8 @@
 
         <br>
 
-        <img src="data:image/jpg;base64,{{getImg()}}">
-      <br>
+        <img class="setimage" src="{{getImg()}}">
+        <br>
         <input (click)="toggle_minfiguren_zeigen()" type="checkbox" id="besondereteile" name="besondereteile">
         <label for="besondereteile">Minfiguren und andere Spezialteile berücksichtigen</label>
 
@@ -20,13 +20,15 @@
 
 <div class="sitedesign">
 
-    <div class="tablerow">
+    <div id="tablerow">
 
-        <div class="tablecol">
+        <div class="tablecol" id="left">
 
-            <h3> {{getShopName1()}} <span>
-        <br>
-        <a href="{{getShopUrl1()}}">zum Shop</a></span></h3>
+            <h3><b> {{getShopName1()}} </b><span>
+        <br></span></h3>
+            <div class="legoBild">
+                <a href="{{getShopUrl1()}}"><img [src]=legoBild></a>
+            </div>
             <br><br><br>
 
             <ul>
@@ -34,30 +36,44 @@
                 <li>Einzelteilpreis: {{getEinzelteilpreis(0)}}</li>
                 <li>Einzelteile:{{getVerfuegbareEinzelteile(0)}}/{{getEinzelteilAnzahl()}} </li>
                 <li>Volständigkeit:{{getEinzelteilVolstaendigkeit(0).toFixed(2)}}%</li>
+
                 <li>
-                    <progress id="shop1" value={{getEinzelteilVolstaendigkeit(0).toFixed(2)}} max="100"></progress>
+                    <div class="containerP">
+                        <div class="progressbar">
+                            <svg class="progressbar__svg">
+                                <circle cx="80" cy="80" r="70" class="progressbar__svg-circle circle-html shadow-html"
+                                        style="{{getProgressAttribut(0)}}"></circle>
+                            </svg>
+                            <span class="progressbar__text shadow-html">{{getEinzelteilVolstaendigkeit(0).toFixed(2)}}%</span>
+                        </div>
+                    </div>
                 </li>
 
             </ul>
 
 
             <button (click)="set_clicked_shop(0)">Einzelteile anzeigen</button>
-            <app-einzelteile-anzeigen *ngIf="ist_geclickt[0]"
-                                      [einzelteile]="getEinzelteileMitPreis(0)"></app-einzelteile-anzeigen>
+            <div class="insidetable">
+                <app-einzelteile-anzeigen *ngIf="ist_geclickt[0]"
+                                          [einzelteile]="getEinzelteileMitPreis(0)"></app-einzelteile-anzeigen>
+            </div>
+
             <button (click)="set_clicked_shop(3)">Fehlende Einzelteile anzeigen</button>
+            <div class="insidetable">
+                <app-fehlende-einzelteile-anzeigen *ngIf="ist_geclickt[3]" [einzelteile]="getEinzelteileOhnePreis(0)"
+                                                   [shop_id]="0" [einzelteile_toypro]="getEinzelteileMitPreis(1)"
+                                                   [einzelteile_bricklink]="getEinzelteileMitPreis(2)">
 
-            <app-fehlende-einzelteile-anzeigen *ngIf="ist_geclickt[3]" [einzelteile]="getEinzelteileOhnePreis(0)"
-                                               [shop_id]="0" [einzelteile_toypro]="getEinzelteileMitPreis(1)"
-                                               [einzelteile_bricklink]="getEinzelteileMitPreis(2)">
-
-            </app-fehlende-einzelteile-anzeigen>
-
+                </app-fehlende-einzelteile-anzeigen>
+            </div>
 
         </div>
-        <div class="tablecol">
-            <h3>{{getShopName2()}} <span>
-        <br>
-        <a href="{{getShopUrl2()}}">zum Shop</a></span></h3>
+        <div class="tablecol" id="center">
+            <h3><b>{{getShopName2()}}</b> <span>
+        <br></span></h3>
+            <div class="toyProBild">
+                <a href="{{getShopUrl2()}}"><img [src]="toyProBild"></a>
+            </div>
             <br><br><br>
 
             <ul>
@@ -66,49 +82,72 @@
                 <li>Einzelteile:{{getVerfuegbareEinzelteile(1)}}/{{getEinzelteilAnzahl()}} </li>
                 <li>Volständigkeit:{{getEinzelteilVolstaendigkeit(1).toFixed(2)}}%</li>
                 <li>
-                    <progress id="shop2" value={{getEinzelteilVolstaendigkeit(1).toFixed(2)}} max="100"></progress>
+                    <div class="containerP">
+                        <div class="progressbar">
+                            <svg class="progressbar__svg">
+                                <circle cx="80" cy="80" r="70" class="progressbar__svg-circle circle-html shadow-html"
+                                        style="{{getProgressAttribut(1)}}"> </circle>
+                            </svg>
+                            <span class="progressbar__text shadow-html">{{getEinzelteilVolstaendigkeit(1).toFixed(2)}}%</span>
+                        </div>
+                    </div>
                 </li>
 
 
             </ul>
             <button (click)="set_clicked_shop(1)">Einzelteile anzeigen</button>
-            <app-einzelteile-anzeigen *ngIf="ist_geclickt[1]"
-                                      [einzelteile]="getEinzelteileMitPreis(1)"></app-einzelteile-anzeigen>
+            <div class="insidetable">
+                <app-einzelteile-anzeigen *ngIf="ist_geclickt[1]"
+                                          [einzelteile]="getEinzelteileMitPreis(1)"></app-einzelteile-anzeigen>
+            </div>
             <button (click)="set_clicked_shop(4)">Fehlende Einzelteile anzeigen</button>
-            <app-fehlende-einzelteile-anzeigen *ngIf="ist_geclickt[4]" [einzelteile]="getEinzelteileOhnePreis(1)"
-                                               [shop_id]="1" [einzelteile_lego]="getEinzelteileMitPreis(0)"
-                                               [einzelteile_bricklink]="getEinzelteileMitPreis(2)">
-            </app-fehlende-einzelteile-anzeigen>
-
+            <div class="insidetable">
+                <app-fehlende-einzelteile-anzeigen *ngIf="ist_geclickt[4]" [einzelteile]="getEinzelteileOhnePreis(1)"
+                                                   [shop_id]="1" [einzelteile_lego]="getEinzelteileMitPreis(0)"
+                                                   [einzelteile_bricklink]="getEinzelteileMitPreis(2)">
+                </app-fehlende-einzelteile-anzeigen>
+            </div>
         </div>
-        <div class="tablecol">
-            <h3>{{getShopName3()}} <span>
-        <br>
-        <a href="{{getShopUrl3()}}">zum Shop</a></span>
+        <div class="tablecol" id="right">
+            <h3><b>{{getShopName3()}} </b><span></span>
             </h3>
+            <br>
+            <div class="brickLinkBild">
+                <a href="{{getShopUrl3()}}"><img [src]=brickLink></a>
+            </div>
             <ul>
 
                 <li>Einzelteilpreis: {{getEinzelteilpreis(2)}}</li>
                 <li>Einzelteile:{{getVerfuegbareEinzelteile(2)}}/{{getEinzelteilAnzahl()}} </li>
                 <li>Volständigkeit:{{getEinzelteilVolstaendigkeit(2).toFixed(2)}}%</li>
                 <li>
-                    <progress id="shop3" value={{getEinzelteilVolstaendigkeit(2).toFixed(2)}} max="100"></progress>
+                    <div class="containerP">
+                        <div class="progressbar">
+                            <svg class="progressbar__svg">
+                                <circle cx="80" cy="80" r="70" class="progressbar__svg-circle circle-html shadow-html"
+                                        style="{{getProgressAttribut(2)}}"></circle>
+                            </svg>
+                            <span class="progressbar__text shadow-html">{{getEinzelteilVolstaendigkeit(2).toFixed(2)}}%</span>
+                        </div>
+                    </div>
                 </li>
 
             </ul>
             <button (click)="set_clicked_shop(2)">Einzelteile anzeigen</button>
-
-            <app-einzelteile-anzeigen *ngIf="ist_geclickt[2]"
-                                      [einzelteile]="getEinzelteileMitPreis(2)"></app-einzelteile-anzeigen>
+            <div class="insidetable">
+                <app-einzelteile-anzeigen *ngIf="ist_geclickt[2]"
+                                          [einzelteile]="getEinzelteileMitPreis(2)"></app-einzelteile-anzeigen>
+            </div>
             <button (click)="set_clicked_shop(5)">Fehlende Einzelteile anzeigen</button>
 
-            <app-fehlende-einzelteile-anzeigen *ngIf="ist_geclickt[5]"
-                                               [einzelteile]="getEinzelteileOhnePreis(2)"
-                                               [shop_id]="2" [einzelteile_lego]="getEinzelteileMitPreis(0)"
-                                               [einzelteile_toypro]="getEinzelteileMitPreis(1)">
+            <div class="insidetable">
+                <app-fehlende-einzelteile-anzeigen *ngIf="ist_geclickt[5]"
+                                                   [einzelteile]="getEinzelteileOhnePreis(2)"
+                                                   [shop_id]="2" [einzelteile_lego]="getEinzelteileMitPreis(0)"
+                                                   [einzelteile_toypro]="getEinzelteileMitPreis(1)">
 
-            </app-fehlende-einzelteile-anzeigen>
-
+                </app-fehlende-einzelteile-anzeigen>
+            </div>
         </div>
     </div>
 

@@ -16,6 +16,9 @@ export class ErgebnisComponent implements OnInit {
   @Input()shops: Shop[] = []
   suchanfrage: string = '';
   suchergebnis: any;
+  legoBild = './assets/LEGO_logo.svg.png';
+  toyProBild = './assets/ToyPro.webp';
+  brickLink = './assets/BrickLink_logo-inverted.webp';
   url: string = '/assets/suchergebniss.json';
   /*shop 1(0,3)
     shop 2(1,4)
@@ -29,6 +32,7 @@ export class ErgebnisComponent implements OnInit {
 
   minfiguren_zeigen:boolean = false;
 
+  // alle Kategorien, welche als Minifigur Teil gefiltert werden
   filter_kategorien:Set<string> = new Set<string>(["Figure, Heads And Masks",
       "Figure Accessories, Upper And Lower Body",
       "Figure, Head Clothing",
@@ -51,6 +55,11 @@ export class ErgebnisComponent implements OnInit {
     });
 
   }
+
+  /**
+   * Methode zum Auswählen eines Shops
+   * @param id id des Shops 0: Lego; 1: Toypro; 2: Bricklink
+   */
   set_clicked_shop(id:number) {
 
     for(let i = 0; i < this.ist_geclickt.length; i++) {
@@ -65,18 +74,34 @@ export class ErgebnisComponent implements OnInit {
     this.clicked_shop = id;
   }
 
+  /**
+   * gibt bild des gesuchten Sets als Base64
+   */
   getImg() {
-    return this.suche.img;
+    let bild:string = "../assets/placeholder-image.png";
+    if(this.suche.img != undefined) {
+      bild = "data:image/jpg;base64," + this.suche.img;
+    }
+    return bild;
   }
 
+  /**
+   * gibt namen des gesuchten Sets
+   */
   getName() {
     return this.suche.lego_set.set_name;
   }
 
+  /**
+   * gibt die ID des gesuchten Sets
+   */
   getId() {
     return this.suche.lego_set.set_id;
   }
 
+  /**
+   * gibt den Preis des Gescuhten Sets
+   */
   getPreis() {
     let setPreis:string ="Nicht Verfügbar";
     if(this.suche.lego_set.preis!= null) {
@@ -118,6 +143,10 @@ export class ErgebnisComponent implements OnInit {
 
   }
 
+
+  /**
+   * ändert den Modus ob Minifigurenteile angezeigt werden
+   */
   toggle_minfiguren_zeigen() {
     this.minfiguren_zeigen = !this.minfiguren_zeigen;
     if(this.minfiguren_zeigen){
@@ -143,6 +172,9 @@ export class ErgebnisComponent implements OnInit {
   }
 
 
+  /**
+   * Methode zur Ausgabe der Einzelteilanzahl
+   */
   getEinzelteilAnzahl():number {
     let einzelteil_anzahl = 0;
     for(let i = 0; i < this.suche.lego_set.shops[0].einzelteile.length;  i++) {
@@ -153,6 +185,10 @@ export class ErgebnisComponent implements OnInit {
     return einzelteil_anzahl;
   }
 
+  /**
+   * gibt den Gesammtpreis der Einzelteile aus
+   * @param shop_id id des Shops 0: Lego; 1: Toypro; 2: Bricklink
+   */
   getEinzelteilpreis(shop_id:number): string{
 
     let preis: number = 0.0;
@@ -166,6 +202,11 @@ export class ErgebnisComponent implements OnInit {
     }
     return preis.toLocaleString('de-DE', { style: 'currency', currency: 'EUR' });
   }
+
+  /**
+   * gibt die Anzahl aller verfügbaren Einzelteile
+   * @param shop_id id des Shops 0: Lego; 1: Toypro; 2: Bricklink
+   */
   getVerfuegbareEinzelteile(shop_id:number):number {
     let einzelteil_anzahl = 0;
     for(let i = 0; i < this.suche.lego_set.shops[shop_id].einzelteile.length;  i++) {
@@ -177,6 +218,11 @@ export class ErgebnisComponent implements OnInit {
     return einzelteil_anzahl;
 
   }
+
+  /**
+   * gibt eine Liste mit allen verfügbaren Einzelteilen
+   * @param shop_id id des Shops 0: Lego; 1: Toypro; 2: Bricklink
+   */
   getEinzelteileMitPreis(shop_id: number): Einzelteil[] {
 
 
@@ -192,7 +238,10 @@ export class ErgebnisComponent implements OnInit {
     return einzelteile;
   }
 
-
+  /**
+   * Gibt alle Einzelteil aus, welche nicht in diesen Shop angeboten werden
+   * @param shop_id id des Shops 0: Lego; 1: Toypro; 2: Bricklink
+   */
   getEinzelteileOhnePreis(shop_id: number): Einzelteil[] {
     const einzelteile:Einzelteil[] = [];
 
@@ -207,8 +256,37 @@ export class ErgebnisComponent implements OnInit {
     return einzelteile;
   }
 
+  /**
+   * Gibt die Vollständigkeit der Einzelteile des Shops aus
+   * @param shop_id id des Shops 0: Lego; 1: Toypro; 2: Bricklink
+   */
   getEinzelteilVolstaendigkeit(shop_id:number):number {
     return this.getVerfuegbareEinzelteile(shop_id) / this.getEinzelteilAnzahl() * 100;
+  }
+
+  /**
+   * Methode gibt das style attribut für die Progressbar
+   * @param shop_id id des Shops 0: Lego; 1: Toypro; 2: Bricklink
+   */
+  getProgressAttribut(shop_id:number):string {
+    let vollstaendigkeit:number = this.getVerfuegbareEinzelteile(shop_id) / this.getEinzelteilAnzahl()
+    let color = "";
+    if(vollstaendigkeit < 0.33) {
+      color = "#DB1500"
+    } else if(vollstaendigkeit >= 0.33 && vollstaendigkeit < 0.66) {
+      color = "#DBD900"
+    } else {
+      color = "#01DB41"
+
+    }/*
+      rot #DB635C
+      gelb #DBD27E
+      grün#7EDB78
+
+       */
+
+    return " stroke-dashoffset:" + (460- 460 *(vollstaendigkeit)) +
+        ";stroke:" + color + "; filter: drop-shadow(0 0 5px " + color + ")"
   }
 
 

@@ -1,7 +1,7 @@
 <div style="height: 300px;overflow: auto;">
 <table class="vorschlaege">
     <tr *ngFor="let vorschlag of vorschlaege" (click)="suche.clickSuggestion(vorschlag.set_id)">
-        <td> <img src="data:image/jpg;base64,{{getBild(vorschlag.set_id)}}" width="150" height="100"></td>
+        <td> <img src="{{getBild(vorschlag.set_id)}}" width="150" height="100"></td>
         <td> {{vorschlag.set_id}}</td>
             <td> {{vorschlag.set_name}}</td>
 

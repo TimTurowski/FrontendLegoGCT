@@ -1,12 +1,46 @@
+::-webkit-scrollbar {
+  width: 7px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--button_bg_color);
+}
+
 .einzelteil_wrapper {
   padding-top: 10px;
   height: 40vh;
+  width: 70vh;
   overflow-y: auto;
-}
+  font-size: 90%;
+  overflow: auto;
 
-th, td {
-  text-align: center;
-  padding-top: 10px;
+
+  //overflow-x: hidden;
+
+
+}
+table{
+
+  width:80%;
+
+
+}
+th{
+  text-align:center;
   height: 10px;
   border-bottom: 1px solid #000e31;
+
+}
+td {
+  text-align: center;
+  padding-top: 15px;
+  height: 9px;
+  border-bottom: 1px solid #000e31;
+  overflow-wrap: break-word;
+  text-wrap: wrap;
 }

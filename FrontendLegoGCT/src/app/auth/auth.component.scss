@@ -11,10 +11,11 @@
 }
 
 .sidedesign{
+    position: absolute;
+    left: 50%;
+  transform: translate(-290px, 0);
 
-    margin-left: 195%;
-    margin-top: 80%;
-
+  margin: auto;
     height: 580px;
     width: 500px;
     overflow-wrap: break-word;
