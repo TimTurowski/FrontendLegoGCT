@@ -37,7 +37,7 @@
     --border-radius: 3%;
     --box-shadow: 1px 1px 20px 1px #0000005b;
     --bg-boxen: rgba(204, 153, 255, 0.32);
-    --boxen-font-border-color: 0 0 5px yellow;
+    --boxen-font-border-color: drop-shadow(0 0 5px #181818);
     --boxen-font-color: #ffffff;
 
 }
@@ -54,7 +54,9 @@
     --color-menu: #333333;
     --color-objekt: rgba(31, 31, 33, 0.7);
     --color-navStab: #ffffe6;
-    //--bg-image: url("./assets/backgroundDark.jpg");
+    --boxen-font-border-color: drop-shadow(0 0 5px #ffffe6);
+
+  //--bg-image: url("./assets/backgroundDark.jpg");
     --bg-image:linear-gradient(0deg, rgb(36, 45, 57) 11.2%, rgb(16, 37, 60) 51.2%, rgb(0, 0, 0) 98.6%);
 }
 

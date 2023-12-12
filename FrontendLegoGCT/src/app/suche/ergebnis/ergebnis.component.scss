@@ -125,9 +125,11 @@
     margin-left: 16%;
     padding: 2% 2%;
     border: none;
-    color: var(--boxen-font-color);
-    //background-image: linear-gradient(to right, rgba(221, 94, 137, 0.5) 0%, rgba(247, 187, 151, 0.5) 51%, rgba(221, 94, 137, 0.5) 100%);
-    background: var(--bg-boxen);
+    color: #2a2a2a; //var(--boxen-font-color);
+
+  background-image: linear-gradient(to right, rgba(221, 94, 137, 0.5) 0%, rgba(247, 187, 151, 0.5) 51%, rgba(221, 94, 137, 0.5) 100%);
+    //background: rgba(144, 66, 239, 0.42);
+  // orange FF8E5BFF
     box-shadow: 1px 1px 15px 1px #0000005b;
     font-size: 110%;
     border-radius: 6px;
@@ -195,7 +197,7 @@ a {
 
 .made {
   display: block;
-  color: #f2f2f2;
+  //color: #f2f2f2;
   font-size: 0.75rem;
   text-align: center;
 }
@@ -243,7 +245,7 @@ a {
 }
 
 .shadow-html {
-  filter: drop-shadow(0 0 5px white);
+  filter: var(--boxen-font-border-color);
 }
 
 .circle-html {
