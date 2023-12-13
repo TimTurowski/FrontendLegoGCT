@@ -285,7 +285,7 @@ export class ErgebnisComponent implements OnInit {
 
        */
 
-    return " stroke-dashoffset:" + (460- 460 *(vollstaendigkeit)) +
+    return " stroke-dashoffset:" + (450- 450 *(vollstaendigkeit)) +
         ";stroke:" + color + "; filter: drop-shadow(0 0 5px " + color + ")"
   }
 

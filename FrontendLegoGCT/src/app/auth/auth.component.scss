@@ -12,19 +12,21 @@
 
 .sidedesign{
     position: absolute;
-    left: 50%;
-  transform: translate(-290px, 0);
+  margin-top: 10%;
+  //margin-left: 50% auto;
+  //margin-right: 15%;
+  margin-left: 25%;
+  margin-right: 25%;
 
-  margin: auto;
-    height: 580px;
-    width: 500px;
+    max-height: 580px;
+    max-width: 500px;
     overflow-wrap: break-word;
     font-size: 16px;
     text-align: center;
     font-family: var(--font-family);
     letter-spacing: var(--letter-spacing);
     color: var(--color-text);
-    background: var(--color-bg);
+    background: var(--bg-boxen);
     border-radius: var(--border-radius);
     padding: 1% 12%;
     box-shadow: var(--box-shadow);
@@ -42,21 +44,21 @@
     width: 350px;
     border-radius: 18px;
 }
- .loginButton{
-    width: 350px;
-    height: 50px;
-    border-radius: 18px;
-    cursor: pointer;
-    box-shadow: 0 5px #999;
-}
-
-.loginButton:hover {background-color: var(--button-hover-colour)}
-
-.loginButton:active{
-    background-color: var(--button-click-colour);
-    box-shadow: 0 5px #666;
-    transform: translateY(4px);
-}
+// .loginButton{
+//    width: 350px;
+//    height: 50px;
+//    border-radius: 18px;
+//    cursor: pointer;
+//    box-shadow: 0 5px #999;
+//}
+//
+//.loginButton:hover {background-color: var(--button-hover-colour)}
+//
+//.loginButton:active{
+//    background-color: var(--button-click-colour);
+//    box-shadow: 0 5px #666;
+//    transform: translateY(4px);
+//}
 
 .loginText{
     font-size: 20px;
@@ -64,5 +66,51 @@
 
 .underline{
     text-decoration: underline;
+}
+
+.loginButton{
+  min-height: 50px;
+  min-width: 200px ;
+  font-family: var(--font-family);
+  width: 100%;
+  justify-content: center;
+  //margin-right: 16%;
+  //padding: 2% 2%;
+  border: none;
+  color: #2a2a2a; //var(--boxen-font-color);
+
+  background-image: var(--button-gradient);
+  //background: rgba(144, 66, 239, 0.42);
+  // orange FF8E5BFF
+  box-shadow: 1px 1px 15px 1px #0000005b;
+  font-size: 110%;
+  border-radius: 6px;
+  margin-top: 30px;
+  cursor: pointer;
+  transition: 0.5s;
+  text-align: center;
+  //text-transform: uppercase;
+  background-size: 200% auto;
+  //box-shadow: 0 0 20px #eee;
+  //border-radius: 10px;
+  display: block;
+}
+.loginButton::after{
+  font-size: 15px;
+  color: #777;
+  float: right;
+  //margin-left: 5px;
+  padding-bottom: 15%;
+}
+.loginButton:hover{
+  box-shadow: 1px 1px 3px 1px #0000005b;;
+
+  background: var();
+  background-position: right center; /* change the direction of the change here */
+  //color: #fff;
+  text-decoration: none;
+}
+.loginButton:active{
+  box-shadow: none;
 }
 

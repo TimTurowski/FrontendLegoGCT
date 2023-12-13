@@ -1,10 +1,10 @@
 <div class="ansicht_wrapper">
 <table class="kompletteListe">
   <th class="zeileSuchverlauf"><p class="textSuchverlauf">Mein Suchverlauf:</p></th>
-  <br>
+
   <br>
   <div class="listenEintraege" *ngFor="let set of legoSets">
-   <br>
+
   <tr *ngIf="isNewDay(set['date'])">
     <th class="datumsEintraege" colspan="2"><b><u>{{getDay(set['date'])}}</u></b></th>
     <input type="checkbox" name="datum" id="datum" data-toggle="toggle">
@@ -17,8 +17,7 @@
     </td>
   </tr>
 </tbody>
-  <br>
-  <br>
+
     {{setlastdate(set['date'])}}
   </div>
 

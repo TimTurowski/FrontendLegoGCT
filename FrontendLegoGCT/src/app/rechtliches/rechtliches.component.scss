@@ -1,5 +1,5 @@
 .sidedesign{
-    
+
     position: relative;
     margin-top: 5%;
     margin-left: 15%;
@@ -10,8 +10,8 @@
     font-family: var(--font-family);
     letter-spacing: var(--letter-spacing);
     color: var(--color-text);
-    background: rgb(230, 230, 255, 0.9);
-    
+    background: var(--bg-boxen);
+
     border-radius: var(--border-radius);
     padding: 2% 10% 2% 10%;
     box-shadow: var(--box-shadow);
@@ -30,7 +30,7 @@
     color: var(--color-text);
     background: rgb(230, 230, 255, 0.9);
     border-radius: 1%;
-    padding: 1% 12%;  
+    padding: 1% 12%;
 }
 
 #Urheberrecht {
@@ -42,7 +42,7 @@
     text-align: center;
     z-index: 3;
     flex-direction: row;
-    
+
 }
 #Haftung {
     text-align: center;

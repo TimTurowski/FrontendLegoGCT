@@ -39,6 +39,7 @@
     --bg-boxen: rgba(204, 153, 255, 0.32);
     --boxen-font-border-color: drop-shadow(0 0 5px #181818);
     --boxen-font-color: #ffffff;
+    --button-gradient:linear-gradient(to right, rgba(221, 94, 137, 0.5) 0%, rgba(247, 187, 151, 0.5) 51%, rgba(221, 94, 137, 0.5) 100%);
 
 }
 [dark-theme="dark"] {
@@ -55,9 +56,12 @@
     --color-objekt: rgba(31, 31, 33, 0.7);
     --color-navStab: #ffffe6;
     --boxen-font-border-color: drop-shadow(0 0 5px #ffffe6);
+    --boxen-font-color: #ffffe6;
 
   //--bg-image: url("./assets/backgroundDark.jpg");
     --bg-image:linear-gradient(0deg, rgb(36, 45, 57) 11.2%, rgb(16, 37, 60) 51.2%, rgb(0, 0, 0) 98.6%);
+  --button-gradient:linear-gradient(to right, rgba(151, 94, 221, 0.5) 0%, rgba(206, 173, 253, 0.5) 51%, rgba(151, 94, 221, 0.5) 100%);
+
 }
 
 // Version 1

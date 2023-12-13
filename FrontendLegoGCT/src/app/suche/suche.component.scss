@@ -299,9 +299,10 @@ app-ergebnis{
 
 .loader {
   margin: 10px auto;
-  border: 16px solid rgba(243, 243, 243, 0.51);
+  border: 16px solid rgba(255, 255, 255, 0.8);
   border-radius: 50%;
-  border-top: 16px solid #5353ff;
+  border-top: 16px solid #d453ff;
+  filter: drop-shadow(0 0 5px #d453ff);
   width: 120px;
   height: 120px;
   -webkit-animation: spin 2s linear infinite; /* Safari */

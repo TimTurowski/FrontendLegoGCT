@@ -35,7 +35,6 @@
 
                 <li>Einzelteilpreis: {{getEinzelteilpreis(0)}}</li>
                 <li>Einzelteile:{{getVerfuegbareEinzelteile(0)}}/{{getEinzelteilAnzahl()}} </li>
-                <li>Volständigkeit:{{getEinzelteilVolstaendigkeit(0).toFixed(2)}}%</li>
 
                 <li>
                     <div class="containerP">
@@ -55,7 +54,9 @@
             <button (click)="set_clicked_shop(0)">Einzelteile anzeigen</button>
             <div class="insidetable">
                 <app-einzelteile-anzeigen *ngIf="ist_geclickt[0]"
-                                          [einzelteile]="getEinzelteileMitPreis(0)"></app-einzelteile-anzeigen>
+                                          [einzelteile]="getEinzelteileMitPreis(0)"
+                                          [shop_id]="0" [einzelteile_toypro]="getEinzelteileMitPreis(1)"
+                                          [einzelteile_bricklink]="getEinzelteileMitPreis(2)"></app-einzelteile-anzeigen>
             </div>
 
             <button (click)="set_clicked_shop(3)">Fehlende Einzelteile anzeigen</button>
@@ -80,7 +81,6 @@
 
                 <li>Einzelteilpreis: {{getEinzelteilpreis(1)}}</li>
                 <li>Einzelteile:{{getVerfuegbareEinzelteile(1)}}/{{getEinzelteilAnzahl()}} </li>
-                <li>Volständigkeit:{{getEinzelteilVolstaendigkeit(1).toFixed(2)}}%</li>
                 <li>
                     <div class="containerP">
                         <div class="progressbar">
@@ -98,7 +98,9 @@
             <button (click)="set_clicked_shop(1)">Einzelteile anzeigen</button>
             <div class="insidetable">
                 <app-einzelteile-anzeigen *ngIf="ist_geclickt[1]"
-                                          [einzelteile]="getEinzelteileMitPreis(1)"></app-einzelteile-anzeigen>
+                                          [einzelteile]="getEinzelteileMitPreis(1)"
+                                          [shop_id]="1" [einzelteile_lego]="getEinzelteileMitPreis(0)"
+                                          [einzelteile_bricklink]="getEinzelteileMitPreis(2)"></app-einzelteile-anzeigen>
             </div>
             <button (click)="set_clicked_shop(4)">Fehlende Einzelteile anzeigen</button>
             <div class="insidetable">
@@ -119,7 +121,6 @@
 
                 <li>Einzelteilpreis: {{getEinzelteilpreis(2)}}</li>
                 <li>Einzelteile:{{getVerfuegbareEinzelteile(2)}}/{{getEinzelteilAnzahl()}} </li>
-                <li>Volständigkeit:{{getEinzelteilVolstaendigkeit(2).toFixed(2)}}%</li>
                 <li>
                     <div class="containerP">
                         <div class="progressbar">
@@ -136,7 +137,9 @@
             <button (click)="set_clicked_shop(2)">Einzelteile anzeigen</button>
             <div class="insidetable">
                 <app-einzelteile-anzeigen *ngIf="ist_geclickt[2]"
-                                          [einzelteile]="getEinzelteileMitPreis(2)"></app-einzelteile-anzeigen>
+                                          [einzelteile]="getEinzelteileMitPreis(2)"
+                                          [shop_id]="2" [einzelteile_lego]="getEinzelteileMitPreis(0)"
+                                          [einzelteile_toypro]="getEinzelteileMitPreis(1)"></app-einzelteile-anzeigen>
             </div>
             <button (click)="set_clicked_shop(5)">Fehlende Einzelteile anzeigen</button>
 

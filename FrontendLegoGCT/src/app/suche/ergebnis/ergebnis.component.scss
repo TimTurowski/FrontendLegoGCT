@@ -127,7 +127,7 @@
     border: none;
     color: #2a2a2a; //var(--boxen-font-color);
 
-  background-image: linear-gradient(to right, rgba(221, 94, 137, 0.5) 0%, rgba(247, 187, 151, 0.5) 51%, rgba(221, 94, 137, 0.5) 100%);
+  background-image: var(--button-gradient);
     //background: rgba(144, 66, 239, 0.42);
   // orange FF8E5BFF
     box-shadow: 1px 1px 15px 1px #0000005b;
@@ -237,7 +237,7 @@ a {
   //height: 10%;
   fill: none;
   stroke-width: 10;
-  stroke-dasharray: 460;
+  stroke-dasharray: 450;
   //stroke-dashoffset:236;
   //stroke: #A9C9FF;
   stroke-linecap: round;
@@ -278,13 +278,13 @@ a {
 
 //@-webkit-keyframes anim_circle-html {
 //  to {
-//    stroke-dashoffset: 22;
+//    stroke-dashoffset: 450;
 //  }
 //}
 //
 //@keyframes anim_circle-html {
 //  to {
-//    stroke-dashoffset: 22;
+//    stroke-dashoffset: 450;
 //  }
 //}
 
