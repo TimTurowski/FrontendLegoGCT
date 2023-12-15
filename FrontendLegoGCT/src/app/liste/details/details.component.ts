@@ -5,12 +5,14 @@ import {Router} from "@angular/router";
 import {Shop} from "../../suche/datenstrukturen";
 import {SucheComponent} from "../../suche/suche.component";
 
+import {HttpClient} from "@angular/common/http";
+
 @Component({
     selector: 'app-details',
     templateUrl: './details.component.html',
     styleUrls: ['./details.component.scss']
 })
-export class DetailsComponent {
+export class DetailsComponent implements OnInit{
     @Input() legoSet: any;
     @Input() legoSetDetails: Shop[] = [];
     bilder: Map<string, string> = new Map();
@@ -18,7 +20,8 @@ export class DetailsComponent {
     constructor(
         private router: Router,
         private apiService: ApiService,
-        private suche: SucheComponent
+        private suche: SucheComponent,
+        private http: HttpClient
     ) {
     }
 
@@ -70,6 +73,12 @@ export class DetailsComponent {
 
 
     protected readonly console = console;
+
+    ngOnInit(): void {
+        this.http.get("./assets/config.json").subscribe(data=>{
+            this.suche.apiUrl = JSON.parse(JSON.stringify(data)).config.DjangoURL;
+        });
+    }
 
 
 }

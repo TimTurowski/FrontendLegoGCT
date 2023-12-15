@@ -1,20 +1,21 @@
-import { Injectable } from '@angular/core';
+import {Injectable, OnInit} from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
+import {AppComponent} from "./app.component";
 
 @Injectable({
   providedIn: 'root'
 })
-export class ApiService {
+export class ApiService implements OnInit{
 
   movies = ['Terminator', 'dasmas'];
 
   // http://192.168.198.47:8000  http://127.0.0.1:8000/
-  baseUrl = 'http://127.0.0.1:8000/';
-  baseMovieUrl = `${this.baseUrl}verlauf`;
+  apiUrl = 'http://127.0.0.1:8000';
+  baseMovieUrl = `${this.apiUrl}verlauf`;
   token = this.cookieService.get('mr-token');
 //__________
-  baseBaseUrl = 'http://127.0.0.1:8000';
+  baseBaseUrl = 'http://127sd.0.0.1:8000';
   headersTest = new HttpHeaders({
     'Content-Type': 'application/json',
     Authorization: 'Token 5e2dc086cb321b176bcb168c326de0aef7cf38d3'
@@ -27,22 +28,30 @@ export class ApiService {
 
   constructor(
     private httpClient: HttpClient,
-    private cookieService: CookieService
+    private cookieService: CookieService,
   ) {}
+  ngOnInit() {
+      this.httpClient.get("./assets/config.json").subscribe(data=>{
+              this.apiUrl = JSON.parse(JSON.stringify(data)).config.DjangoURL;
+          }
+
+      );
+  }
+
 
   getSetHistory(){
     // return this.httpClient.get<any>("https://raw.githubusercontent.com/TimSibum/LegoGCTDeployments/main/verlauf.json");
-    return this.httpClient.get<any>(this.baseUrl + "verlauf/", {headers: this.getAuthHeaders()})
+    return this.httpClient.get<any>(this.apiUrl + "/verlauf/", {headers: this.getAuthHeaders()})
   }
 
   loginUser(authData: any) {
     const body = JSON.stringify(authData);
-    return this.httpClient.post(`${this.baseUrl}auth/`, body, {headers: this.headers});
+    return this.httpClient.post(`${this.apiUrl}/auth/`, body, {headers: this.headers});
   }
 
   registerUser(authData: any) {
     const body = JSON.stringify(authData);
-    return this.httpClient.post(`${this.baseUrl}register/`, body, {headers: this.headers});
+    return this.httpClient.post(`${this.apiUrl}/register/`, body, {headers: this.headers});
   }
 
 
@@ -55,6 +64,6 @@ export class ApiService {
   }
 
   deleteSet(id: number){
-    return this.httpClient.get(this.baseUrl +"delete/?id=" + id, {headers: this.headersTest});
+    return this.httpClient.get(this.apiUrl +"/delete/?id=" + id, {headers: this.headersTest});
   }
 }

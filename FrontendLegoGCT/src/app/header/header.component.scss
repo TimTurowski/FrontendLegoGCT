@@ -174,7 +174,7 @@
         opacity: 0.8;
     }
 }
-
+.switch__decoration.twinkle-animation,
 .switch__decoration {
     position: absolute;
     top: 65%;
@@ -287,6 +287,7 @@
         transform: translate(0%, -50%);
     }
 }
+
 
 .slider.round:before {
 border-radius: 50%;

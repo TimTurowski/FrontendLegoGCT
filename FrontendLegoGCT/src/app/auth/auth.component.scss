@@ -33,16 +33,33 @@
 
 }
 
+
 .benutzerInput{
+  text-align: center;
+
+  font-size:20pt;
     height: 50px;
     width: 350px;
-    border-radius: 18px;
+  border: none;
+  border-radius: 6px;
+
+  //border-radius: 18px;
+  box-shadow: 1px 1px 15px 1px #0000005b;
+
 }
 
 .passwortInput{
-    height: 50px;
+  text-align: center;
+
+  font-size:20pt;
+  height: 50px;
     width: 350px;
-    border-radius: 18px;
+    //border-radius: 18px;
+  border-radius: 6px;
+
+  border: none;
+  box-shadow: 1px 1px 15px 1px #0000005b;
+
 }
 // .loginButton{
 //    width: 350px;

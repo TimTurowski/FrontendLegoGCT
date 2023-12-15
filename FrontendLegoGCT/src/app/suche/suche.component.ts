@@ -6,6 +6,7 @@ import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {DatenService} from '../datenservice.service';
 import {ApiService} from "../api.service";
+import {AppComponent} from "../app.component";
 
 @Component({
     selector: 'app-suche',
@@ -18,11 +19,12 @@ import {ApiService} from "../api.service";
 
 export class SucheComponent implements OnInit {
     isOpen = false;
+  searchInLight = './assets/search.png';
 
     legoSetMap = new Map<string, any>();
     //Url für die Django Api
     //http://192.168.198.47:8000 http://localhost:8000
-    readonly apiurl = "http://localhost:8000";
+    apiUrl = "http://s:8000";
     eingabeWert: string = '';
     lego_set: LegoSet = new LegoSet("null", "null", 1, []);
 
@@ -35,7 +37,20 @@ export class SucheComponent implements OnInit {
     vorschlaege_bilder: Map<string, string> = new Map();
 
 
-    constructor(private http: HttpClient, private router: Router, private datenService: DatenService, private apiService: ApiService) {
+    constructor(private http: HttpClient,
+                private router: Router,
+                private datenService: DatenService,
+                private apiService: ApiService) {
+    }
+    /**
+     * Initialisieren mit der Api URL
+     */
+    ngOnInit() {
+        this.http.get("./assets/config.json").subscribe(data=>{
+                this.apiUrl = JSON.parse(JSON.stringify(data)).config.DjangoURL;
+            }
+
+        );
     }
 
     /**
@@ -43,8 +58,9 @@ export class SucheComponent implements OnInit {
      */
     getSuchList() {
 
+
         // return this.http.get("http://192.168.198.47:8000/eingabe/?id="+ this.eingabeWert, {headers:this.apiService.getAuthHeaders()});
-        return this.http.get(this.apiurl + "/eingabe/?id=" + this.eingabeWert, {headers: this.apiService.getAuthHeaders()});
+        return this.http.get(this.apiUrl + "/eingabe/?id=" + this.eingabeWert, {headers: this.apiService.getAuthHeaders()});
         // return this.http.get("https://raw.githubusercontent.com/HannesScherer/DarkProjekt-master-main/main/10320.json");
     }
 
@@ -53,7 +69,7 @@ export class SucheComponent implements OnInit {
      */
     getVorschlaege() {
         //toPromis sichert zu das alle daten empfangen wurden
-        return this.http.get(this.apiurl + "/eingabe/?name=" + this.eingabeWert).toPromise();
+        return this.http.get(this.apiUrl + "/eingabe/?name=" + this.eingabeWert).toPromise();
 
     }
 
@@ -62,7 +78,7 @@ export class SucheComponent implements OnInit {
      * @param set_id id des Sets des Bilds
      */
     getBild(set_id: string) {
-        return this.http.get(this.apiurl + "/bild/?id=" + set_id);
+        return this.http.get(this.apiUrl + "/bild/?id=" + set_id);
     }
 
     /**
@@ -201,8 +217,7 @@ export class SucheComponent implements OnInit {
 
     }
 
-    ngOnInit() {
-    }
+
 
     protected readonly JSON = JSON;
     protected readonly localStorage = localStorage;

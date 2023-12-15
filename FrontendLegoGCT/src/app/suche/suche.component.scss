@@ -58,9 +58,11 @@
 
 }
 .suchleisteLupe{
-    margin-left: 78%;
-    margin-bottom: -19%;
+  position: relative;
+  margin-left: 86%;
+  bottom: 140px;
 }
+
 #suchleiste label {
     order: 1;
     font-size: 170%;
@@ -292,25 +294,31 @@
 }
 app-ergebnis{
   position: absolute;
-  top: 100%;
+  top: 110%;
   left: 50%;
   width: 50%;
 }
 
 .loader {
   margin: 10px auto;
-  border: 16px solid rgba(255, 255, 255, 0.8);
+  border: 8px solid rgba(255, 255, 255, 0.8);
   border-radius: 50%;
-  border-top: 16px solid #d453ff;
+  border-top: 8px solid #d453ff;
   filter: drop-shadow(0 0 5px #d453ff);
-  width: 120px;
-  height: 120px;
+  width: 70px;
+  height: 70px;
   -webkit-animation: spin 2s linear infinite; /* Safari */
   animation: spin 2s linear infinite;
 }
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+app-such-vorschlaege{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 10px;
+
 }
 
 

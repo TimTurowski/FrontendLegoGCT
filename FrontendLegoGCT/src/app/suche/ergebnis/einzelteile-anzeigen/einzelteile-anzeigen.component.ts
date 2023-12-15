@@ -37,7 +37,6 @@ export class EinzelteileAnzeigenComponent {
     let color = "rgba(149,255,140,0.48)";
     const default_color = "rgba(255,255,255,0)";
     if(this.shop_id == 0) {
-      console.log(einzelteil_id);
 
       if(this.toypro_preise.get(einzelteil_id) != undefined) {
 
@@ -48,8 +47,6 @@ export class EinzelteileAnzeigenComponent {
         }
       }
       if(this.bricklink_preise.get(einzelteil_id) != undefined) {
-
-          console.log(this.toypro_preise.get(einzelteil_id));
 
           // @ts-ignore
           if(this.bricklink_preise.get(einzelteil_id) < einzelteil_preis) {

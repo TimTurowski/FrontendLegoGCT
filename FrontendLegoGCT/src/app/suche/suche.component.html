@@ -2,9 +2,11 @@
 
     <div id="suchleiste">
         <label>Geben Sie eine Lego-Set-Nummer oder einen Namen ein:</label>
-      <input [(ngModel)]="eingabeWert" type="text" (input)="getVorschlaegListe()" #box placeholder="75192 oder Millenium Falcon"
+      <input id="suche"  [(ngModel)]="eingabeWert" type="text" (input)="getVorschlaegListe()" (keydown.enter)="pruefeEingabe()"
+             #box placeholder="75192 oder Millenium Falcon"
              cdkOverlayOrigin #overlaypos="cdkOverlayOrigin">
-          <a class="button" (click)="pruefeEingabe()">
+
+      <a class="button" (click)="pruefeEingabe()">
             <div class="button__line"></div>
             <div class="button__line"></div>
             <span class="button__text">SUCHE</span>
@@ -12,6 +14,9 @@
             <div class="button__drow2"></div>
           </a>
     </div>
+  <label class="suchleisteLupe" for="suche">
+    <img [src]="searchInLight" (click)="pruefeEingabe()">
+  </label>
 
   <ng-template
     cdkConnectedOverlay
@@ -29,6 +34,7 @@
     <div *ngIf="neue_suche && lego_set.set_id != eingabeWert" class="loader"></div>
     <h4 *ngIf="!set_existiert">Das gesuchte Set existiert nicht in unserer Datenbank</h4>
 </div>
+
 
 
 <app-ergebnis [shops]="getShops()" *ngIf="ist_geclickt&&!neue_suche && set_existiert"></app-ergebnis>

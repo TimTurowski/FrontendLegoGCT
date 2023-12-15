@@ -21,6 +21,7 @@ export class HeaderComponent implements OnInit {
   discordLight = './assets/discord-mark-black-kleiner.svg';
   backGround = './assets/backgroundDark.jpg';
   auth:AuthComponent;
+  isTwinkling = false;
 
   toggleMenu() {
     this.menuOpen = !this.menuOpen;
@@ -41,6 +42,15 @@ export class HeaderComponent implements OnInit {
     localStorage.setItem("darkmode", JSON.stringify(this.darkmode));
     document.documentElement.setAttribute('dark-theme', this.darkmode ? "dark": "light");
     this.updateAssetPaths();
+
+
+    const switchDecoration = document.querySelector('.switch__decoration');
+    const switchIndicator = document.querySelector('.switch__indicator');
+
+    console.log()
+
+
+
     return this.darkmode;
 
   }
