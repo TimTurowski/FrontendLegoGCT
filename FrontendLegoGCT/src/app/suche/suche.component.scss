@@ -33,47 +33,44 @@
 #suchleiste input{
     order: 2;
     font-size: 120%;
-    border-width: 3px;
     width: 60%;
     height: 20%;
     padding: 1%;
-    border-radius: 50px;
     display: table;
-    color: var(--color-text);
     width: 85%;
     height: 10%;
     text-align: center;
-    background-color: var(--color-objekt);
+    background-color: transparent;
     color: var(--color-text);
     font-family: var(--font);
-    border-color: var(--color-border);
-    border-bottom-color: var(--color-border);
+    border:none;
+    border-bottom: 2px solid transparent;
+    border-color: white;
     letter-spacing: var(--letter-spacing);
+    outline: none;
 
 }
 #sucheleiste input::placeholder {
     text-align: center;
-    background-color: var(--color-bg);
     color: var(--color-text);
     font-family: var(--font);
-    border-color: var(--color-border);
-    border-bottom-color: var(--color-border);
     letter-spacing: var(--letter-spacing);
 
 }
-
+.suchleisteLupe{
+    margin-left: 78%;
+    margin-bottom: -19%;
+}
 #suchleiste label {
     order: 1;
     font-size: 170%;
     margin-bottom: 3%;
     display: table;
-    background-color: var(--color-bg);
     color: var(--color-text);
     font-family: var(--font);
     border-color: var(--color-border);
     border-bottom-color: var(--color-border);
-    background: var(--color-objekt);
-    border-radius: 5%;
+
 
 }
 
@@ -90,12 +87,12 @@
     text-decoration : none ;
     font-size : 14px ;
     font-weight : bold ;
-    color : var(--line_color) ;
+    color: var(--color-text);
     letter-spacing : 2px ;
     transition : all .3s ease ;
     order: 3;
     letter-spacing: var(--letter-spacing);
-    background: var(--color-objekt);
+    background: var(--bg-boxen);
     border-radius: 36%;
 }
 .button__text{
@@ -113,7 +110,7 @@
     position : absolute ;
     height : 3px ;
     border-radius : 2px ;
-    background : var(--line_color) ;
+    color: var(--color-text);
     transition : all .5s ease ;
 }
 .button::before{
@@ -152,7 +149,7 @@
     height : 100% ;
     box-sizing : border-box ;
     border-radius : 300px ;
-    border : solid 3px var(--line_color) ;
+
 }
 .button__line:nth-child(1),
 .button__line:nth-child(1)::before{
@@ -164,7 +161,8 @@
 }
 .button:hover{
     letter-spacing : 6px ;
-    color: #333333;
+    color: var(--color-text);
+    box-shadow: var(--box-shadow);
 }
 .button:hover::before,
 .button:hover .button__text::before{
@@ -296,22 +294,24 @@ app-ergebnis{
   position: absolute;
   top: 100%;
   left: 50%;
+  width: 50%;
 }
-//.vorschlaege {
-//  z-index: 5;
-//  font-size : 20px ;
-//  margin-left: auto;
-//  margin-right: auto;
-//  //background: var(--color-objekt);
-//  background-image: linear-gradient(to right, white,white , var(--color-objekt));;
-//  width: 70%;
-//  position: relative;
-//  border-spacing: 0;
-//  border-collapse: separate;
-//  border-radius: 10px;
-//  align-items: center;
-//  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-//
-//}
+
+.loader {
+  margin: 10px auto;
+  border: 16px solid rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  border-top: 16px solid #d453ff;
+  filter: drop-shadow(0 0 5px #d453ff);
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
 
 

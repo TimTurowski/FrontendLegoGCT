@@ -1,6 +1,8 @@
 .sitedesign{
 
-    height: 100vh;
+  //text-shadow: var(--boxen-font-border-color);
+
+  height: 100vh;
     width: 180vh;
     display: flex;
     justify-self:start;
@@ -19,67 +21,88 @@
 
 
     position: relative;
-    //margin-top: 60%;
-    margin-top: 10%;
-  width: 55%;
-  transform: translate(-50%, -50%);
-    //padding-top: 50%;
-    background-color: var(--color-bg);
+    width: 80vh;
+    transform: translate(-50%, -50%);
     font-family: var(--font-family);
     letter-spacing: var(--letter-spacing);
-
-    //z-index: 1;
-    //background-image: var(--bg-image);
-    //background-repeat: no-repeat;
-    //background-attachment: fixed;
-    //background-position: center;
+    justify-content: center;
+    align-content: center;
 }
 .first{
     z-index: 2;
 }
 .hcontainer {
+  margin-top: 15%;
   overflow-wrap: break-word;
   font-size: 16px;
   text-align: center;
   font-family: var(--font-family);
   letter-spacing: var(--letter-spacing);
-  color: var(--color-text);
-  background: rgb(230, 230, 255, 0.9);
+  color: var(--boxen-font-color);
+  background: var(--bg-boxen);
   border-radius: 1%;
-  padding: 1% 12%;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  padding: 5% 5% 5% 5%;
+  margin-bottom: 20%;
 
+
+}
+.legoBild img{
+  margin-top: 5%;
+  width: 15%;
+  height: 15%;
+}
+.toyProBild{
+  margin-top: 5%;
+  margin-left: 5%;
+}
+.brickLinkBild{
+  margin-top: 1%;
+  margin-left: 5%;
 }
 .tablerow h3{
   text-align: center;
 }
-.tablerow{
 
+
+#tablerow{
   width: 90%;
-  max-width: 1100px;
-  margin: auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  grid-gap: 25px;
+  margin: auto;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8%;
   white-space: pre-line;
+  justify-content: center;
+  align-content: center;
+  transition: 1000ms;
+
+
+
+  overflow-wrap: break-word;
 
 }
 .tablecol{
-
-
-  background-color: rgb(230, 230, 255, 0.9);
-    padding: 8% 10%;
+    background-color: var(--bg-boxen);
+    padding: 3% 3%;
     border-radius: 10px;
-    color: var(--color-text);
+    color: var(--boxen-font-color);
+    overflow-wrap: break-word;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
 }
 .tablecol:hover {
-    -webkit-box-shadow:0px 0px 80px 20px rgba(178,144,240,0.9);
-    -moz-box-shadow: 0px 0px 80px 20px rgba(178,144,240,0.9);
-    box-shadow: 0px 0px 80px 20px rgba(178,144,240,0.9);
+    //-webkit-box-shadow:0px 0px 80px 20px rgba(178,144,240,0.9);
+    //-moz-box-shadow: 0px 0px 80px 20px rgba(178,144,240,0.9);
+    //box-shadow: 0px 0px 80px 20px rgba(178,144,240,0.9);
 }
 
 .tablecol h3{
     font-size: 40px;
-    margin: 20px 0 40px;
+    margin-top: 10%;
     font-weight: 500;
 }
 .tablecol h3 span{
@@ -87,36 +110,182 @@
     overflow-wrap: break-word;
 }
 .tablecol ul{
-    text-align: left;
+    text-align: center;
     margin: 20px 0;
-    color: var(--color-text);
+    color: var(--boxen-font-color);
     list-style: none;
 }
 .tablecol ul li{
     margin: 15px 0;
 }
 .tablecol button{
-  font-family: var(--font-family);
+    font-family: var(--font-family);
+    width: 70%;
+    justify-content: center;
+    margin-left: 16%;
+    padding: 2% 2%;
+    border: none;
+    color: #2a2a2a; //var(--boxen-font-color);
 
-  width: 100%;
-    padding: 14px 0;
-    background: transparent;
-    color: var();
-    font-size: 15px;
-    border: 1px solid var();
+  background-image: var(--button-gradient);
+    //background: rgba(144, 66, 239, 0.42);
+  // orange FF8E5BFF
+    box-shadow: 1px 1px 15px 1px #0000005b;
+    font-size: 110%;
     border-radius: 6px;
     margin-top: 30px;
     cursor: pointer;
     transition: 0.5s;
+    text-align: center;
+    //text-transform: uppercase;
+    background-size: 200% auto;
+    //box-shadow: 0 0 20px #eee;
+    //border-radius: 10px;
+    display: block;
 }
 .tablecol button::after{
   content: '\02795'; /* Unicode character for "plus" sign (+) */
-  font-size: 13px;
+  font-size: 15px;
   color: #777;
   float: right;
   margin-left: 5px;
-}
-.tablecol button:hover{
-    background: var();
+  padding-bottom: 15%;
 
 }
+.tablecol button:hover{
+  box-shadow: 1px 1px 3px 1px #0000005b;;
+
+  background: var();
+    background-position: right center; /* change the direction of the change here */
+    //color: #fff;
+    text-decoration: none;
+}
+
+
+#tabelrow:has(#left:active) {
+  grid-template-columns: 3fr 0.5fr 0.5fr;
+
+}
+
+#tabelrow:has(#center:active) {
+  grid-template-columns: 0.5fr 3fr 0.5fr;
+
+
+}
+#tabelrow:has(#right:active) {
+  grid-template-columns: 0.5fr 0.5fr 3fr;
+
+
+}
+.insidetable {
+  padding-right: -10px;
+  padding-left: -10px;
+  padding-top: 10px;
+  margin-right: 40px;
+}
+
+.setimage {
+  max-width: 100%;
+  width: auto;
+}
+
+
+/* Design für die Kreisrunde Progressbar */
+a {
+  text-decoration: none;
+}
+
+.made {
+  display: block;
+  //color: #f2f2f2;
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.container__progressbars {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  min-width: 270px;
+  width: 100%;
+  justify-content: center;
+  min-height: 100%;
+
+}
+
+.progressbar {
+  position: relative;
+  width: 170px;
+  height: 170px;
+  margin: 1em;
+  transform: rotate(-90deg);
+  margin-left: 27%;
+}
+
+.progressbar__svg {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.progressbar__svg-circle {
+  //width: 10%;
+  //height: 10%;
+  fill: none;
+  stroke-width: 10;
+  stroke-dasharray: 450;
+  //stroke-dashoffset:236;
+  //stroke: #A9C9FF;
+  stroke-linecap: round;
+  //transform: translate(5px, 5px);
+}
+
+.shadow-html {
+  filter: var(--boxen-font-border-color);
+}
+
+.circle-html {
+  -webkit-animation: anim_circle-html 1s ease-in-out forwards;
+          animation: anim_circle-html 1s ease-in-out forwards;
+}
+
+.progressbar__text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding: 0.25em 0.5em;
+  font-family: Arial, Helvetica, sans-serif;
+  border-radius: 0.25em;
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+.legoBild img{
+  margin-top: 5%;
+  width: 15%;
+  height: 15%;
+}
+.toyProBild img{
+  margin-top: 5%;
+  margin-left: 5%;
+}
+.brickLinkBild img{
+  margin-top: 1%;
+  margin-left: 5%;
+}
+
+//@-webkit-keyframes anim_circle-html {
+//  to {
+//    stroke-dashoffset: 450;
+//  }
+//}
+//
+//@keyframes anim_circle-html {
+//  to {
+//    stroke-dashoffset: 450;
+//  }
+//}
+
+

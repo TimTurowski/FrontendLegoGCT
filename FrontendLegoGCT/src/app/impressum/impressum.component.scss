@@ -1,8 +1,7 @@
 .sidedesign{
-   
-    margin-left: 195%;
-    margin-top: 80%;
-    
+    margin-left: 100%;
+    margin-top: 50%;
+
     height: 300px;
     width: 500px;
     overflow-wrap: break-word;
@@ -11,10 +10,10 @@
     font-family: var(--font-family);
     letter-spacing: var(--letter-spacing);
     color: var(--color-text);
-    background: var(--color-bg);
+    background: var(--bg-boxen);
     border-radius: var(--border-radius);
     padding: 1% 12%;
-    box-shadow: var(--box-shadow);    
+    box-shadow: var(--box-shadow);
 }
 
 #impressum {

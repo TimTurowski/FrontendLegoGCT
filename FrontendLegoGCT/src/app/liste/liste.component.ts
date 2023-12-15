@@ -27,7 +27,7 @@ export class ListeComponent implements OnInit{
     const mrToken = this.cookieService.get('mr-token');
 
     if(!mrToken) {
-      this.router.navigate(['liste']);
+      this.router.navigate(['login']);
     } else {
       this.router.navigate(['liste']);
     }
@@ -38,7 +38,7 @@ export class ListeComponent implements OnInit{
   updateHistory() {
       this.apiService.getSetHistory().subscribe(
           data => {
-
+              console.log(JSON.stringify(data))
               this.legoSets = JSON.parse(JSON.stringify(data));
           },
           (err) => {

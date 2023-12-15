@@ -15,8 +15,8 @@
     padding:0;
 }
 :root {
-    --color-bg: rgb(230, 230, 255, 0.9);
-    --color-text: #333333;
+    --color-bg: #A9C9FF;
+    --color-text: #000000;
     --color-menu: rgb(230, 230, 255);
     --color-label: #333333;
     --color-border: #333333;
@@ -24,17 +24,23 @@
     --line_color : #555555;
     --back_color : #FFECF6;
     --button_bg_color: #f1acac;
+    //--scrollbar_bg_hover:
     --font-family: 'Manrope Variable', sans-serif;
     --letter-spacing: 1px;
     --color-objekt: rgba(230, 230, 255, 0.7);
     --color-navStab: rgb(43, 43, 43);
-    --bg-image: url("./assets/taube2k.png");
+    //--bg-image: url("./assets/taube2k.png");
+    --bg-image:linear-gradient(0deg, #A9C9FF 0%, #FFBBEC 100%);
+    //--bg-image: #0047b3;
     --bg-image-suche: url("./assets/graupink.png");
-    --color-pricing:rgb(197, 159, 227);
+    --color-pricing:linear-gradient(0deg, #A9C9FF 0%, #FFBBEC 100%);
     --border-radius: 3%;
-    --box-shadow: 1px 1px 20px 1px #000;
-    --button-hover-colour: pink;
-    --button-click-colour: purple;
+    --box-shadow: 1px 1px 20px 1px #0000005b;
+    --bg-boxen: rgba(204, 153, 255, 0.32);
+    --boxen-font-border-color: drop-shadow(0 0 5px #181818);
+    --boxen-font-color: #ffffff;
+    --button-gradient:linear-gradient(to right, rgba(221, 94, 137, 0.5) 0%, rgba(247, 187, 151, 0.5) 51%, rgba(221, 94, 137, 0.5) 100%);
+
 }
 [dark-theme="dark"] {
     --color-bg:#333333;
@@ -49,5 +55,23 @@
     --color-menu: #333333;
     --color-objekt: rgba(31, 31, 33, 0.7);
     --color-navStab: #ffffe6;
-    --bg-image: url("./assets/backgroundDark.jpg");
+    --boxen-font-border-color: drop-shadow(0 0 5px #ffffe6);
+    --boxen-font-color: #ffffe6;
+
+  //--bg-image: url("./assets/backgroundDark.jpg");
+    --bg-image:linear-gradient(0deg, rgb(36, 45, 57) 11.2%, rgb(16, 37, 60) 51.2%, rgb(0, 0, 0) 98.6%);
+  --button-gradient:linear-gradient(to right, rgba(151, 94, 221, 0.5) 0%, rgba(206, 173, 253, 0.5) 51%, rgba(151, 94, 221, 0.5) 100%);
+
 }
+
+// Version 1
+//background-color: #A9C9FF;
+//background-image: linear-gradient(0deg, #A9C9FF 0%, #FFBBEC 100%);
+// Version 2
+//background-color: #FFDEE9;
+//background-image: linear-gradient(0deg, #FFDEE9 0%, #B5FFFC 100%);
+
+
+/* Version 1 dunkel
+background: linear-gradient(0deg, rgb(36, 45, 57) 11.2%, rgb(16, 37, 60) 51.2%, rgb(0, 0, 0) 98.6%);
+*/

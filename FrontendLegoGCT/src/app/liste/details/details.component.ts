@@ -27,7 +27,7 @@ export class DetailsComponent {
      * @param set_id übergebene Set Id
      */
     getSetBild(set_id: string) {
-        let bild: string = "";
+        let bild: string = "../assets/placeholder-image.png";
         // prüft, ob das Bild bereits geladen wurde
         if (!this.bilder.has(set_id)) {
             //läd Bild aus der Datenbank
@@ -39,7 +39,9 @@ export class DetailsComponent {
         } else {
             //holt das Bild aus dem Cache
             // @ts-ignore
-            bild = this.bilder.get(set_id);
+            if(this.bilder.get(set_id) != " ") {
+                bild = "data:image/jpg;base64," + this.bilder.get(set_id);
+            }
         }
         return bild;
 

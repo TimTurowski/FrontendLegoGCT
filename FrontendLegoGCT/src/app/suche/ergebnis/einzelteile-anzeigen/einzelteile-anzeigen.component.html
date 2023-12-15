@@ -1,4 +1,5 @@
 <div class="einzelteil_wrapper">
+  {{createPreisMaps()}}
 <table>
   <tr>
     <th>Id</th>
@@ -9,7 +10,7 @@
     <th>Farbe</th>
 
   </tr>
-  <tr *ngFor="let einzelteil of einzelteile">
+  <tr *ngFor="let einzelteil of einzelteile" style="{{getElementFarbe(einzelteil.einelteil_id, einzelteil.preis)}}">
     <td> {{einzelteil.einelteil_id}}</td>
     <td> {{einzelteil.anzahl}}x</td>
     <td> {{einzelteil.preis.toLocaleString('de-DE', { style: 'currency', currency: 'EUR' })}}</td>
