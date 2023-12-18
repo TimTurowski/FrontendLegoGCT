@@ -31,9 +31,9 @@ export class ApiService {
   ) {}
 
   getSetHistory(){
-    // return this.httpClient.get<any>("https://raw.githubusercontent.com/TimSibum/LegoGCTDeployments/main/verlauf.json");
-    return this.httpClient.get<any>(this.baseUrl + "verlauf/", {headers: this.getAuthHeaders()})
-  }
+   return this.httpClient.get<any>("https://raw.githubusercontent.com/TimSibum/LegoGCTDeployments/main/verlauf.json");
+/*     return this.httpClient.get<any>(this.baseUrl + "verlauf/", {headers: this.getAuthHeaders()})
+ */  }
 
   loginUser(authData: any) {
     const body = JSON.stringify(authData);

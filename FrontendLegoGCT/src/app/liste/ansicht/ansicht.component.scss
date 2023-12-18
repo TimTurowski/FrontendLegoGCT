@@ -11,60 +11,46 @@
   border-radius:20px;
   padding: 2% 2%;
   box-shadow: var(--box-shadow);
+  
 }
 
 .kompletteListe {
-  display: block;
-  border-spacing: 15px;
-  width: 100%;
-  padding: 2% 2% 2% 2%;
+  margin-right: 3%;
+  margin-left: 3%;
+  
 }
 
+.detailsAnsicht {
+  background-color: green;
+  position: relative;
+  text-align: left;
+}
 
-th {
+.detailsAnsicht p {
+  text-align: center;
 }
 
 .zeileSuchverlauf {
+  width: 100%;
   border-bottom: solid;
   border-width: 3px;
   width: 1%;
-
-}
-
-tr {
-}
-
-td {
-}
-
-.listenZeile {
+  font-size: 40px;
+  text-align: center;
+  
 
 }
 
 .listenEintraege {
-  border-bottom: solid;
-  margin-top: 1%;
-  background-color: green;
+}
+
+.details{
+  user-select: none;
+}
+.buttonZeile{
 }
 
 
-.setEintraege {
-  width: 70%;
-  text-align: left;
-}
-.deleteZeile {
-  width:10%;
-}
-
-.buttonZeile button {
-  font-size: 22px;
-  font-family: var(--font-family);
-  letter-spacing: var(--letter-spacing);
-  color: var(--color-text);
-  padding: 2% 2%;
-  box-shadow: var(--box-shadow);
-  float: left;
-}
 .buttonZeile:after {
   content: "";
   clear: both;
@@ -73,25 +59,27 @@ td {
 
 
 .buttonZeile button:not(:last-child){
-  border-right: none;
 }
 
-.ausklappButton{
-  width: 100%;
-}
-
-.deleteButton{
-  width: 100%;
-}
 .datumsEintraege {
+  padding-top: 1%;
+  padding-bottom: 5%;
   font-size: 150%;
   text-align: center;
 }
 
+.ausklappFenster{
+  width: 100%;
+  font-size: 20px;
+  font-family: var(--font-family);
+  letter-spacing: var(--letter-spacing);
+  color: var(--color-text);
+  box-shadow: var(--box-shadow);
+  float: bottom;
+}
+
 
 button{
-  min-height: 50px;
-  min-width: 200px ; 
   box-shadow: 0 5px #999;
   cursor: pointer;
 } 
@@ -104,33 +92,76 @@ button:active{
   transform: translateY(4px);
 }
 
-.textSuchverlauf {
-  text-align:center;
-  font-size: 40px;
-}
-
 [data-toggle="toggle"] {
 	display: none;
 }
 
-.deleteButton{
-  min-height: 50px;
-  min-width: 200px ;
-  font-family: var(--font-family);
+.active, auskla:hover {
+  background-color: #555;
+}
+
+.ausklappButton{
+  display: block;
   width: 100%;
+  font-family: var(--font-family);
   justify-content: center;
   //margin-right: 16%;
   //padding: 2% 2%;
   border: none;
   color: #2a2a2a; //var(--boxen-font-color);
+  background-image: var(--button-gradient);
+  //background: rgba(144, 66, 239, 0.42);
+  // orange FF8E5BFF
+  box-shadow: 1px 1px 15px 1px #0000005b;
+  font-size: 150%;
+  cursor: pointer;
+  transition: 0.5s;
+  text-align: left;
+  //text-transform: uppercase;
+  background-size: 200% auto;
+  outline: none;
+  //box-shadow: 0 0 20px #eee;
+  //border-radius: 10px;
+}
+.ausklappButton::after{
+  font-size: 15px;
+  color: #777;
+  float: right;
+  //margin-left: 5px;
+  padding-bottom: 15%;
+}
+.ausklappButton:hover{
+  box-shadow: 1px 1px 3px 1px #0000005b;;
+
+  background: var();
+  background-position: right center; /* change the direction of the change here */
+  //color: #fff;
+  text-decoration: none;
+}
+.ausklappButton:active{
+  box-shadow: none;
+  transform: translateY(4px);
+}
+
+
+
+
+.deleteButton{
+  width: 20%;
+  font-family: var(--font-family);
+  justify-content: center;
+  //margin-right: 16%;
+  padding: 2% 2%;
+  border: none;
+  color: #2a2a2a; //var(--boxen-font-color);
+  float: right;
 
   background-image: var(--button-gradient);
   //background: rgba(144, 66, 239, 0.42);
   // orange FF8E5BFF
   box-shadow: 1px 1px 15px 1px #0000005b;
-  font-size: 110%;
+  font-size: 100%;
   border-radius: 6px;
-  margin-top: 30px;
   cursor: pointer;
   transition: 0.5s;
   text-align: center;
@@ -138,7 +169,6 @@ button:active{
   background-size: 200% auto;
   //box-shadow: 0 0 20px #eee;
   //border-radius: 10px;
-  display: block;
 }
 .deleteButton::after{
   font-size: 15px;

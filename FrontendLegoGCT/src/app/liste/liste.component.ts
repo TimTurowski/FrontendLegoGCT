@@ -27,7 +27,7 @@ export class ListeComponent implements OnInit{
     const mrToken = this.cookieService.get('mr-token');
 
     if(!mrToken) {
-      this.router.navigate(['login']);
+      this.router.navigate(['liste']);
     } else {
       this.router.navigate(['liste']);
     }

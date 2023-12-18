@@ -1,35 +1,30 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <div class="ansicht_wrapper">
-  <table class="kompletteListe">
-    <th class="zeileSuchverlauf"><p class="textSuchverlauf">Mein Suchverlauf:</p></th>
+  <div class="kompletteListe">
+    <th class="zeileSuchverlauf">Mein Suchverlauf:</th>
     <br>
     <br>
     <div class="listenEintraege" *ngFor="let set of legoSets">
-    <br>
-      <tr *ngIf="isNewDay(set['date'])">
-        <th class="datumsEintraege" colspan="2"><b><u>{{getDay(set['date'])}}</u></b></th>
-        <input type="checkbox" name="datum" id="datum" data-toggle="toggle">
-      </tr>
-      <tbody class="headerFenster">
-        <tr>
-          <td  class="setEintraege">
-            <div class="buttonZeile">
-            <button class="ausklappButton" (click)="legoSetClicked(set)">{{set['set_id']}} {{set['set_name']}}</button>
-            <button class="deleteButton" (click)="deleteSet(set)">Löschen</button>
-          </div>
-            <br>
-          </td>
-        </tr>
-    </tbody>
-  <tr>
-
-  </tr>
-  <br>
-  <br>
-  {{setlastdate(set['date'])}}
+        <br>
+        <br>
+        <div *ngIf="isNewDay(set['date'])">
+          <p class="datumsEintraege"><b>{{getDay(set['date'])}}</b></p>
+          <input type="checkbox" name="datum" id="datum" data-toggle="toggle">
+        </div>
+        
+        <div class="buttonZeile">
+            <details>
+                <summary class="ausklappButton" (click)="legoSetClicked(set)">{{set['set_id']}} {{set['set_name']}} </summary>
+                <div class="ausklappFenster">
+                  <app-details class="detailsAnsicht" [legoSet]="set"></app-details>
+                <button class="deleteButton" (click)="deleteSet(set)">
+                  Löschen
+                </button>
+                </div>  
+              </details>
+        </div>
+        {{setlastdate(set['date'])}}
     </div>
-  
-
-
-  </table>
+  </div>
   <button (click)="neueSuche()">Neue Suche Starten</button>
 </div>
