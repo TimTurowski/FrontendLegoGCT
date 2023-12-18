@@ -12,19 +12,25 @@
           <input type="checkbox" name="datum" id="datum" data-toggle="toggle">
         </div>
         
-        <div class="buttonZeile">
+        <div id="buttonZeile" class="buttonZeile">
             <details>
-                <summary class="ausklappButton" (click)="legoSetClicked(set)">{{set['set_id']}} {{set['set_name']}} </summary>
+                <summary  class="ausklappButton" (click)="legoSetClicked(set)">{{set['set_id']}} {{set['set_name']}} </summary>
                 <div class="ausklappFenster">
                   <app-details class="detailsAnsicht" [legoSet]="set"></app-details>
-                <button class="deleteButton" (click)="deleteSet(set)">
-                  Löschen
-                </button>
+                  
+                  <img class="setBild" src="../../../assets/beispielSetBild.png">
+                  <br>
+                  <button class="deleteButton" (click)="deleteSet(set)">
+                    Löschen
+                  </button>
+                  <button class="neueSucheButton" (click)="neueSuche()">
+                    Neue Suche Starten
+                  </button>
                 </div>  
               </details>
         </div>
         {{setlastdate(set['date'])}}
     </div>
   </div>
-  <button (click)="neueSuche()">Neue Suche Starten</button>
+  
 </div>

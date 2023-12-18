@@ -17,7 +17,7 @@ export class AnsichtComponent implements OnInit {
   bilder: Map<string, string> = new Map();
   private _lastdate: string = "";
   
-  selectedLegoSet = null;
+  selectedLegoSet = [];
   selectedLegoSetDetails:Shop[] =  [];
 
 
@@ -67,6 +67,8 @@ export class AnsichtComponent implements OnInit {
 
   deleteSet(set: any){
     this.deletedSet.emit(set);
+    var element = document.getElementById("buttonZeile");
+    element?.remove();
   }
   legoSetClicked(set: any){
       this.selectLegoSet.emit(set);
