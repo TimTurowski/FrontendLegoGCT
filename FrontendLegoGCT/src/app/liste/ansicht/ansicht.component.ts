@@ -1,7 +1,8 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Router} from "@angular/router";
+import {HttpClient} from "@angular/common/http";
+import {ApiService} from "../../api.service";
 import {SucheComponent} from "../../suche/suche.component";
-import {LegoSet, Shop} from "../../suche/datenstrukturen";
 
 @Component({
   selector: 'app-ansicht',
@@ -13,85 +14,88 @@ export class AnsichtComponent implements OnInit {
   @Input() legoSets = [];
   @Output() deletedSet = new EventEmitter();
   @Output() selectLegoSet = new EventEmitter();
-
-  bilder: Map<string, string> = new Map();
+  clickedSets:Set<string> = new Set<string>();
   private _lastdate: string = "";
-  
-  selectedLegoSet = null;
-  selectedLegoSetDetails:Shop[] =  [];
+  bilder: Map<string, string> = new Map();
 
 
-  constructor(private router: Router, private suche: SucheComponent){
+  constructor(private router: Router,
+              private httpClient: HttpClient,
+              private apiService: ApiService,
+              private suche: SucheComponent,
+              private http: HttpClient
+
+  ){
 
   }
 
-  ngOnInit() {}
-  getSetBild(set_id: string) {
-    let bild: string = "../assets/placeholder-image.png";
-    // prüft, ob das Bild bereits geladen wurde
-    if (!this.bilder.has(set_id)) {
-        //läd Bild aus der Datenbank
-        this.suche.getBild(set_id).subscribe(data => {
-
-            const parsed_data = JSON.parse(JSON.stringify(data));
-            this.bilder.set(set_id, parsed_data.set_bild);
-        });
-    } else {
-        //holt das Bild aus dem Cache
-        // @ts-ignore
-        if(this.bilder.get(set_id) != " ") {
-            bild = "data:image/jpg;base64," + this.bilder.get(set_id);
-        }
-    }
-    return bild;
+  async ngOnInit() {
+    await this.http.get("./assets/config.json").toPromise().then(data => {
+      this.suche.apiUrl = JSON.parse(JSON.stringify(data)).config.DjangoURL;
+    });
   }
-
-    /**
-     * erzeugt eine Textuelle Darstellung des Datums
-     * @param raw_date Json darstellung des Suchzeitpunkts
-     */
-    getSucheDate(raw_date:string) {
-      const date:Date = new Date(raw_date);
-      return date.getDate() + "." + date.getMonth() + "." + date.getFullYear();
-  }
-
-  /**
-   * erzeugt eine Textuelle Darstellung der Suchuhrzeit
-   * @param raw_date Json darstellung des Suchzeitpunkts
-   */
-  getSucheTime(raw_date:string) {
-      const date:Date = new Date(raw_date);
-      return date.getHours() + ":" + date.getMinutes();
-  }
-
-
   deleteSet(set: any){
     this.deletedSet.emit(set);
   }
   legoSetClicked(set: any){
-      this.selectLegoSet.emit(set);
-
-      
+    this.clickedSets.add(set["set_id"]);
+    this.selectLegoSet.emit(set);
   }
-  
   neueSuche() {
       this.router.navigate(['suche']);
   }
+
+  erneutSuchen(set_id:string) {
+    localStorage.setItem("verlaufSuche", set_id);
+    this.router.navigate(['suche']);
+  }
+
   setlastdate(value: string) {
         this._lastdate = value;
     }
 
+  /**
+  * Methode zum Zurückgeben des formatierten Datums
+  * @param date_string unformatiertes Datum
+  */
   getDay(date_string:string) {
     const date = new Date(date_string);
       return date.getDate()+"."+ date.getMonth()+"." + date.getFullYear();
   }
+
+  /**
+   * Gibt einen boolean an, ob das Element von einem neuen Tag ist
+   * @param date_string unformatiertes Datum
+   */
   isNewDay(date_string:string) {
     let date:Date = new Date(date_string);
 
     return date.getDate() != new Date(this._lastdate).getDate();
 
   }
-  
+
+  /**
+   * Diese Methode fordert alle bilder der angeklickten Sets an.
+   */
+  getSetBilder() {
+    //clicktSets ist Set mit allen geklickten Sets
+    const ids = Array.from(this.clickedSets);
+    ids.forEach(a => {
+      // prüft, ob das Bild bereits geladen wurde
+      if (!this.bilder.has(a)) {
+        //läd Bild aus der Datenbank
+        this.suche.getBild(a).subscribe(data => {
+
+          const parsed_data = JSON.parse(JSON.stringify(data));
+          this.bilder.set(a, parsed_data.set_bild);
+        });
+      }
+    });
+  }
+
+
+
+
 
 
   protected readonly console = console;

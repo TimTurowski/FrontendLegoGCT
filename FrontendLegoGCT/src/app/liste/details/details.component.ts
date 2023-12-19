@@ -4,6 +4,8 @@ import {CookieService} from "ngx-cookie-service";
 import {Router} from "@angular/router";
 import {Shop} from "../../suche/datenstrukturen";
 import {SucheComponent} from "../../suche/suche.component";
+import {log} from "@angular-devkit/build-angular/src/builders/ssr-dev-server";
+import {HttpClient} from "@angular/common/http";
 
 @Component({
     selector: 'app-details',
@@ -13,12 +15,12 @@ import {SucheComponent} from "../../suche/suche.component";
 export class DetailsComponent {
     @Input() legoSet: any;
     @Input() legoSetDetails: Shop[] = [];
-    bilder: Map<string, string> = new Map();
+    @Input()bilder: Map<string, string> = new Map();
 
     constructor(
         private router: Router,
         private apiService: ApiService,
-        private suche: SucheComponent
+        private http: HttpClient
     ) {
     }
 
@@ -27,15 +29,11 @@ export class DetailsComponent {
      * @param set_id übergebene Set Id
      */
     getSetBild(set_id: string) {
+      console.log(set_id);
         let bild: string = "../assets/placeholder-image.png";
         // prüft, ob das Bild bereits geladen wurde
         if (!this.bilder.has(set_id)) {
             //läd Bild aus der Datenbank
-            this.suche.getBild(set_id).subscribe(data => {
-
-                const parsed_data = JSON.parse(JSON.stringify(data));
-                this.bilder.set(set_id, parsed_data.set_bild);
-            });
         } else {
             //holt das Bild aus dem Cache
             // @ts-ignore

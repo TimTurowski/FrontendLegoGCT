@@ -23,7 +23,15 @@
     </div>
   </div>
   <div class="centerNav">
-    <img src="./assets/neuGCT.svg">
+<!--    <h1>GCT</h1>-->
+<!--    <img src="./assets/neuGCT.svg">-->
+  </div>
+  <div class="centerRightNav">
+    <a href="login">
+      <button class="loginButton" *ngIf="!auth.isUserLoggedin()" href="login">Login</button>
+    </a>
+    <button class="loginButton " *ngIf="auth.isUserLoggedin()" href="login" (click)="auth.logoutUser()">Logout
+    </button>
   </div>
   <div class="rightNav">
     {{updatemode()}}
@@ -38,12 +46,7 @@
       </div>
     </a>
 
-      <a href="login">
-        <button class="loginButton" *ngIf="!auth.isUserLoggedin()" href="login">Login</button>
-      </a>
-      <button class="loginButton " *ngIf="auth.isUserLoggedin()" href="login" (click)="auth.logoutUser()">Logout
-      </button>
-</p>
+
 
   </div>
 </div>

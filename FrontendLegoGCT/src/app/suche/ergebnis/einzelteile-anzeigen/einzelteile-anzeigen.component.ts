@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Einzelteil, Shop} from "../../datenstrukturen";
 
 @Component({
@@ -7,6 +7,7 @@ import {Einzelteil, Shop} from "../../datenstrukturen";
   styleUrls: ['./einzelteile-anzeigen.component.scss']
 })
 export class EinzelteileAnzeigenComponent {
+
   @Input()einzelteile:Einzelteil[] = [];
   @Input()shop_id:number = 0;
   @Input()einzelteile_lego:Einzelteil[] = [];
@@ -17,7 +18,7 @@ export class EinzelteileAnzeigenComponent {
   bricklink_preise:Map<string,number> = new Map<string,number>();
 
 
-    /**
+  /**
      * erstellt Maps für die Einzelteillisten der verscheidenden Shops
      */
   createPreisMaps() {
@@ -27,6 +28,7 @@ export class EinzelteileAnzeigenComponent {
 
     }
 
+
     /**
      * liefert eine Farbliche Markierung für eine Tabellenreihe abhängig von einem Preislichen vergleich mit den anderen
      * Angeboten
@@ -34,8 +36,8 @@ export class EinzelteileAnzeigenComponent {
      * @param einzelteil_preis preis des Einzelteils
      */
   getElementFarbe(einzelteil_id:string, einzelteil_preis:number):string {
-    let color = "rgba(149,255,140,0.48)";
-    const default_color = "rgba(255,255,255,0)";
+    let color = "rgb(117,255,157)";
+    const default_color = "rgb(255,255,255)";
     if(this.shop_id == 0) {
       console.log(einzelteil_id);
 
@@ -92,7 +94,7 @@ export class EinzelteileAnzeigenComponent {
         }
 
     }
-    return "background:" +  color;
+    return color != default_color?"background: " + color+ ";color: " + "#181818" :"";
 
   }
 

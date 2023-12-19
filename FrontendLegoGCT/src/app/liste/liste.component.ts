@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import {SucheComponent} from "../suche/suche.component";
 import {LegoSet, Shop} from "../suche/datenstrukturen";
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-liste',
@@ -20,22 +21,35 @@ export class ListeComponent implements OnInit{
     private apiService: ApiService,
     private cookieService: CookieService,
     private router: Router,
-    private suche: SucheComponent
-  ) {}
+    private suche: SucheComponent,
+    private httpClient: HttpClient,
 
-  ngOnInit() {
+    ) {}
+
+
+  async ngOnInit() {
+    await this.httpClient.get("./assets/config.json").toPromise().then(data=>{
+        this.apiService.apiUrl = JSON.parse(JSON.stringify(data)).config.DjangoURL;
+      }
+    );
     const mrToken = this.cookieService.get('mr-token');
 
     if(!mrToken) {
-      this.router.navigate(['liste']);
+      //Nutzer ist nicht eingeloggt weiterleitung zum Login
+      this.router.navigate(['login']);
     } else {
+      //Nutzer ist eingeloggt weiterleitung zur Liste
       this.router.navigate(['liste']);
     }
 
     this.updateHistory();
 
   }
+  /**
+   * Updatet den Suchverlauf
+   */
   updateHistory() {
+
       this.apiService.getSetHistory().subscribe(
           data => {
               console.log(JSON.stringify(data))
@@ -47,22 +61,25 @@ export class ListeComponent implements OnInit{
       );
   }
 
-  logout(){
-    this.cookieService.delete('mr-token');
-    this.router.navigate(['/auth/']);
-  }
+  /**
+   * auswählen eines Sets aus dem Suchverlauf
+   * @param set ausgewählte Set
+   */
 
   selectLegoSet(set: null) {
       this.selectedLegoSet = set;
       // @ts-ignore
-      this.suche.clickSuggestion(set["set_id"].concat('t'));
-
       this.selectedLegoSetDetails = this.suche.getShops();
       // @ts-ignore
       console.log(this.selectedLegoSetDetails);
   }
 
 
+
+  /**
+   * Methode zum Löschen eines Sets aus dem Verlauf
+   * @param set
+   */
   deleteSet(set: any) {
     this.apiService.deleteSet(set.such_id).subscribe(
       data => {

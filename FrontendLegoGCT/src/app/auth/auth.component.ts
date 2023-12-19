@@ -4,6 +4,7 @@ import { ApiService } from '../api.service';
 import { CookieService } from 'ngx-cookie-service';
 import { Token } from '@angular/compiler';
 import { Router } from '@angular/router';
+import {HttpClient} from "@angular/common/http";
 
 interface tokenObj {
   token: string;
@@ -30,10 +31,17 @@ export class AuthComponent implements OnInit {
   constructor(
     private apiService: ApiService,
     private cookieService: CookieService,
-    private router: Router
-  ) {}
+    private router: Router,
+   private httpClient: HttpClient,
+
+) {}
 
   ngOnInit(){
+
+    this.httpClient.get("./assets/config.json").subscribe(data=>{
+        this.apiService.apiUrl = JSON.parse(JSON.stringify(data)).config.DjangoURL;
+      }
+    );
     const mrToken = this.cookieService.get('mr-token');
     if(mrToken) {
       this.router.navigate(['/movies/']);
@@ -57,6 +65,7 @@ export class AuthComponent implements OnInit {
       (result: Object) => {
         const tokenResult = result as tokenObj;
         this.cookieService.set("mr-token", tokenResult.token);
+
         this.router.navigate(['/liste']);
       },
       error => console.log(error)
@@ -64,6 +73,10 @@ export class AuthComponent implements OnInit {
   }
   logoutUser() {
     this.cookieService.delete('mr-token');
+    if(this.router.url.substring(this.router.url.length -5) == 'liste') {
+      this.router.navigate(["login"]);
+    }
+
   }
 
   isUserLoggedin() {

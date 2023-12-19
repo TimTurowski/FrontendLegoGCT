@@ -20,7 +20,8 @@
     --color-menu: rgb(230, 230, 255);
     --color-label: #333333;
     --color-border: #333333;
-    --color-sidenav: rgba(230, 230, 255, 0.466);
+    --color-sidenav: rgba(204, 153, 255, 0.15);
+  --color-nav-hover: rgba(187, 187, 187, 0.4);
     --line_color : #555555;
     --back_color : #FFECF6;
     --button_bg_color: #f1acac;
@@ -40,6 +41,8 @@
     --boxen-font-border-color: drop-shadow(0 0 5px #181818);
     --boxen-font-color: #ffffff;
     --button-gradient:linear-gradient(to right, rgba(221, 94, 137, 0.5) 0%, rgba(247, 187, 151, 0.5) 51%, rgba(221, 94, 137, 0.5) 100%);
+    --thumb-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    --table-color: #ffffff;
 
 }
 [dark-theme="dark"] {
@@ -47,8 +50,9 @@
     --color-text: #ffffe6;
     --color-label: #ffffe6;
     --color-border:#ffffe6;
-    --color-sidenav: rgba(204, 204, 204, 0.466);
-    --font-family: 'Poppins', sans-serif;
+    --color-sidenav: rgba(204, 153, 255, 0.15);
+  --color-nav-hover: #ffffff;
+  --font-family: 'Poppins', sans-serif;
     --line_color : #ffffe6;
     --back_color : #FFECF6;
     --button_bg_color: #333333;
@@ -57,10 +61,12 @@
     --color-navStab: #ffffe6;
     --boxen-font-border-color: drop-shadow(0 0 5px #ffffe6);
     --boxen-font-color: #ffffe6;
-
+    --button_bg_color: #ffffe6;
   //--bg-image: url("./assets/backgroundDark.jpg");
     --bg-image:linear-gradient(0deg, rgb(36, 45, 57) 11.2%, rgb(16, 37, 60) 51.2%, rgb(0, 0, 0) 98.6%);
-  --button-gradient:linear-gradient(to right, rgba(151, 94, 221, 0.5) 0%, rgba(206, 173, 253, 0.5) 51%, rgba(151, 94, 221, 0.5) 100%);
+    --button-gradient:linear-gradient(to right, #77A1D3 0%, #79CBCA  51%, #77A1D3  100%);
+    --thumb-shadow: 0 0px 4px 0 rgb(255, 255, 230);
+  --table-color: #333333;
 
 }
 

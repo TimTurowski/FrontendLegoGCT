@@ -1,3 +1,4 @@
+<div class="siddesign_wrapper">
 <div class="sidedesign">
     <div class="login">
         <form [formGroup]="authForm" (ngSubmit)="saveForm()">
@@ -18,4 +19,5 @@
     <span *ngIf="!registerMode" (click)="registerMode = true">Kostenlos<p class="underline">registrieren!</p></span>
     <span *ngIf="registerMode" (click)="registerMode = false">Sie haben bereits einen Account?<p class="underline">Hier</p>  geht's zum Login.</span>
     </div>
+</div>
 </div>

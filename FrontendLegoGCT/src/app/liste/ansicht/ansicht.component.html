@@ -4,6 +4,7 @@
     <th class="zeileSuchverlauf">Mein Suchverlauf:</th>
     <br>
     <br>
+    {{getSetBilder()}}
     <div class="listenEintraege" *ngFor="let set of legoSets">
         <br>
         <br>
@@ -11,16 +12,19 @@
           <p class="datumsEintraege"><b>{{getDay(set['date'])}}</b></p>
           <input type="checkbox" name="datum" id="datum" data-toggle="toggle">
         </div>
-        
+
         <div class="buttonZeile">
             <details>
                 <summary class="ausklappButton" (click)="legoSetClicked(set)">{{set['set_id']}} {{set['set_name']}} </summary>
                 <div class="ausklappFenster">
-                  <app-details class="detailsAnsicht" [legoSet]="set"></app-details>
+                  <app-details class="detailsAnsicht" [legoSet]="set" [bilder]="bilder"></app-details>
                 <button class="deleteButton" (click)="deleteSet(set)">
                   Löschen
                 </button>
-                </div>  
+                  <button class="deleteButton" (click)="erneutSuchen(set['set_id'])">
+                    Suchen
+                  </button>
+                </div>
               </details>
         </div>
         {{setlastdate(set['date'])}}

@@ -48,6 +48,10 @@ export class RegistrierungComponent implements OnInit {
       );
     }
   }
+
+  /**
+   * Methode um einen Nutzer einzuloggen
+   */
   loginUser() {
     this.apiService.loginUser(this.authForm.value).subscribe(
       (result: Object) => {

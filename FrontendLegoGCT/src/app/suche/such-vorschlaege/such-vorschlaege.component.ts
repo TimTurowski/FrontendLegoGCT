@@ -15,6 +15,10 @@ export class SuchVorschlaegeComponent {
   @Input()vorschlaege:VorschlagElement[] = [];
   @Input()bilder:Map<string, string> = new Map();
 
+  /**
+   * holt das Bild zu einer Set Id
+   * @param set_id id des benötigten Bilds
+   */
   getBild(set_id:string):string{
     let bild:string = "./assets/placeholder-image.png";
     if(this.bilder.has(set_id)) {

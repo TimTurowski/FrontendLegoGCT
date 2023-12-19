@@ -1,10 +1,14 @@
+
+
 <div class="wrappercenter">
 
-    <div id="suchleiste">
-        <label>Geben Sie eine Lego-Set-Nummer oder einen Namen ein:</label>
-      <input [(ngModel)]="eingabeWert" type="text" (input)="getVorschlaegListe()" #box placeholder="75192 oder Millenium Falcon"
+  <div id="suchleiste">
+      <h1 class="suchleisteLabel">Geben Sie eine Lego-Set-Nummer oder einen Namen ein:</h1>
+      <input id="suche"  [(ngModel)]="eingabeWert" type="text" (input)="getVorschlaegListe()" (keydown.enter)="pruefeEingabe()"
+             #box placeholder="75192 oder Millenium Falcon"
              cdkOverlayOrigin #overlaypos="cdkOverlayOrigin">
-          <a class="button" (click)="pruefeEingabe()">
+
+      <a class="button" (click)="pruefeEingabe()">
             <div class="button__line"></div>
             <div class="button__line"></div>
             <span class="button__text">SUCHE</span>
@@ -12,6 +16,9 @@
             <div class="button__drow2"></div>
           </a>
     </div>
+  <label class="suchleisteLupe" for="suche">
+    <img [src]="searchInLight" (click)="pruefeEingabe()">
+  </label>
 
   <ng-template
     cdkConnectedOverlay
@@ -28,9 +35,47 @@
   </ng-template>
     <div *ngIf="neue_suche && lego_set.set_id != eingabeWert" class="loader"></div>
     <h4 *ngIf="!set_existiert">Das gesuchte Set existiert nicht in unserer Datenbank</h4>
+
+  <div *ngIf="!istDarkmode()" class="keinOverflow">
+    <div class="cloud large cloud-1">
+      <div></div><div></div><div></div><div></div>
+    </div>
+    <div class="cloud normal cloud-2">
+      <div></div><div></div><div></div><div></div>
+    </div>
+    <div class="cloud small cloud-3">
+      <div></div><div></div><div></div><div></div>
+    </div>
+    <div class="cloud tiny cloud-4">
+      <div></div><div></div><div></div><div></div>
+    </div>
+    <div class="cloud large cloud-5">
+      <div></div><div></div><div></div><div></div>
+    </div>
+    <div class="cloud normal cloud-6">
+      <div></div><div></div><div></div><div></div>
+    </div>
+    <div class="cloud small cloud-7">
+      <div></div><div></div><div></div><div></div>
+    </div>
+    <div class="cloud tiny cloud-8">
+      <div></div><div></div><div></div><div></div>
+    </div>
+    <div class="cloud small cloud-9">
+      <div></div><div></div><div></div><div></div>
+    </div>
+    <div class="cloud normal cloud-10">
+      <div></div><div></div><div></div><div></div>
+    </div>
+    <div class="cloud tiny cloud-11">
+      <div></div><div></div><div></div><div></div>
+    </div>
+    <div class="cloud small cloud-12">
+      <div></div><div></div><div></div><div></div>
+    </div>
+  </div>
+
 </div>
-
-
 <app-ergebnis [shops]="getShops()" *ngIf="ist_geclickt&&!neue_suche && set_existiert"></app-ergebnis>
 
 

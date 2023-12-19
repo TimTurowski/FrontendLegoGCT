@@ -3,14 +3,12 @@
     <div class="hcontainer">
         <h1 class="first"> Suchergebnis: {{getName()}} - {{getId()}}</h1>
         <h3>Setpreis: {{getPreis()}}</h3>
-        <br><br>
-
         <br>
 
         <img class="setimage" src="{{getImg()}}">
         <br>
         <input (click)="toggle_minfiguren_zeigen()" type="checkbox" id="besondereteile" name="besondereteile">
-        <label for="besondereteile">Minfiguren und andere Spezialteile berücksichtigen</label>
+      <label for="besondereteile"><div class="minfiguren_label">Minfiguren und andere Spezialteile berücksichtigen</div></label>
 
         <br><br>
 

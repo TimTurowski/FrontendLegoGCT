@@ -1,0 +1,12 @@
+{
+  "config": {
+    "DjangoURL": "http://192.168.198.47:8000"
+  },
+  "impressum": {
+    "name": "Lego GCT",
+    "strasse": "Neidenburger Str. 43",
+    "ort": "45897 Gelsenkirchen",
+    "telefon": "01234-789456",
+    "eMail": "xyz@studmail.w-hs.de"
+  }
+}

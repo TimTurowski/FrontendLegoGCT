@@ -1,4 +1,6 @@
-
+/**
+ * Datenstruktur, welche alle Informationen über ein Legoset kapselt
+ */
 export class LegoSet {
     private _set_id:string;
     private _set_name: string;
@@ -36,6 +38,9 @@ export class LegoSet {
     }
 }
 
+/**
+ * Datenstruktur, die alle Informationen über die Preise von einem spezifischen Shop enthält
+ */
 export class Shop {
     private _shop_name:string;
     private _anbieter_url:string;
@@ -61,6 +66,9 @@ export class Shop {
     }
 }
 
+/**
+ * repräsentiert ein einzelnes Einzelteil
+ */
 export class Einzelteil {
 
 
@@ -110,6 +118,10 @@ export class Einzelteil {
       return this._farbe;
     }
 }
+
+/**
+ * repräsentiert einen Vorschlag in der Suchvorschlagsliste
+ */
 export class VorschlagElement {
   private _set_name:string;
   private _set_id:string;
