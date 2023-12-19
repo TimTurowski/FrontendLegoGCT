@@ -21,17 +21,18 @@
 }
 
 .detailsAnsicht {
-  background-color: green;
-  position: relative;
-  text-align: left;
 }
 
 .detailsAnsicht p {
-  text-align: center;
 }
 
+.setBild {
+  margin-left: 2%;
+  margin-bottom: 2%;
+  max-width: 100%;
+  max-height: auto;
+}
 .zeileSuchverlauf {
-  width: 100%;
   border-bottom: solid;
   border-width: 3px;
   width: 1%;
@@ -59,6 +60,7 @@
 
 
 .buttonZeile button:not(:last-child){
+  border-right: none;
 }
 
 .datumsEintraege {
@@ -69,13 +71,17 @@
 }
 
 .ausklappFenster{
-  width: 100%;
+  /* width: 100%; */
   font-size: 20px;
   font-family: var(--font-family);
   letter-spacing: var(--letter-spacing);
   color: var(--color-text);
   box-shadow: var(--box-shadow);
-  float: bottom;
+  border-radius: 6px;
+  border-top-right-radius: 0px;
+  border-top-right-radius: 0px;
+  background-color: white;
+  text-align: left;
 }
 
 
@@ -96,17 +102,17 @@ button:active{
 	display: none;
 }
 
-.active, auskla:hover {
+.active, ausklappButton:hover {
   background-color: #555;
 }
 
 .ausklappButton{
   display: block;
-  width: 100%;
+  /* width: 100%; */
   font-family: var(--font-family);
   justify-content: center;
   //margin-right: 16%;
-  //padding: 2% 2%;
+  padding: 1% 1%;
   border: none;
   color: #2a2a2a; //var(--boxen-font-color);
   background-image: var(--button-gradient);
@@ -147,28 +153,19 @@ button:active{
 
 
 .deleteButton{
+  background-image: linear-gradient(to right, #e52d27 0%, #b31217  51%, #e52d27  100%);
   width: 20%;
-  font-family: var(--font-family);
-  justify-content: center;
-  //margin-right: 16%;
-  padding: 2% 2%;
-  border: none;
-  color: #2a2a2a; //var(--boxen-font-color);
-  float: right;
-
-  background-image: var(--button-gradient);
-  //background: rgba(144, 66, 239, 0.42);
-  // orange FF8E5BFF
-  box-shadow: 1px 1px 15px 1px #0000005b;
-  font-size: 100%;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: 0.5s;
   text-align: center;
-  //text-transform: uppercase;
+  text-transform: uppercase;
   background-size: 200% auto;
-  //box-shadow: 0 0 20px #eee;
-  //border-radius: 10px;
+  color: white;            
+  box-shadow: 0 0 20px #0000005b;
+  border-radius: 6px;
+  display: block;
+  float: right;
+  border: none;
+  padding: 2% 2%;
+  font-size: 100%;
 }
 .deleteButton::after{
   font-size: 15px;
@@ -178,6 +175,48 @@ button:active{
   padding-bottom: 15%;
 }
 .deleteButton:hover{
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+
+.deleteButton:active{
+  box-shadow: none;
+  transform: translateY(4px);
+}
+
+.neueSucheButton{
+  width: 20%;
+  font-family: var(--font-family);
+  justify-content: center;
+  margin-right: 0.5%;
+  padding: 2% 2%;
+  border: none;
+  color: #2a2a2a; //var(--boxen-font-color);
+  float: right;
+  border-radius: 6px;
+
+  background-image: var(--button-gradient);
+  //background: rgba(144, 66, 239, 0.42);
+  // orange FF8E5BFF
+  box-shadow: 1px 1px 5px 1px #0000005b;
+  font-size: 100%;
+  cursor: pointer;
+  transition: 0.5s;
+  text-align: center;
+  //text-transform: uppercase;
+  background-size: 200% auto;
+  //box-shadow: 0 0 20px #eee;
+  //border-radius: 10px;
+}
+.neueSucheButton::after{
+  font-size: 15px;
+  color: #777;
+  float: right;
+  //margin-left: 5px;
+  padding-bottom: 15%;
+}
+.neueSuche:hover{
   box-shadow: 1px 1px 3px 1px #0000005b;;
 
   background: var();
@@ -185,7 +224,7 @@ button:active{
   //color: #fff;
   text-decoration: none;
 }
-.deleteButton:active{
+.neueSuche:active{
   box-shadow: none;
   transform: translateY(4px);
 }
