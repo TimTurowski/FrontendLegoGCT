@@ -60,7 +60,7 @@ export class AnsichtComponent implements OnInit {
   */
   getDay(date_string:string) {
     const date = new Date(date_string);
-      return date.getDate()+"."+ date.getMonth()+"." + date.getFullYear();
+      return date.getDate()+"."+ (date.getMonth() + 1 )+ "." + date.getFullYear();
   }
 
   /**

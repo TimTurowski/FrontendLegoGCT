@@ -12,6 +12,7 @@ export class HeaderComponent implements OnInit {
       this.auth = auth;
   }
 
+  gctLogo:string = './assets/GCT-logos_black.png'
   lightNav = './assets/BurgernavV4.svg';
   menuOpen = false;
   lightLogo = './assets/LogoAntrazit.svg';
@@ -58,6 +59,7 @@ export class HeaderComponent implements OnInit {
         this.gitHubLight = './assets/github-mark-kleiner.svg';
         this.linkedInLight = './assets/linkedin.svg';
         this.discordLight = './assets/discord-mark-black-kleiner.svg';
+        this.gctLogo = './assets/GCT-logos_black.png'
     } else {
         this.lightNav = './assets/BurgernavV4Dark.svg';
         this.lightLogo = './assets/LogoGelb.svg';
@@ -65,6 +67,8 @@ export class HeaderComponent implements OnInit {
         this.gitHubLight = './assets/github-mark-white.svg';
         this.linkedInLight = './assets/linkedin-white.svg';
         this.discordLight = './assets/discord-mark-white.svg';
+        this.gctLogo = './assets/GCT-logos_yellow_neu.png'
+
     }
   }
 

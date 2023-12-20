@@ -20,6 +20,8 @@ interface tokenObj {
   providedIn: 'root'
 })
 export class AuthComponent implements OnInit {
+  hatFehlerText:boolean = false;
+  fehlerText = "";
 
   authForm = new FormGroup({
     username: new FormControl(''),
@@ -47,6 +49,10 @@ export class AuthComponent implements OnInit {
       this.router.navigate(['/movies/']);
     }
   }
+  istDarkmode(): boolean {
+    // @ts-ignore
+    return JSON.parse(localStorage.getItem("darkmode"));
+  }
 
   saveForm() {
     if (!this.registerMode) {
@@ -54,9 +60,16 @@ export class AuthComponent implements OnInit {
     } else {
       this.apiService.registerUser(this.authForm.value).subscribe(
         result => {
-          this.loginUser();
+          console.log(result);
+          if(JSON.parse(JSON.stringify(result)).message != undefined) {
+            this.hatFehlerText =true;
+            this.fehlerText =JSON.parse(JSON.stringify(result)).message;
+          } else {
+            this.loginUser();
+          }
         },
-        error => console.log(error)
+        error => {console.log(error);
+        }
       );
     }
   }
@@ -74,7 +87,7 @@ export class AuthComponent implements OnInit {
   logoutUser() {
     this.cookieService.delete('mr-token');
     if(this.router.url.substring(this.router.url.length -5) == 'liste') {
-      this.router.navigate(["login"]);
+      this.router.navigate(["suche"]);
     }
 
   }

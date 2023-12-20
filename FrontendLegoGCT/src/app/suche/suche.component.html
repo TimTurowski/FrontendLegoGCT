@@ -1,9 +1,10 @@
 
 
 <div class="wrappercenter">
-
   <div id="suchleiste">
-      <h1 class="suchleisteLabel">Geben Sie eine Lego-Set-Nummer oder einen Namen ein:</h1>
+    <img class="gct_logo" [src]=gibGCTLogo()>
+
+    <h1 class="suchleisteLabel">Geben Sie eine Lego-Set-Nummer oder einen Namen ein:</h1>
       <input id="suche"  [(ngModel)]="eingabeWert" type="text" (input)="getVorschlaegListe()" (keydown.enter)="pruefeEingabe()"
              #box placeholder="75192 oder Millenium Falcon"
              cdkOverlayOrigin #overlaypos="cdkOverlayOrigin">
@@ -17,7 +18,7 @@
           </a>
     </div>
   <label class="suchleisteLupe" for="suche">
-    <img [src]="searchInLight" (click)="pruefeEingabe()">
+    <img [src]="searchInLight" (click)="pruefeEingabe()" class="lupe_img">
   </label>
 
   <ng-template
@@ -34,7 +35,7 @@
 <!--    </div>-->
   </ng-template>
     <div *ngIf="neue_suche && lego_set.set_id != eingabeWert" class="loader"></div>
-    <h4 *ngIf="!set_existiert">Das gesuchte Set existiert nicht in unserer Datenbank</h4>
+    <h2 class="fehlermeldung_set" *ngIf="!set_existiert">Das gesuchte Set existiert nicht in unserer Datenbank</h2>
 
   <div *ngIf="!istDarkmode()" class="keinOverflow">
     <div class="cloud large cloud-1">
@@ -74,8 +75,10 @@
       <div></div><div></div><div></div><div></div>
     </div>
   </div>
+  <div *ngIf="istDarkmode()" class="main"></div>
 
 </div>
+
 <app-ergebnis [shops]="getShops()" *ngIf="ist_geclickt&&!neue_suche && set_existiert"></app-ergebnis>
 
 

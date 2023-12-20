@@ -29,7 +29,6 @@ export class DetailsComponent {
      * @param set_id übergebene Set Id
      */
     getSetBild(set_id: string) {
-      console.log(set_id);
         let bild: string = "../assets/placeholder-image.png";
         // prüft, ob das Bild bereits geladen wurde
         if (!this.bilder.has(set_id)) {
@@ -51,7 +50,7 @@ export class DetailsComponent {
      */
     getSucheDate(raw_date:string) {
         const date:Date = new Date(raw_date);
-        return date.getDate() + "." + date.getMonth() + "." + date.getFullYear();
+        return date.getDate() + "." + (date.getMonth() + 1) + "." + date.getFullYear();
     }
 
     /**
@@ -60,7 +59,7 @@ export class DetailsComponent {
      */
     getSucheTime(raw_date:string) {
         const date:Date = new Date(raw_date);
-        return date.getHours() + ":" + date.getMinutes();
+        return date.getHours() + ":" + (date.getMinutes() < 10 ? `0${date.getMinutes()}` : `${date.getMinutes()}`);
     }
 
 

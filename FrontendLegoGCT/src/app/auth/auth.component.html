@@ -15,9 +15,50 @@
             </button>
         </form>
     <br>
+      <h5 *ngIf="fehlerText&&registerMode">{{fehlerText}}</h5>
     <br>
     <span *ngIf="!registerMode" (click)="registerMode = true">Kostenlos<p class="underline">registrieren!</p></span>
     <span *ngIf="registerMode" (click)="registerMode = false">Sie haben bereits einen Account?<p class="underline">Hier</p>  geht's zum Login.</span>
     </div>
 </div>
 </div>
+<div *ngIf="!istDarkmode()" class="keinOverflow">
+  <div class="cloud large cloud-1">
+    <div></div><div></div><div></div><div></div>
+  </div>
+  <div class="cloud normal cloud-2">
+    <div></div><div></div><div></div><div></div>
+  </div>
+  <div class="cloud small cloud-3">
+    <div></div><div></div><div></div><div></div>
+  </div>
+  <div class="cloud tiny cloud-4">
+    <div></div><div></div><div></div><div></div>
+  </div>
+  <div class="cloud large cloud-5">
+    <div></div><div></div><div></div><div></div>
+  </div>
+  <div class="cloud normal cloud-6">
+    <div></div><div></div><div></div><div></div>
+  </div>
+  <div class="cloud small cloud-7">
+    <div></div><div></div><div></div><div></div>
+  </div>
+  <div class="cloud tiny cloud-8">
+    <div></div><div></div><div></div><div></div>
+  </div>
+  <div class="cloud small cloud-9">
+    <div></div><div></div><div></div><div></div>
+  </div>
+  <div class="cloud normal cloud-10">
+    <div></div><div></div><div></div><div></div>
+  </div>
+  <div class="cloud tiny cloud-11">
+    <div></div><div></div><div></div><div></div>
+  </div>
+  <div class="cloud small cloud-12">
+    <div></div><div></div><div></div><div></div>
+  </div>
+</div>
+<div *ngIf="istDarkmode()" class="main"></div>
+
